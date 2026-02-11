@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Sell Assistant</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1 id="brandTitle">Inventory</h1>
+        <p id="brandDescription">Парсинг інвентарю, трейдбан, ціни market buy/sell та продаж.</p>
+      </div>
+      <div class="language-switcher">
+        <span id="languageLabel">Мова</span>
+        <div class="button-row">
+          <button id="langUkBtn" class="secondary">UA</button>
+          <button id="langEnBtn" class="ghost">EN</button>
+        </div>
+      </div>
+      <div class="sidebar-note">
+        <h3 id="hintTitle">Підказка</h3>
+        <p id="hintDescription">Масовий лістинг виконується з паузою 250ms між кожним sellitem.</p>
+      </div>
+      <div class="sidebar-note live-log-panel">
+        <h3 id="liveTitle">Live</h3>
+        <div id="liveLogList" class="live-log-list"></div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="section-title">
+        <div>
+          <h2 id="mainTitle">Steam Inventory Sell Assistant</h2>
+          <p id="mainSubtitle">Зібрати інвентар → згрупувати/розгрупувати → перевірити ціну → виставити.</p>
+        </div>
+        <div class="status-pill" id="statusPill">Status: Idle</div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3 id="controlsTitle">Керування</h3>
+        </div>
+        <div class="button-row wrap">
+          <button id="parseInventoryBtn" class="primary">Спарсити інвентар</button>
+          <button id="toggleGroupingBtn" class="secondary">Згрупувати</button>
+          <button id="checkAllPricesBtn" class="secondary">Оновити ціни (всі)</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <h3 id="inventoryTitle">Інвентар</h3>
+          <div class="inventory-tools">
+            <input id="inventorySearchInput" type="search" placeholder="Пошук по назві..." />
+            <label for="inventorySortColumn" id="sortColumnLabel">Стовпець</label>
+            <select id="inventorySortColumn"></select>
+            <label for="inventorySortDirection" id="sortDirectionLabel">Порядок</label>
+            <select id="inventorySortDirection">
+              <option value="asc">А-Я / 0-9</option>
+              <option value="desc">Я-А / 9-0</option>
+            </select>
+            <span class="meta" id="inventoryMeta">0 рядків</span>
+          </div>
+        </div>
+        <div class="section-body">
+          <table class="inventory-table">
+            <thead id="inventoryTableHead"></thead>
+            <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel logs-panel">
+        <div class="panel-header"><h3 id="logsTitle">Логи</h3></div>
+        <div id="logList" class="log-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js?v=2026-02-11-4"></script>
+</body>
+</html>
