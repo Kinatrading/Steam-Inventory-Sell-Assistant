@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ROI Module</title>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="roi-module.css" />
+  </head>
+  <body>
+    <div class="roi-module-page">
+      <main class="roi-layout">
+      <header>
+        <h1>Турнірні капсули – наліпки та ціни</h1>
+        <p>
+          Натисни “Старт”, щоб пройти всі сторінки з затримкою 400 мс і зібрати
+          назви наліпок та ціни.
+        </p>
+        <div class="controls">
+          <button id="start-button" type="button">Старт</button>
+          <button id="base-button" type="button">Зібрати базу для ROI</button>
+          <span id="status" class="status">Очікування запуску…</span>
+        </div>
+        <div class="tournaments">
+          <p>Оберіть один турнір для парсингу:</p>
+          <div class="tournament-list">
+            <label class="option">
+              <input type="radio" id="tournament-bud2025" name="tournament" checked />
+              Budapest 2025
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-rmr2020" name="tournament" />
+              RMR 2020
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-antwerp2022" name="tournament" />
+              Antwerp 2022
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-aus2025" name="tournament" />
+              Austin 2025
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-cph2024" name="tournament" />
+              Copenhagen 2024
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-paris2023" name="tournament" />
+              Paris 2023
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-stockh2021" name="tournament" />
+              Stockholm 2021
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-rio2022" name="tournament" />
+              Rio 2022
+            </label>
+            <label class="option">
+              <input type="radio" id="tournament-sha2024" name="tournament" />
+              Shanghai 2024
+            </label>
+          </div>
+        </div>
+        <label class="option exclude-option">
+          <input type="checkbox" id="exclude-003" />
+          виключити наліпки до ціни
+          <input type="number" id="exclude-price-threshold" min="0" step="0.01" value="0.03" />
+          (в валюті акаунта)
+        </label>
+        <div id="cookie-status" class="cookie-status"></div>
+      </header>
+
+      <section class="results" id="results">
+        <article class="card" data-capsule="contenders">
+          <h2>Contenders (кількість сторінок залежить від турніру)</h2>
+          <div class="roi" id="contenders-roi">
+            <p class="roi-line">ROI: <span class="roi-value">—</span></p>
+            <p class="roi-line">База: <span class="roi-compare">—</span></p>
+          </div>
+          <div class="category">
+            <h3><span id="contenders-remarkable-label">Remarkable</span> (1/6,2)</h3>
+            <ul class="items" id="contenders-remarkable-list"></ul>
+          </div>
+          <div class="category">
+            <h3><span id="contenders-exotic-label">Exotic</span> (1/32)</h3>
+            <ul class="items" id="contenders-exotic-list"></ul>
+          </div>
+          <div class="category">
+            <h3><span id="contenders-gold-label">Gold</span> (1/156)</h3>
+            <ul class="items" id="contenders-gold-list"></ul>
+          </div>
+        </article>
+        <article class="card" data-capsule="challengers">
+          <h2>Challengers (3 сторінки)</h2>
+          <div class="roi" id="challengers-roi">
+            <p class="roi-line">ROI: <span class="roi-value">—</span></p>
+            <p class="roi-line">База: <span class="roi-compare">—</span></p>
+          </div>
+          <div class="category">
+            <h3><span id="challengers-remarkable-label">Remarkable</span> (1/6,2)</h3>
+            <ul class="items" id="challengers-remarkable-list"></ul>
+          </div>
+          <div class="category">
+            <h3><span id="challengers-exotic-label">Exotic</span> (1/32)</h3>
+            <ul class="items" id="challengers-exotic-list"></ul>
+          </div>
+          <div class="category">
+            <h3><span id="challengers-gold-label">Gold</span> (1/156)</h3>
+            <ul class="items" id="challengers-gold-list"></ul>
+          </div>
+        </article>
+        <article class="card" data-capsule="legends">
+          <h2>Legends (3 сторінки)</h2>
+          <div class="roi" id="legends-roi">
+            <p class="roi-line">ROI: <span class="roi-value">—</span></p>
+            <p class="roi-line">База: <span class="roi-compare">—</span></p>
+          </div>
+          <div class="category">
+            <h3><span id="legends-remarkable-label">Remarkable</span> (1/6,2)</h3>
+            <ul class="items" id="legends-remarkable-list"></ul>
+          </div>
+          <div class="category">
+            <h3><span id="legends-exotic-label">Exotic</span> (1/32)</h3>
+            <ul class="items" id="legends-exotic-list"></ul>
+          </div>
+          <div class="category">
+            <h3><span id="legends-gold-label">Gold</span> (1/156)</h3>
+            <ul class="items" id="legends-gold-list"></ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="log-section">
+        <h2>Логування</h2>
+        <pre id="log-output" class="log-output"></pre>
+      </section>
+    </main>
+    </div>
+
+    <script src="roi-module.js"></script>
+  </body>
+</html>

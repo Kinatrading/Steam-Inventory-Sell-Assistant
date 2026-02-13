@@ -13,6 +13,7 @@ const ui = {
   parseInventoryBtn: document.getElementById('parseInventoryBtn'),
   toggleGroupingBtn: document.getElementById('toggleGroupingBtn'),
   checkAllPricesBtn: document.getElementById('checkAllPricesBtn'),
+  openRoiModuleBtn: document.getElementById('openRoiModuleBtn'),
   inventoryMeta: document.getElementById('inventoryMeta'),
   inventoryTableHead: document.getElementById('inventoryTableHead'),
   inventoryTableBody: document.getElementById('inventoryTableBody'),
@@ -33,6 +34,11 @@ const ui = {
   logsTitle: document.getElementById('logsTitle'),
   langUkBtn: document.getElementById('langUkBtn'),
   langEnBtn: document.getElementById('langEnBtn'),
+  inventoryModuleBtn: document.getElementById('inventoryModuleBtn'),
+  roiModuleBtn: document.getElementById('roiModuleBtn'),
+  inventoryModuleContent: document.getElementById('inventoryModuleContent'),
+  roiModuleContent: document.getElementById('roiModuleContent'),
+  mainTitle: document.getElementById('mainTitle'),
 };
 
 const state = {
@@ -46,6 +52,7 @@ const state = {
   searchQuery: '',
   sortColumn: 'marketHashName',
   sortDirection: 'asc',
+  activeModule: 'inventory',
 };
 
 const CURRENCY_SYMBOLS = {
@@ -63,13 +70,18 @@ const I18N = {
     brandDescription: 'Парсинг інвентарю, трейдбан, ціни market buy/sell та продаж.',
     languageLabel: 'Мова',
     hintTitle: 'Підказка',
-    hintDescription: 'Масовий лістинг виконується з паузою 250ms між кожним sellitem.',
+    hintDescriptionInventory: 'Масовий лістинг виконується з паузою 250ms між кожним sellitem.',
+    hintDescriptionRoi: 'Кнопка “Зібрати базу для ROI” завантажує ціни капсул. Для фільтра дешевих наліпок вкажіть свій поріг ціни у валюті акаунта.',
+    mainTitleInventory: 'Steam Inventory Sell Assistant',
+    mainTitleRoi: 'Steam ROI Assistant',
     mainSubtitle: 'Зібрати інвентар → згрупувати/розгрупувати → перевірити ціну → виставити.',
     controlsTitle: 'Керування',
     parseInventoryBtn: 'Спарсити інвентар',
     groupBtn: 'Згрупувати',
     ungroupBtn: 'Розгрупувати',
     checkAllPricesBtn: 'Оновити ціни (всі)',
+    inventoryModuleBtn: 'Inventory',
+    roiModuleBtn: 'ROI',
     inventoryTitle: 'Інвентар',
     searchPlaceholder: 'Пошук по назві (наприклад, Sur)...',
     sortColumnLabel: 'Стовпець',
@@ -101,13 +113,18 @@ const I18N = {
     brandDescription: 'Inventory parsing, trade ban status, market buy/sell prices, and listing.',
     languageLabel: 'Language',
     hintTitle: 'Hint',
-    hintDescription: 'Bulk listing runs with a 250ms delay between each sellitem call.',
+    hintDescriptionInventory: 'Bulk listing runs with a 250ms delay between each sellitem call.',
+    hintDescriptionRoi: '“Collect ROI base” loads capsule prices. Use the price threshold field in your account currency to exclude cheap stickers.',
+    mainTitleInventory: 'Steam Inventory Sell Assistant',
+    mainTitleRoi: 'Steam ROI Assistant',
     mainSubtitle: 'Collect inventory → group/ungroup → check prices → list items.',
     controlsTitle: 'Controls',
     parseInventoryBtn: 'Parse inventory',
     groupBtn: 'Group',
     ungroupBtn: 'Ungroup',
     checkAllPricesBtn: 'Refresh prices (all)',
+    inventoryModuleBtn: 'Inventory',
+    roiModuleBtn: 'ROI',
     inventoryTitle: 'Inventory',
     searchPlaceholder: 'Search by name (e.g. Sur)...',
     sortColumnLabel: 'Column',
@@ -163,11 +180,14 @@ function applyLocalization() {
   ui.brandDescription.textContent = t('brandDescription');
   ui.languageLabel.textContent = t('languageLabel');
   ui.hintTitle.textContent = t('hintTitle');
-  ui.hintDescription.textContent = t('hintDescription');
+  ui.hintDescription.textContent = t(state.activeModule === 'roi' ? 'hintDescriptionRoi' : 'hintDescriptionInventory');
+  ui.mainTitle.textContent = t(state.activeModule === 'roi' ? 'mainTitleRoi' : 'mainTitleInventory');
   ui.mainSubtitle.textContent = t('mainSubtitle');
   ui.controlsTitle.textContent = t('controlsTitle');
   ui.parseInventoryBtn.textContent = t('parseInventoryBtn');
   ui.checkAllPricesBtn.textContent = t('checkAllPricesBtn');
+  ui.inventoryModuleBtn.textContent = t('inventoryModuleBtn');
+  ui.roiModuleBtn.textContent = t('roiModuleBtn');
   ui.inventoryTitle.textContent = t('inventoryTitle');
   ui.inventorySearchInput.placeholder = t('searchPlaceholder');
   ui.sortColumnLabel.textContent = t('sortColumnLabel');
@@ -180,6 +200,7 @@ function applyLocalization() {
 function setLanguage(language) {
   state.language = language === 'en' ? 'en' : 'uk';
   applyLocalization();
+  setActiveModule(state.activeModule);
   populateSortColumns();
   renderTable();
 }
@@ -881,6 +902,18 @@ async function listMultipleItems(rowData, quantity, priceValue) {
   setStatus(t('done'), 'success');
 }
 
+function setActiveModule(moduleKey) {
+  state.activeModule = moduleKey === 'roi' ? 'roi' : 'inventory';
+  ui.inventoryModuleBtn.classList.toggle('active', state.activeModule === 'inventory');
+  ui.roiModuleBtn.classList.toggle('active', state.activeModule === 'roi');
+  ui.inventoryModuleContent.classList.toggle('hidden', state.activeModule !== 'inventory');
+  ui.roiModuleContent.classList.toggle('hidden', state.activeModule !== 'roi');
+  ui.hintDescription.textContent = t(state.activeModule === 'roi' ? 'hintDescriptionRoi' : 'hintDescriptionInventory');
+  ui.mainTitle.textContent = t(state.activeModule === 'roi' ? 'mainTitleRoi' : 'mainTitleInventory');
+  ui.liveLogList.innerHTML = '';
+}
+
+
 function updateGroupingButton() {
   ui.toggleGroupingBtn.textContent = state.groupedMode ? t('ungroupBtn') : t('groupBtn');
 }
@@ -973,6 +1006,8 @@ function renderTable() {
 function bindEvents() {
   ui.parseInventoryBtn.addEventListener('click', parseInventory);
   ui.checkAllPricesBtn.addEventListener('click', checkAllPrices);
+  ui.inventoryModuleBtn.addEventListener('click', () => setActiveModule('inventory'));
+  ui.roiModuleBtn.addEventListener('click', () => setActiveModule('roi'));
   ui.toggleGroupingBtn.addEventListener('click', () => {
     state.groupedMode = !state.groupedMode;
     renderTable();
@@ -998,8 +1033,20 @@ function bindEvents() {
   bindEvents();
   populateSortColumns();
   applyLocalization();
+  setActiveModule('inventory');
   await resolveMarketCurrency();
   renderTable();
   setStatus(t('idle'));
   log(`Режим автономний (${APP_BUILD}): запити йдуть з активної Steam-вкладки (cookies/session як у основному розширенні).`, 'info');
+
+  window.SteamSuiteBridge = {
+    setActiveModule,
+    pushLiveLog(message, level = 'info') {
+      const liveRow = document.createElement('div');
+      liveRow.className = `live-log-entry ${level}`;
+      liveRow.textContent = message;
+      ui.liveLogList.prepend(liveRow);
+      if (ui.liveLogList.childElementCount > 80) ui.liveLogList.removeChild(ui.liveLogList.lastChild);
+    },
+  };
 })();

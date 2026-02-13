@@ -1,0 +1,80 @@
+.roi-panel-header p { color: var(--muted); }
+
+.controls,
+.tournament-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.option {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.option input { margin-right: 6px; }
+
+.status,
+.cookie-status {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--surface-alt);
+  font-size: 13px;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.roi-line { color: var(--muted); margin: 3px 0; }
+.roi-value { color: #86efac; font-weight: 700; }
+
+.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.items li {
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: grid;
+  gap: 4px;
+}
+.item-meta { color: var(--muted); font-size: 12px; }
+.item-price { font-weight: 700; }
+
+.log-output {
+  margin: 0;
+  max-height: 260px;
+  overflow: auto;
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+
+.exclude-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#exclude-price-threshold {
+  width: 92px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+}
