@@ -214,6 +214,67 @@
     </main>
   </div>
 
+  <div id="priceHistoryModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" data-close="true"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="priceHistoryTitle">Історія предмета</h3>
+          <p id="priceHistorySubtitle">Останні 30 днів</p>
+        </div>
+        <button id="closePriceHistory" class="icon-btn" type="button" aria-label="Закрити">✕</button>
+      </div>
+      <div class="modal-controls">
+        <div class="toggle-group">
+          <button class="toggle-button active" type="button" data-history-range="recent">Останні 30 днів</button>
+          <button class="toggle-button" type="button" data-history-range="full">Історичні дані</button>
+        </div>
+        <button id="resetHistoryZoom" class="ghost small" type="button">Скинути масштаб</button>
+        <label class="filter-toggle">
+          <input type="checkbox" id="noiseFilterToggle" />
+          Відсікти шум
+        </label>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-swatch line"></span>Ціна</span>
+          <span class="legend-item"><span class="legend-swatch bars"></span>Кількість продаж</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="chart-shell">
+          <canvas id="priceHistoryChart" class="history-chart" height="320"></canvas>
+        </div>
+        <div id="priceHistoryStatus" class="chart-status"></div>
+        <div class="history-insights">
+          <div class="insight-grid">
+            <div class="insight-card">
+              <h4>Топ 3 ціни (найбільше угод)</h4>
+              <ol id="historyTopPrices" class="insight-list"></ol>
+            </div>
+            <div class="insight-card">
+              <h4>Продано за період</h4>
+              <div id="historyTotalVolume" class="insight-value">--</div>
+              <div id="historyRangeLabel" class="insight-sub">--</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <h4>Оцінка часу продажу</h4>
+            <div class="forecast-grid">
+              <label class="field">
+                <span>Кількість позицій</span>
+                <input id="forecastQuantity" type="number" min="1" step="1" placeholder="8000" />
+              </label>
+              <label class="field">
+                <span>Історія за N днів</span>
+                <input id="forecastDays" type="number" min="1" step="1" value="30" />
+              </label>
+            </div>
+            <div id="forecastResult" class="forecast-result">Введіть кількість і N днів для оцінки.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js?v=2026-02-15-3"></script>
   <script src="roi-fx-module.js?v=2026-02-15-2"></script>
   <script src="roi-module.js?v=2026-02-13-1"></script>

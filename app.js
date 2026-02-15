@@ -7,6 +7,8 @@ const MARKET_CONFIG = {
   language: 'english',
 };
 const APP_BUILD = '2026-02-11-4';
+const PRICE_HISTORY_URL = 'https://steamcommunity.com/market/pricehistory';
+const PRICE_HISTORY_RANGE_DAYS = 30;
 
 const ui = {
   statusPill: document.getElementById('statusPill'),
@@ -55,6 +57,21 @@ const ui = {
   ratesConcurrencyInput: document.getElementById('ratesConcurrencyInput'),
   ratesTable: document.getElementById('ratesTable'),
   ratesCompareTable: document.getElementById('ratesCompareTable'),
+  priceHistoryModal: document.getElementById('priceHistoryModal'),
+  priceHistoryTitle: document.getElementById('priceHistoryTitle'),
+  priceHistorySubtitle: document.getElementById('priceHistorySubtitle'),
+  priceHistoryStatus: document.getElementById('priceHistoryStatus'),
+  priceHistoryChart: document.getElementById('priceHistoryChart'),
+  closePriceHistory: document.getElementById('closePriceHistory'),
+  resetHistoryZoom: document.getElementById('resetHistoryZoom'),
+  noiseFilterToggle: document.getElementById('noiseFilterToggle'),
+  historyTopPrices: document.getElementById('historyTopPrices'),
+  historyTotalVolume: document.getElementById('historyTotalVolume'),
+  historyRangeLabel: document.getElementById('historyRangeLabel'),
+  forecastQuantity: document.getElementById('forecastQuantity'),
+  forecastDays: document.getElementById('forecastDays'),
+  forecastResult: document.getElementById('forecastResult'),
+  priceHistoryRangeButtons: document.querySelectorAll('[data-history-range]'),
 };
 
 const state = {
@@ -70,6 +87,8 @@ const state = {
   sortDirection: 'asc',
   activeModule: 'inventory',
   ratesResult: null,
+  currentHistory: null,
+  currentHistoryRange: 'recent',
 };
 
 const CURRENCY_SYMBOLS = {
@@ -134,8 +153,15 @@ const I18N = {
     listing: 'Лістинг',
     currency: 'валюта',
     actions: 'Дії',
+    history: 'Історія',
     updatePrice: 'Оновити ціну',
+    historyButton: 'Перевірити історію предмета',
     sell: 'Виставити',
+    historyLoading: 'Завантаження історії…',
+    historyEmpty: 'Немає даних для відображення.',
+    historyRecent: 'Останні 30 днів (по днях)',
+    historyFull: 'Історичні дані за весь час (по днях)',
+    historyLoadFailed: 'Не вдалося отримати історію.',
     providePrice: 'Вкажіть валідну ціну лістингу (мінімум 0.03).',
     provideQty: 'Вкажіть валідну кількість (мінімум 1).',
     done: 'Готово',
@@ -193,8 +219,15 @@ const I18N = {
     listing: 'Listing',
     currency: 'currency',
     actions: 'Actions',
+    history: 'History',
     updatePrice: 'Refresh price',
+    historyButton: 'Check item history',
     sell: 'List',
+    historyLoading: 'Loading history…',
+    historyEmpty: 'No data to display.',
+    historyRecent: 'Last 30 days (daily)',
+    historyFull: 'Full history (daily)',
+    historyLoadFailed: 'Failed to load history.',
     providePrice: 'Provide a valid listing price (minimum 0.03).',
     provideQty: 'Provide a valid quantity (minimum 1).',
     done: 'Done',
@@ -414,6 +447,410 @@ function setStatus(text, variant = '') {
   ui.statusPill.textContent = `${t('statusPrefix')}: ${text}`;
   ui.statusPill.classList.remove('success', 'warning', 'danger');
   if (variant) ui.statusPill.classList.add(variant);
+}
+
+function setHistoryModalVisibility(isVisible) {
+  if (!ui.priceHistoryModal) return;
+  ui.priceHistoryModal.classList.toggle('is-visible', isVisible);
+  ui.priceHistoryModal.setAttribute('aria-hidden', String(!isVisible));
+  document.body.classList.toggle('modal-open', isVisible);
+}
+
+function setChartStatus(message) {
+  if (!ui.priceHistoryStatus) return;
+  ui.priceHistoryStatus.textContent = message || '';
+}
+
+function parsePriceHistoryDate(raw) {
+  if (!raw) return null;
+  let cleaned = String(raw).replace(/\s+/g, ' ').trim();
+  cleaned = cleaned.replace(/\s*\+(\d+)$/, ' GMT+$1');
+  cleaned = cleaned.replace(/(\d{1,2}):(\s*GMT)/, '$1:00$2');
+  cleaned = cleaned.replace(/(\d{1,2}):\s*$/, '$1:00');
+  const parsed = new Date(cleaned);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function parsePriceValue(value) {
+  if (typeof value === 'number') return value;
+  if (typeof value !== 'string') return null;
+  const numeric = Number.parseFloat(value.replace(',', '.'));
+  return Number.isNaN(numeric) ? null : numeric;
+}
+
+function formatDateLabel(date, includeYear = false) {
+  if (!(date instanceof Date)) return '--';
+  return date.toLocaleDateString('uk-UA', {
+    day: '2-digit',
+    month: '2-digit',
+    ...(includeYear ? { year: 'numeric' } : {}),
+  });
+}
+
+function formatVolumeLabel(value) {
+  if (!Number.isFinite(value)) return '--';
+  return new Intl.NumberFormat('uk-UA').format(Math.round(value));
+}
+
+function getRangeLabel(points) {
+  if (!points.length) return '--';
+  const startDate = points[0]?.date;
+  const endDate = points[points.length - 1]?.date;
+  if (!startDate || !endDate) return '--';
+  return `${formatDateLabel(startDate, state.currentHistoryRange === 'full')} — ${formatDateLabel(endDate, state.currentHistoryRange === 'full')}`;
+}
+
+let historyChartState = null;
+let historySelectionState = null;
+let currentViewRange = null;
+
+function reduceNoisePoints(points) {
+  if (!ui.noiseFilterToggle?.checked || points.length < 5) return points;
+  const prices = points.map((point) => point.price).filter(Number.isFinite);
+  if (!prices.length) return points;
+
+  const sorted = [...prices].sort((a, b) => a - b);
+  const q1 = sorted[Math.floor((sorted.length - 1) * 0.25)] ?? sorted[0];
+  const q3 = sorted[Math.floor((sorted.length - 1) * 0.75)] ?? sorted[sorted.length - 1];
+  const iqr = q3 - q1;
+  if (!Number.isFinite(iqr) || iqr === 0) return points;
+
+  const lower = q1 - iqr * 1.5;
+  const upper = q3 + iqr * 1.5;
+  return points.filter((point) => point.price >= lower && point.price <= upper);
+}
+
+function getBasePoints() {
+  if (!state.currentHistory) return [];
+  const points = state.currentHistoryRange === 'full' ? state.currentHistory.full : state.currentHistory.recent;
+  return reduceNoisePoints(points);
+}
+
+function getViewPoints(points) {
+  if (!currentViewRange || !points.length) return points;
+  const start = Math.max(0, Math.min(currentViewRange.start, points.length - 1));
+  const end = Math.max(start, Math.min(currentViewRange.end, points.length - 1));
+  return points.slice(start, end + 1);
+}
+
+function updateHistoryInsights() {
+  const points = getViewPoints(getBasePoints());
+
+  if (!ui.historyTopPrices) return;
+  ui.historyTopPrices.innerHTML = '';
+
+  if (!points.length) {
+    ui.historyTopPrices.innerHTML = '<li>Недостатньо даних.</li>';
+    if (ui.historyTotalVolume) ui.historyTotalVolume.textContent = '--';
+    if (ui.historyRangeLabel) ui.historyRangeLabel.textContent = '--';
+    return;
+  }
+
+  const buckets = new Map();
+  points.forEach((point) => {
+    const key = Number.isFinite(point.price) ? point.price.toFixed(2) : null;
+    if (!key) return;
+    const current = buckets.get(key) || { price: point.price, volume: 0 };
+    current.volume += Number.isFinite(point.volume) ? point.volume : 0;
+    buckets.set(key, current);
+  });
+
+  const top = [...buckets.values()].sort((a, b) => b.volume - a.volume).slice(0, 3);
+  if (!top.length) {
+    ui.historyTopPrices.innerHTML = '<li>Недостатньо даних.</li>';
+  } else {
+    top.forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = `${item.price.toFixed(2)} • ${formatVolumeLabel(item.volume)} продажів`;
+      ui.historyTopPrices.appendChild(li);
+    });
+  }
+
+  const totalVolume = points.reduce((sum, point) => sum + (Number.isFinite(point.volume) ? point.volume : 0), 0);
+  if (ui.historyTotalVolume) ui.historyTotalVolume.textContent = formatVolumeLabel(totalVolume);
+  if (ui.historyRangeLabel) ui.historyRangeLabel.textContent = getRangeLabel(points);
+}
+
+function updateForecastResult() {
+  if (!ui.forecastResult) return;
+
+  const points = getViewPoints(getBasePoints());
+  if (!points.length) {
+    ui.forecastResult.textContent = 'Немає історії для оцінки.';
+    return;
+  }
+
+  const quantity = Number(ui.forecastQuantity?.value);
+  if (!Number.isFinite(quantity) || quantity <= 0) {
+    ui.forecastResult.textContent = 'Вкажіть кількість позицій.';
+    return;
+  }
+
+  const days = Number(ui.forecastDays?.value);
+  if (!Number.isFinite(days) || days <= 0) {
+    ui.forecastResult.textContent = 'Вкажіть кількість днів історії.';
+    return;
+  }
+
+  const endDate = points[points.length - 1]?.date;
+  if (!(endDate instanceof Date)) {
+    ui.forecastResult.textContent = 'Немає історії для оцінки.';
+    return;
+  }
+
+  const startDate = new Date(endDate.getTime() - days * 24 * 60 * 60 * 1000);
+  const rangePoints = points.filter((point) => point.date >= startDate && point.date <= endDate);
+  const totalVolume = rangePoints.reduce((sum, point) => sum + (Number.isFinite(point.volume) ? point.volume : 0), 0);
+  if (totalVolume <= 0) {
+    ui.forecastResult.textContent = 'Недостатньо обсягу продажів за обраний період.';
+    return;
+  }
+
+  const avgPerDay = totalVolume / days;
+  const estimatedDays = quantity / avgPerDay;
+  ui.forecastResult.textContent = `≈ ${estimatedDays.toFixed(1)} днів (середній обсяг ${avgPerDay.toFixed(1)} / день)`;
+}
+
+function drawHistoryChart(points) {
+  const canvas = ui.priceHistoryChart;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const width = canvas.clientWidth || 880;
+  const height = canvas.height || 320;
+  canvas.width = width;
+  canvas.height = height;
+  ctx.clearRect(0, 0, width, height);
+
+  if (!points.length) {
+    setChartStatus('Немає даних для відображення.');
+    historyChartState = null;
+    return;
+  }
+
+  const padding = { top: 18, right: 52, bottom: 30, left: 52 };
+  const chartWidth = width - padding.left - padding.right;
+  const chartHeight = height - padding.top - padding.bottom;
+
+  const prices = points.map((point) => point.price).filter(Number.isFinite);
+  const volumes = points.map((point) => point.volume).filter(Number.isFinite);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+  const maxVolume = Math.max(...volumes, 1);
+  const priceRange = Math.max(maxPrice - minPrice, 0.01);
+
+  ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i += 1) {
+    const y = padding.top + (chartHeight / 4) * i;
+    ctx.beginPath();
+    ctx.moveTo(padding.left, y);
+    ctx.lineTo(width - padding.right, y);
+    ctx.stroke();
+  }
+
+  const stepX = points.length > 1 ? chartWidth / (points.length - 1) : chartWidth;
+
+  ctx.fillStyle = 'rgba(148, 163, 184, 0.28)';
+  points.forEach((point, index) => {
+    const x = padding.left + stepX * index;
+    const barHeight = (point.volume / maxVolume) * chartHeight;
+    ctx.fillRect(x - Math.max(1, stepX * 0.22), padding.top + chartHeight - barHeight, Math.max(2, stepX * 0.44), barHeight);
+  });
+
+  ctx.strokeStyle = 'rgba(96, 165, 250, 0.95)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  points.forEach((point, index) => {
+    const x = padding.left + stepX * index;
+    const y = padding.top + ((maxPrice - point.price) / priceRange) * chartHeight;
+    if (index === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = '#93c5fd';
+  ctx.font = '12px Inter, system-ui, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(`${maxPrice.toFixed(2)}`, 6, padding.top + 4);
+  ctx.fillText(`${minPrice.toFixed(2)}`, 6, padding.top + chartHeight);
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.textAlign = 'right';
+  ctx.fillText(`${Math.round(maxVolume)}`, width - 6, padding.top + 4);
+  ctx.fillText('0', width - 6, padding.top + chartHeight);
+
+  const firstDate = points[0]?.date;
+  const lastDate = points[points.length - 1]?.date;
+  ctx.textAlign = 'left';
+  if (firstDate) ctx.fillText(formatDateLabel(firstDate, state.currentHistoryRange === 'full'), padding.left, height - 8);
+  ctx.textAlign = 'right';
+  if (lastDate) ctx.fillText(formatDateLabel(lastDate, state.currentHistoryRange === 'full'), width - padding.right, height - 8);
+
+  historyChartState = {
+    points,
+    padding,
+    width,
+    height,
+    chartWidth,
+    chartHeight,
+    viewOffset: currentViewRange?.start || 0,
+  };
+
+  if (historySelectionState?.active && historySelectionState.startX !== null && historySelectionState.currentX !== null) {
+    const minX = Math.max(padding.left, Math.min(historySelectionState.startX, historySelectionState.currentX));
+    const maxX = Math.min(width - padding.right, Math.max(historySelectionState.startX, historySelectionState.currentX));
+    if (maxX - minX > 2) {
+      ctx.fillStyle = 'rgba(96, 165, 250, 0.15)';
+      ctx.fillRect(minX, padding.top, maxX - minX, chartHeight);
+      ctx.strokeStyle = 'rgba(96, 165, 250, 0.6)';
+      ctx.strokeRect(minX, padding.top, maxX - minX, chartHeight);
+    }
+  }
+
+  setChartStatus('');
+}
+
+function renderHistoryChart() {
+  if (!state.currentHistory) {
+    setChartStatus('Немає даних для відображення.');
+    drawHistoryChart([]);
+    updateHistoryInsights();
+    updateForecastResult();
+    return;
+  }
+
+  const basePoints = getBasePoints();
+  const viewPoints = getViewPoints(basePoints);
+  drawHistoryChart(viewPoints);
+  updateHistoryInsights();
+  updateForecastResult();
+}
+
+function setHistoryRange(range) {
+  state.currentHistoryRange = range;
+  ui.priceHistoryRangeButtons.forEach((button) => {
+    button.classList.toggle('active', button.dataset.historyRange === range);
+  });
+  if (ui.priceHistorySubtitle) {
+    ui.priceHistorySubtitle.textContent = range === 'recent' ? 'Останні 30 днів (по днях)' : 'Історичні дані за весь час (по днях)';
+  }
+  currentViewRange = null;
+  if (state.currentHistory) {
+    renderHistoryChart();
+  }
+}
+
+async function loadPriceHistory(marketHashName) {
+  const params = new URLSearchParams({ appid: APP_ID, market_hash_name: marketHashName });
+  const response = await steamFetch({
+    url: `${PRICE_HISTORY_URL}/?${params.toString()}`,
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  });
+
+  if (!response?.ok || !response?.data?.success || !Array.isArray(response.data.prices)) {
+    throw new Error('Не вдалося отримати історію.');
+  }
+
+  const points = response.data.prices
+    .map((entry) => {
+      const [dateRaw, priceRaw, volumeRaw] = entry;
+      const date = parsePriceHistoryDate(dateRaw);
+      const price = parsePriceValue(priceRaw);
+      const volume = Number.parseInt(String(volumeRaw).replace(/[^\d]/g, ''), 10);
+      if (!date || !Number.isFinite(price)) return null;
+      return { date, price, volume: Number.isFinite(volume) ? volume : 0 };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.date - b.date);
+
+  if (!points.length) {
+    throw new Error('Немає даних про історію.');
+  }
+
+  const since = new Date(Date.now() - PRICE_HISTORY_RANGE_DAYS * 24 * 60 * 60 * 1000);
+  return {
+    full: points,
+    recent: points.filter((point) => point.date >= since),
+  };
+}
+
+async function openHistoryModal(marketHashName) {
+  setHistoryModalVisibility(true);
+  if (ui.priceHistoryTitle) ui.priceHistoryTitle.textContent = marketHashName;
+  setChartStatus('Завантаження історії…');
+  state.currentHistory = null;
+  currentViewRange = null;
+  historySelectionState = null;
+  setHistoryRange('recent');
+
+  try {
+    state.currentHistory = await loadPriceHistory(marketHashName);
+    renderHistoryChart();
+  } catch (error) {
+    setChartStatus(error instanceof Error ? error.message : 'Не вдалося отримати історію.');
+  }
+}
+
+function closeHistoryModal() {
+  setHistoryModalVisibility(false);
+}
+
+function resetHistoryZoom() {
+  currentViewRange = null;
+  historySelectionState = null;
+  renderHistoryChart();
+}
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function xToIndex(x, pointsLength) {
+  if (!historyChartState || pointsLength <= 1) return 0;
+  const { padding, chartWidth, width } = historyChartState;
+  const clampedX = clamp(x, padding.left, width - padding.right);
+  const ratio = (clampedX - padding.left) / chartWidth;
+  return Math.round(ratio * (pointsLength - 1));
+}
+
+function handleSelectionStart(event) {
+  if (!historyChartState || !state.currentHistory) return;
+  const rect = ui.priceHistoryChart.getBoundingClientRect();
+  const startX = event.clientX - rect.left;
+  historySelectionState = { active: true, startX, currentX: startX };
+  renderHistoryChart();
+}
+
+function handleSelectionMove(event) {
+  if (!historySelectionState?.active || !historyChartState) return;
+  const rect = ui.priceHistoryChart.getBoundingClientRect();
+  historySelectionState.currentX = event.clientX - rect.left;
+  renderHistoryChart();
+}
+
+function handleSelectionEnd() {
+  if (!historySelectionState?.active || !historyChartState || !state.currentHistory) {
+    historySelectionState = null;
+    return;
+  }
+
+  const basePoints = getBasePoints();
+  const visibleLength = historyChartState.points?.length || basePoints.length;
+  const offset = historyChartState.viewOffset || 0;
+  const startIndex = xToIndex(historySelectionState.startX, visibleLength) + offset;
+  const endIndex = xToIndex(historySelectionState.currentX, visibleLength) + offset;
+  const minIndex = clamp(Math.min(startIndex, endIndex), 0, basePoints.length - 1);
+  const maxIndex = clamp(Math.max(startIndex, endIndex), 0, basePoints.length - 1);
+
+  if (maxIndex - minIndex >= 2) {
+    currentViewRange = { start: minIndex, end: maxIndex };
+  }
+
+  historySelectionState = null;
+  renderHistoryChart();
 }
 
 async function findOrOpenSteamTab() {
@@ -1161,6 +1598,7 @@ function renderTable() {
       <th>Tradeban</th>
       <th>highest_buy_order</th>
       <th>lowest_sell_order</th>
+      <th>${t('history')}</th>
       <th>${t('listing')} (${getCurrencySymbol() || t('currency')})</th>
       <th>${t('actions')}</th>
     </tr>
@@ -1191,6 +1629,9 @@ function renderTable() {
       <td>${highestBuyText}</td>
       <td>${lowestSellText}</td>
       <td>
+        <button class="ghost history-button" type="button">${t('historyButton')}</button>
+      </td>
+      <td>
         <div class="listing-inputs">
           <input class="qty-input" type="number" min="1" step="1" value="1" />
           <input class="price-input" type="number" step="0.01" min="0.03" placeholder="0.50" />
@@ -1206,6 +1647,10 @@ function renderTable() {
       setStatus(`Price check: ${rowData.marketHashName}`, 'warning');
       await checkPriceForHash(rowData.marketHashName);
       setStatus(t('done'), 'success');
+    });
+
+    row.querySelector('.history-button')?.addEventListener('click', () => {
+      openHistoryModal(rowData.marketHashName);
     });
 
     row.querySelector('.sell-item')?.addEventListener('click', async () => {
@@ -1257,6 +1702,35 @@ function bindEvents() {
     renderTable();
   });
   ui.ratesRunBtn.addEventListener('click', runRatesModule);
+  ui.closePriceHistory?.addEventListener('click', closeHistoryModal);
+  ui.resetHistoryZoom?.addEventListener('click', resetHistoryZoom);
+  ui.noiseFilterToggle?.addEventListener('change', () => {
+    currentViewRange = null;
+    renderHistoryChart();
+  });
+  ui.forecastQuantity?.addEventListener('input', updateForecastResult);
+  ui.forecastDays?.addEventListener('input', updateForecastResult);
+  ui.priceHistoryModal?.addEventListener('click', (event) => {
+    if (event.target?.dataset?.close) closeHistoryModal();
+  });
+  ui.priceHistoryRangeButtons.forEach((button) => {
+    button.addEventListener('click', () => setHistoryRange(button.dataset.historyRange));
+  });
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && ui.priceHistoryModal?.classList.contains('is-visible')) {
+      closeHistoryModal();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (ui.priceHistoryModal?.classList.contains('is-visible')) {
+      renderHistoryChart();
+    }
+  });
+
+  ui.priceHistoryChart?.addEventListener('mousedown', handleSelectionStart);
+  ui.priceHistoryChart?.addEventListener('mousemove', handleSelectionMove);
+  ui.priceHistoryChart?.addEventListener('mouseup', handleSelectionEnd);
+  ui.priceHistoryChart?.addEventListener('mouseleave', handleSelectionEnd);
 }
 
 
