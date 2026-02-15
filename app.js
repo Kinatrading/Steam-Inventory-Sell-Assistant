@@ -31,14 +31,30 @@ const ui = {
   mainSubtitle: document.getElementById('mainSubtitle'),
   controlsTitle: document.getElementById('controlsTitle'),
   inventoryTitle: document.getElementById('inventoryTitle'),
+  inventoryTotals: document.getElementById('inventoryTotals'),
   logsTitle: document.getElementById('logsTitle'),
   langUkBtn: document.getElementById('langUkBtn'),
   langEnBtn: document.getElementById('langEnBtn'),
   inventoryModuleBtn: document.getElementById('inventoryModuleBtn'),
   roiModuleBtn: document.getElementById('roiModuleBtn'),
+  ratesModuleBtn: document.getElementById('ratesModuleBtn'),
   inventoryModuleContent: document.getElementById('inventoryModuleContent'),
   roiModuleContent: document.getElementById('roiModuleContent'),
+  ratesModuleContent: document.getElementById('ratesModuleContent'),
   mainTitle: document.getElementById('mainTitle'),
+  ratesTitle: document.getElementById('ratesTitle'),
+  ratesSubtitle: document.getElementById('ratesSubtitle'),
+  ratesResultTitle: document.getElementById('ratesResultTitle'),
+  ratesTable1Title: document.getElementById('ratesTable1Title'),
+  ratesTable2Title: document.getElementById('ratesTable2Title'),
+  ratesRunBtn: document.getElementById('ratesRunBtn'),
+  ratesStatus: document.getElementById('ratesStatus'),
+  ratesItemNameIdInput: document.getElementById('ratesItemNameIdInput'),
+  ratesCountryInput: document.getElementById('ratesCountryInput'),
+  ratesLanguageInput: document.getElementById('ratesLanguageInput'),
+  ratesConcurrencyInput: document.getElementById('ratesConcurrencyInput'),
+  ratesTable: document.getElementById('ratesTable'),
+  ratesCompareTable: document.getElementById('ratesCompareTable'),
 };
 
 const state = {
@@ -53,6 +69,7 @@ const state = {
   sortColumn: 'marketHashName',
   sortDirection: 'asc',
   activeModule: 'inventory',
+  ratesResult: null,
 };
 
 const CURRENCY_SYMBOLS = {
@@ -72,8 +89,10 @@ const I18N = {
     hintTitle: 'Підказка',
     hintDescriptionInventory: 'Масовий лістинг виконується з паузою 250ms між кожним sellitem.',
     hintDescriptionRoi: 'Кнопка “Зібрати базу для ROI” завантажує ціни капсул. Для фільтра дешевих наліпок вкажіть свій поріг ціни у валюті акаунта.',
+    hintDescriptionRates: 'Модуль “Курс” рахує курси Steam по валютах (USD-якір) через itemordershistogram.',
     mainTitleInventory: 'Steam Inventory Sell Assistant',
     mainTitleRoi: 'Steam ROI Assistant',
+    mainTitleRates: 'Steam Currency Assistant',
     mainSubtitle: 'Зібрати інвентар → згрупувати/розгрупувати → перевірити ціну → виставити.',
     controlsTitle: 'Керування',
     parseInventoryBtn: 'Спарсити інвентар',
@@ -82,7 +101,21 @@ const I18N = {
     checkAllPricesBtn: 'Оновити ціни (всі)',
     inventoryModuleBtn: 'Inventory',
     roiModuleBtn: 'ROI',
+    ratesModuleBtn: 'Курс',
+    ratesTitle: 'Курс валют (Steam)',
+    ratesSubtitle: 'Порівняння цін по валютах через itemordershistogram. розрахунок різниці купівлі турнірних капсул з магазину кс2, доллар як 0',
+    ratesRunBtn: 'Запустити курс',
+    ratesResultTitle: 'Результат',
+    ratesTable1Title: 'Steam rates (1 USD = X CUR)',
+    ratesTable2Title: 'Local prices → USD',
+    ratesWaiting: 'Очікування запуску…',
+    ratesRunning: 'Розрахунок курсу...',
+    ratesDone: 'Готово',
+    ratesNoData: 'Немає даних. Запустіть аналіз.',
+    ratesModuleMissing: 'ROI FX модуль не завантажений.',
+    ratesInvalidItemNameId: 'item_nameid має бути більше 0.',
     inventoryTitle: 'Інвентар',
+    inventoryTotals: 'buy: {highest} • sell: {lowest}',
     searchPlaceholder: 'Пошук по назві (наприклад, Sur)...',
     sortColumnLabel: 'Стовпець',
     sortDirectionLabel: 'Порядок',
@@ -115,8 +148,10 @@ const I18N = {
     hintTitle: 'Hint',
     hintDescriptionInventory: 'Bulk listing runs with a 250ms delay between each sellitem call.',
     hintDescriptionRoi: '“Collect ROI base” loads capsule prices. Use the price threshold field in your account currency to exclude cheap stickers.',
+    hintDescriptionRates: 'The “Rates” module calculates Steam currency rates (USD anchor) via itemordershistogram.',
     mainTitleInventory: 'Steam Inventory Sell Assistant',
     mainTitleRoi: 'Steam ROI Assistant',
+    mainTitleRates: 'Steam Currency Assistant',
     mainSubtitle: 'Collect inventory → group/ungroup → check prices → list items.',
     controlsTitle: 'Controls',
     parseInventoryBtn: 'Parse inventory',
@@ -125,7 +160,21 @@ const I18N = {
     checkAllPricesBtn: 'Refresh prices (all)',
     inventoryModuleBtn: 'Inventory',
     roiModuleBtn: 'ROI',
+    ratesModuleBtn: 'Rates',
+    ratesTitle: 'Steam currency rates',
+    ratesSubtitle: 'Cross-currency comparison via itemordershistogram. Tournament capsule buy-difference from CS2 store, dollar as 0.',
+    ratesRunBtn: 'Run rates',
+    ratesResultTitle: 'Result',
+    ratesTable1Title: 'Steam rates (1 USD = X CUR)',
+    ratesTable2Title: 'Local prices → USD',
+    ratesWaiting: 'Waiting for run…',
+    ratesRunning: 'Calculating rates...',
+    ratesDone: 'Done',
+    ratesNoData: 'No data yet. Run analysis first.',
+    ratesModuleMissing: 'ROI FX module is not loaded.',
+    ratesInvalidItemNameId: 'item_nameid must be greater than 0.',
     inventoryTitle: 'Inventory',
+    inventoryTotals: 'buy: {highest} • sell: {lowest}',
     searchPlaceholder: 'Search by name (e.g. Sur)...',
     sortColumnLabel: 'Column',
     sortDirectionLabel: 'Order',
@@ -175,25 +224,80 @@ function updateLanguageSwitcher() {
   ui.langEnBtn.classList.toggle('active', state.language === 'en');
 }
 
+function calculateInventoryTotals() {
+  let highestTotal = 0;
+  let lowestTotal = 0;
+  let hasHighest = false;
+  let hasLowest = false;
+
+  for (const item of state.inventory) {
+    const quantity = Number.isFinite(item.amount) ? item.amount : 1;
+    const marketData = state.priceByHash.get(item.marketHashName) || {};
+
+    if (Number.isFinite(marketData.highestBuy)) {
+      highestTotal += marketData.highestBuy * quantity;
+      hasHighest = true;
+    }
+
+    if (Number.isFinite(marketData.lowestSell)) {
+      lowestTotal += marketData.lowestSell * quantity;
+      hasLowest = true;
+    }
+  }
+
+  return {
+    highest: hasHighest ? formatPrice(highestTotal) : '--',
+    lowest: hasLowest ? formatPrice(lowestTotal) : '--',
+    hasAny: hasHighest || hasLowest,
+  };
+}
+
+function updateInventoryTitle() {
+  ui.inventoryTitle.textContent = t('inventoryTitle');
+
+  if (!ui.inventoryTotals) return;
+
+  const totals = calculateInventoryTotals();
+  ui.inventoryTotals.textContent = totals.hasAny
+    ? t('inventoryTotals', { highest: totals.highest, lowest: totals.lowest })
+    : '';
+}
+
+function getModuleLocalizationKey(baseKey) {
+  if (state.activeModule === 'roi') return `${baseKey}Roi`;
+  if (state.activeModule === 'rates') return `${baseKey}Rates`;
+  return `${baseKey}Inventory`;
+}
+
 function applyLocalization() {
   document.documentElement.lang = state.language;
   ui.brandDescription.textContent = t('brandDescription');
   ui.languageLabel.textContent = t('languageLabel');
   ui.hintTitle.textContent = t('hintTitle');
-  ui.hintDescription.textContent = t(state.activeModule === 'roi' ? 'hintDescriptionRoi' : 'hintDescriptionInventory');
-  ui.mainTitle.textContent = t(state.activeModule === 'roi' ? 'mainTitleRoi' : 'mainTitleInventory');
+  ui.hintDescription.textContent = t(getModuleLocalizationKey('hintDescription'));
+  ui.mainTitle.textContent = t(getModuleLocalizationKey('mainTitle'));
   ui.mainSubtitle.textContent = t('mainSubtitle');
   ui.controlsTitle.textContent = t('controlsTitle');
   ui.parseInventoryBtn.textContent = t('parseInventoryBtn');
   ui.checkAllPricesBtn.textContent = t('checkAllPricesBtn');
   ui.inventoryModuleBtn.textContent = t('inventoryModuleBtn');
   ui.roiModuleBtn.textContent = t('roiModuleBtn');
-  ui.inventoryTitle.textContent = t('inventoryTitle');
+  ui.ratesModuleBtn.textContent = t('ratesModuleBtn');
+  updateInventoryTitle();
   ui.inventorySearchInput.placeholder = t('searchPlaceholder');
   ui.sortColumnLabel.textContent = t('sortColumnLabel');
   ui.sortDirectionLabel.textContent = t('sortDirectionLabel');
   updateSortControlsText();
   ui.logsTitle.textContent = t('logsTitle');
+  ui.ratesTitle.textContent = t('ratesTitle');
+  ui.ratesSubtitle.textContent = t('ratesSubtitle');
+  ui.ratesRunBtn.textContent = t('ratesRunBtn');
+  ui.ratesResultTitle.textContent = t('ratesResultTitle');
+  ui.ratesTable1Title.textContent = t('ratesTable1Title');
+  ui.ratesTable2Title.textContent = t('ratesTable2Title');
+  if (!state.ratesResult) {
+    ui.ratesStatus.textContent = t('ratesWaiting');
+  }
   updateLanguageSwitcher();
 }
 
@@ -902,14 +1006,92 @@ async function listMultipleItems(rowData, quantity, priceValue) {
   setStatus(t('done'), 'success');
 }
 
+function renderRatesTables() {
+  if (!state.ratesResult) {
+    ui.ratesTable.innerHTML = `<tbody><tr><td>${t('ratesNoData')}</td></tr></tbody>`;
+    ui.ratesCompareTable.innerHTML = `<tbody><tr><td>${t('ratesNoData')}</td></tr></tbody>`;
+    return;
+  }
+
+  const rateRows = state.ratesResult.rateTable || [];
+  const compareRows = state.ratesResult.comparisonTable || [];
+
+  ui.ratesTable.innerHTML = `
+    <thead><tr><th>code</th><th>steam_rate_per_1usd</th></tr></thead>
+    <tbody>${rateRows.map((row) => `<tr><td>${row.code}</td><td>${row.steam_rate_per_1usd}</td></tr>`).join('')}</tbody>
+  `;
+
+  ui.ratesCompareTable.innerHTML = `
+    <thead><tr><th>code</th><th>localPrice</th><th>usdEquivalent</th><th>cheaperVsUSD_pct</th></tr></thead>
+    <tbody>${compareRows.map((row) => `<tr><td>${row.code}</td><td>${row.localPrice}</td><td>${row.usdEquivalent}</td><td>${row.cheaperVsUSD_pct}%</td></tr>`).join('')}</tbody>
+  `;
+}
+
+async function runRatesModule() {
+  const fxModule = window.SteamSuiteRoiFxModule;
+  if (!fxModule?.runSteamRatesAnalyzer) {
+    ui.ratesStatus.textContent = t('ratesModuleMissing');
+    log(t('ratesModuleMissing'), 'error');
+    return;
+  }
+
+  const itemNameId = Number.parseInt(ui.ratesItemNameIdInput.value, 10);
+  if (!Number.isFinite(itemNameId) || itemNameId < 1) {
+    ui.ratesStatus.textContent = t('ratesInvalidItemNameId');
+    return;
+  }
+
+  const country = (ui.ratesCountryInput.value || 'UA').trim() || 'UA';
+  const language = (ui.ratesLanguageInput.value || 'ukrainian').trim() || 'ukrainian';
+  const maxConcurrencyRaw = Number.parseInt(ui.ratesConcurrencyInput.value, 10);
+  const maxConcurrency = Number.isFinite(maxConcurrencyRaw)
+    ? Math.min(Math.max(maxConcurrencyRaw, 1), 10)
+    : 1;
+
+  ui.ratesRunBtn.disabled = true;
+  ui.ratesStatus.textContent = t('ratesRunning');
+
+  try {
+    state.ratesResult = await fxModule.runSteamRatesAnalyzer({
+      itemNameId,
+      country,
+      language,
+      maxConcurrency,
+    });
+
+    renderRatesTables();
+    ui.ratesStatus.textContent = `${t('ratesDone')}: ${state.ratesResult.rateTable.length} rates`;
+    log(`Курс: розрахунок завершено (${state.ratesResult.rateTable.length} валют).`, 'info');
+  } catch (error) {
+    ui.ratesStatus.textContent = String(error?.message || error);
+    log(`Курс: помилка ${String(error?.message || error)}`, 'error');
+  } finally {
+    ui.ratesRunBtn.disabled = false;
+  }
+}
+
 function setActiveModule(moduleKey) {
-  state.activeModule = moduleKey === 'roi' ? 'roi' : 'inventory';
+  if (moduleKey === 'roi') {
+    state.activeModule = 'roi';
+  } else if (moduleKey === 'rates') {
+    state.activeModule = 'rates';
+  } else {
+    state.activeModule = 'inventory';
+  }
+
   ui.inventoryModuleBtn.classList.toggle('active', state.activeModule === 'inventory');
   ui.roiModuleBtn.classList.toggle('active', state.activeModule === 'roi');
+  ui.ratesModuleBtn.classList.toggle('active', state.activeModule === 'rates');
   ui.inventoryModuleContent.classList.toggle('hidden', state.activeModule !== 'inventory');
   ui.roiModuleContent.classList.toggle('hidden', state.activeModule !== 'roi');
-  ui.hintDescription.textContent = t(state.activeModule === 'roi' ? 'hintDescriptionRoi' : 'hintDescriptionInventory');
-  ui.mainTitle.textContent = t(state.activeModule === 'roi' ? 'mainTitleRoi' : 'mainTitleInventory');
+  ui.ratesModuleContent.classList.toggle('hidden', state.activeModule !== 'rates');
+  ui.hintDescription.textContent = t(getModuleLocalizationKey('hintDescription'));
+  ui.mainTitle.textContent = t(getModuleLocalizationKey('mainTitle'));
+
+  if (state.activeModule === 'rates') {
+    renderRatesTables();
+  }
+
   ui.liveLogList.innerHTML = '';
 }
 
@@ -919,6 +1101,7 @@ function updateGroupingButton() {
 }
 
 function renderTable() {
+  updateInventoryTitle();
   const rows = getRenderedRows();
   const showQuantity = state.groupedMode;
 
@@ -1008,6 +1191,7 @@ function bindEvents() {
   ui.checkAllPricesBtn.addEventListener('click', checkAllPrices);
   ui.inventoryModuleBtn.addEventListener('click', () => setActiveModule('inventory'));
   ui.roiModuleBtn.addEventListener('click', () => setActiveModule('roi'));
+  ui.ratesModuleBtn.addEventListener('click', () => setActiveModule('rates'));
   ui.toggleGroupingBtn.addEventListener('click', () => {
     state.groupedMode = !state.groupedMode;
     renderTable();
@@ -1026,7 +1210,9 @@ function bindEvents() {
     state.sortDirection = event.target.value === 'desc' ? 'desc' : 'asc';
     renderTable();
   });
+  ui.ratesRunBtn.addEventListener('click', runRatesModule);
 }
+
 
 (async function init() {
   await loadItemNameIds();
@@ -1034,6 +1220,7 @@ function bindEvents() {
   populateSortColumns();
   applyLocalization();
   setActiveModule('inventory');
+  renderRatesTables();
   await resolveMarketCurrency();
   renderTable();
   setStatus(t('idle'));
@@ -1041,6 +1228,7 @@ function bindEvents() {
 
   window.SteamSuiteBridge = {
     setActiveModule,
+    runRatesModule,
     pushLiveLog(message, level = 'info') {
       const liveRow = document.createElement('div');
       liveRow.className = `live-log-entry ${level}`;

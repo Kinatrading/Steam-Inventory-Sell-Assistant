@@ -38,6 +38,7 @@ body { margin: 0; background: var(--bg); color: var(--text); }
 .status-pill.danger { color: #fecaca; border-color: rgba(220, 38, 38, 0.5); }
 .panel { background: var(--surface); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; flex-direction: column; gap: 14px; }
 .panel-header, .section-header { display: flex; align-items: center; justify-content: space-between; }
+.inventory-title-wrap { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .inventory-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .inventory-tools label { font-size: 12px; color: var(--muted); }
 .inventory-tools input,
@@ -87,5 +88,14 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 .module-switcher button.active { border-color: var(--primary); background: rgba(59, 130, 246, 0.2); }
 .hidden { display: none !important; }
 
+
 #inventoryModuleContent,
-#roiModuleContent { display: flex; flex-direction: column; gap: 20px; }
+#roiModuleContent,
+#ratesModuleContent { display: flex; flex-direction: column; gap: 20px; }
+
+.rates-controls { align-items: flex-end; }
+.rates-field { min-width: 180px; }
+.rates-field input { min-width: 0; }
+.rates-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.rates-table-wrap { max-height: 260px; }
+.rates-table { min-width: 520px; }

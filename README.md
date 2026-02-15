@@ -143,3 +143,38 @@ All requests are sent to `https://steamcommunity.com` only:
 - Status badge: current action state.
 - Live panel: short event stream.
 - Logs panel: detailed info/warn/error entries.
+
+## ROI FX module (new)
+
+Added `roi-fx-module.js` as an optimized standalone module for ROI-related `itemordershistogram` multi-currency analysis.
+
+### Quick usage in Steam tab console
+```js
+const result = await window.SteamSuiteRoiFxModule.runSteamRatesAnalyzer({
+  itemNameId: 1,
+  country: "UA",
+  language: "ukrainian",
+  maxConcurrency: 1
+});
+
+console.table(result.rows);
+console.table(result.rateTable);
+console.table(result.comparisonTable);
+
+// or via ROI module bridge:
+const same = await window.SteamSuiteRoiModule.runFxRatesAnalyzer({ itemNameId: 1 });
+```
+
+### Improvements vs single-loop script
+- Concurrency control (`maxConcurrency`) to reduce total runtime.
+- Built-in retry/backoff for `429` responses.
+- Safer parsing for `price_scale`, `lowest_sell_order`, `highest_buy_order`.
+- Returns structured tables (`rows`, `rateTable`, `comparisonTable`) for reuse in UI.
+
+
+### Модуль “Курс”
+- У sidebar додано третій модуль **Курс** (поряд з Inventory і ROI).
+- Модуль викликає `window.SteamSuiteRoiFxModule.runSteamRatesAnalyzer(...)` і показує 2 таблиці: Steam rates та Local→USD.
+- Доступний запуск через кнопку `Запустити курс` з параметрами `item_nameid`, `country`, `language`, `maxConcurrency`.
+
+- Підзаголовок модуля “Курс валют (Steam)” доповнено: «розрахунок різниці купівлі турнірних капсул з магазину кс2, доллар як 0».

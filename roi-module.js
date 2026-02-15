@@ -770,6 +770,19 @@ excludePriceThresholdInput?.addEventListener("input", () => {
   }
 });
 
+
+window.SteamSuiteRoiModule = {
+  startFetch,
+  collectBasePrices,
+  runFxRatesAnalyzer: async (options = {}) => {
+    const fxModule = window.SteamSuiteRoiFxModule;
+    if (!fxModule?.runSteamRatesAnalyzer) {
+      throw new Error("ROI FX module is not loaded.");
+    }
+    return fxModule.runSteamRatesAnalyzer(options);
+  }
+};
+
 readSteamCookies().then((cookies) => {
   const cookieStatus = formatCookieStatus(cookies);
   cookieStatusEl.textContent = cookieStatus.message;
