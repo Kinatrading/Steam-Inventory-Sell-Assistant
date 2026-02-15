@@ -99,3 +99,5 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 .rates-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .rates-table-wrap { max-height: 260px; }
 .rates-table { min-width: 520px; }
+
+.rates-table td:first-child { white-space: normal; min-width: 280px; }

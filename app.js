@@ -201,6 +201,52 @@ const I18N = {
   },
 };
 
+
+const CURRENCY_CODE_DESCRIPTIONS = {
+  USD: 'USD / долар США',
+  GBP: 'GBP / фунт Великобританії',
+  EUR: 'EUR / євро Європейського Союзу',
+  CHF: 'CHF / швейцарський франк',
+  RUB: 'RUB / російський рубль',
+  PLN: 'PLN / польський злотий',
+  BRL: 'BRL / бразильський реал',
+  JPY: 'JPY / японська єна',
+  NOK: 'NOK / норвезька крона',
+  IDR: 'IDR / індонезійська рупія',
+  MYR: 'MYR / малайзійський рингіт',
+  PHP: 'PHP / філіппінське песо',
+  SGD: 'SGD / сингапурський долар',
+  THB: 'THB / тайський бат',
+  VND: 'VND / в’єтнамський донг',
+  KRW: 'KRW / південнокорейський вон',
+  UAH: 'UAH / українська гривня',
+  MXN: 'MXN / мексиканське песо',
+  CAD: 'CAD / канадський долар',
+  AUD: 'AUD / австралійський долар',
+  NZD: 'NZD / новозеландський долар',
+  CNY: 'CNY / китайський юань',
+  INR: 'INR / індійська рупія',
+  CLP: 'CLP / чилійське песо',
+  PEN: 'PEN / перуанський соль',
+  COP: 'COP / колумбійське песо',
+  ZAR: 'ZAR / південноафриканський ренд',
+  HKD: 'HKD / гонконгський долар',
+  TWD: 'TWD / новий тайванський долар',
+  SAR: 'SAR / саудівський ріал',
+  AED: 'AED / дірхам ОАЕ',
+  ILS: 'ILS / новий ізраїльський шекель',
+  KZT: 'KZT / казахстанський теньге',
+  KWD: 'KWD / кувейтський динар',
+  QAR: 'QAR / катарський ріал',
+  CRC: 'CRC / костариканський колон',
+  UYU: 'UYU / уругвайське песо',
+};
+
+function formatCurrencyCodeLabel(code) {
+  const normalizedCode = String(code || '').toUpperCase();
+  return CURRENCY_CODE_DESCRIPTIONS[normalizedCode] || normalizedCode;
+}
+
 const SORT_COLUMNS = [
   { key: 'marketHashName', type: 'text', labelKey: 'item' },
   { key: 'groupText', type: 'text', labelKey: 'group' },
@@ -1018,12 +1064,12 @@ function renderRatesTables() {
 
   ui.ratesTable.innerHTML = `
     <thead><tr><th>code</th><th>steam_rate_per_1usd</th></tr></thead>
-    <tbody>${rateRows.map((row) => `<tr><td>${row.code}</td><td>${row.steam_rate_per_1usd}</td></tr>`).join('')}</tbody>
+    <tbody>${rateRows.map((row) => `<tr><td>${formatCurrencyCodeLabel(row.code)}</td><td>${row.steam_rate_per_1usd}</td></tr>`).join('')}</tbody>
   `;
 
   ui.ratesCompareTable.innerHTML = `
     <thead><tr><th>code</th><th>localPrice</th><th>usdEquivalent</th><th>cheaperVsUSD_pct</th></tr></thead>
-    <tbody>${compareRows.map((row) => `<tr><td>${row.code}</td><td>${row.localPrice}</td><td>${row.usdEquivalent}</td><td>${row.cheaperVsUSD_pct}%</td></tr>`).join('')}</tbody>
+    <tbody>${compareRows.map((row) => `<tr><td>${formatCurrencyCodeLabel(row.code)}</td><td>${row.localPrice}</td><td>${row.usdEquivalent}</td><td>${row.cheaperVsUSD_pct}%</td></tr>`).join('')}</tbody>
   `;
 }
 
