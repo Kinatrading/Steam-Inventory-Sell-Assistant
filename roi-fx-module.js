@@ -18,12 +18,12 @@
   ]);
 
   const LOCAL_PRICES = Object.freeze({
-    USD: 0.25, GBP: 0.18, EUR: 0.25, RUB: 21, BRL: 1.35, JPY: 39, NOK: 2.5,
-    IDR: 4099, MYR: 1.1, PHP: 15, SGD: 0.35, THB: 8, VND: 6500, KRW: 370,
-    UAH: 11, MXN: 4.49, CAD: 0.35, AUD: 0.4, NZD: 0.42, PLN: 0.95, CHF: 0.2,
+    USD: 0.25, GBP: 0.18, EUR: 0.25, RUB: 20, BRL: 1.35, JPY: 39, NOK: 2.5,
+    IDR: 4099, MYR: 1, PHP: 15, SGD: 0.35, THB: 8, VND: 6500, KRW: 370,
+    UAH: 11, MXN: 4.49, CAD: 0.35, AUD: 0.35, NZD: 0.42, PLN: 0.9, CHF: 0.2,
     AED: 1, CLP: 222, CNY: 2, COP: 1000, PEN: 0.85, SAR: 0.95, TWD: 8,
     HKD: 2, ZAR: 4.19, INR: 23, CRC: 130, ILS: 0.85, KWD: 0.08, QAR: 0.89,
-    UYU: 10, KZT: 140,
+    UYU: 10, KZT: 130,
   });
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
