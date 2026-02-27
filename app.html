@@ -17,6 +17,7 @@
 
       <div class="module-switcher">
         <button id="inventoryModuleBtn" class="secondary active">Inventory</button>
+        <button id="craftsModuleBtn" class="ghost">Крафти</button>
         <button id="roiModuleBtn" class="ghost">ROI</button>
         <button id="ratesModuleBtn" class="ghost">Курс</button>
       </div>
@@ -58,6 +59,14 @@
             <button id="toggleGroupingBtn" class="secondary">Згрупувати</button>
             <button id="checkAllPricesBtn" class="secondary">Оновити ціни (всі)</button>
           </div>
+          <label class="field" for="inventorySourceInput">
+            <span id="inventorySourceLabel">Джерело інвентарю (свій SteamID / profiles URL / inventory URL)</span>
+            <input
+              id="inventorySourceInput"
+              type="text"
+              placeholder="https://steamcommunity.com/profiles/7656xxxxxxxxxxxxxx"
+            />
+          </label>
         </section>
 
         <section class="panel">
@@ -95,7 +104,7 @@
       <div id="ratesModuleContent" class="hidden">
         <section class="panel">
           <h3 id="ratesTitle">Курс валют (Steam)</h3>
-          <p id="ratesSubtitle" class="meta">Порівняння цін по валютах через itemordershistogram. розрахунок різниці купівлі турнірних капсул з магазину кс2, доллар як 0. Оновлено 18.02.2026</p>
+          <p id="ratesSubtitle" class="meta">Порівняння цін по валютах через itemordershistogram. розрахунок різниці купівлі турнірних капсул з магазину кс2, доллар як 0</p>
           <div class="button-row wrap rates-controls">
             <label class="field rates-field">
               item_nameid
@@ -135,6 +144,68 @@
                 <table class="inventory-table rates-table" id="ratesCompareTable"></table>
               </div>
             </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="craftsModuleContent" class="hidden">
+        <section class="panel">
+          <div class="panel-header">
+            <h3 id="craftsTitle">Крафти</h3>
+          </div>
+          <p id="craftsSubtitle" class="meta">Список предметів з інвентарю, в яких знайдено float.</p>
+          <label class="field" for="craftsInventorySourceInput">
+            <span id="craftsInventorySourceLabel">Джерело інвентарю (SteamID / profiles URL / inventory URL)</span>
+            <input
+              id="craftsInventorySourceInput"
+              type="text"
+              placeholder="https://steamcommunity.com/profiles/7656xxxxxxxxxxxxxx"
+            />
+          </label>
+          <div class="button-row wrap">
+            <button id="craftsRefreshBtn" class="secondary" type="button">Оновити список</button>
+            <button id="checkCraftsBtn" class="primary" type="button">Перевірити крафти</button>
+            <button id="checkCraftPricesBtn" class="secondary" type="button">Перевірити ціни</button>
+            <button id="checkCraftStepUpPricesBtn" class="secondary" type="button">Перевірити ціни +1 крок</button>
+            <span id="craftsMeta" class="meta">0 предметів</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h3 id="craftsItemsTitle">Craft items</h3>
+            <button id="exportCraftsItemsCsvBtn" class="ghost small" type="button">CSV</button>
+          </div>
+          <div class="section-body rates-table-wrap">
+            <table class="inventory-table" id="craftsTable"></table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h3 id="craftsResultsTitle">Найкращі плюсові крафти</h3><button id="exportCraftsResultsCsvBtn" class="ghost small" type="button">CSV</button></div>
+          <div class="section-body rates-table-wrap">
+            <table class="inventory-table" id="craftsResultsTable"></table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h3 id="craftsVariantsTitle">Можливі крафти і результати</h3><button id="exportCraftsVariantsCsvBtn" class="ghost small" type="button">CSV</button></div>
+          <div class="section-body rates-table-wrap">
+            <table class="inventory-table" id="craftsVariantsTable"></table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h3 id="craftsInterestingTitle">Крафти на цікаві числа</h3><button id="exportCraftsInterestingCsvBtn" class="ghost small" type="button">CSV</button></div>
+          <div class="section-body rates-table-wrap">
+            <table class="inventory-table" id="craftsInterestingTable"></table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h3 id="craftsStepUpTitle">Підрахунок апгрейду якості (+1 крок)</h3></div>
+          <div class="section-body rates-table-wrap">
+            <table class="inventory-table" id="craftsStepUpTable"></table>
           </div>
         </section>
       </div>
@@ -210,6 +281,44 @@
           <h3>Логування ROI</h3>
           <pre id="log-output" class="log-output"></pre>
         </section>
+
+        <section class="panel theory-section card">
+          <h3>Теоретично відкритих капсул подобово</h3>
+          <p class="theory-note">
+            Дані базуються на основі середньо добового продажу "як є", нажаль
+            порахувати точно не вийде але наближені цифри і розуміння ситуації воно дасть.
+          </p>
+          <div class="controls">
+            <button id="theory-button" class="secondary" type="button">Порахувати по історії продажів</button>
+            <span id="theory-status" class="status">Очікування запуску…</span>
+          </div>
+          <div id="theory-output" class="theory-output">Ще немає розрахунку.</div>
+        </section>
+
+
+        <section class="panel theory-section card">
+          <h3>Теоретично відкритих капсул по турнірах (2021–2025)</h3>
+          <p class="theory-note">
+            Аналіз по stickers_clean.json для капсул Contenders/Challengers/Legends без Autograph.
+          </p>
+          <div class="theory-filters">
+            <div class="option theory-select-wrap">
+              <span>Турніри:</span>
+              <div id="theory-tournament-list" class="theory-tournament-list"></div>
+            </div>
+            <label class="option theory-range-wrap" for="theory-day-start">
+              Діапазон днів від старту історії:
+              <input type="number" id="theory-day-start" min="0" step="1" value="0" />
+              —
+              <input type="number" id="theory-day-end" min="1" step="1" value="180" />
+            </label>
+          </div>
+          <div class="controls">
+            <button id="theory-tournament-button" class="secondary" type="button">Порахувати вибраний турнір</button>
+            <span id="theory-tournament-status" class="status">Очікування запуску…</span>
+          </div>
+          <div id="theory-tournament-output" class="theory-output">Ще немає розрахунку.</div>
+        </section>
       </div>
     </main>
   </div>
@@ -275,7 +384,8 @@
     </div>
   </div>
 
-  <script src="app.js?v=2026-02-15-3"></script>
+  <script src="crafts-calculator.js?v=2026-02-20-1"></script>
+  <script src="app.js?v=2026-02-20-1"></script>
   <script src="roi-fx-module.js?v=2026-02-15-2"></script>
   <script src="roi-module.js?v=2026-02-13-1"></script>
   <script src="roi-fx-module.js?v=2026-02-15-2"></script>

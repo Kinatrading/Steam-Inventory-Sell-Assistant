@@ -322,3 +322,10 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 body.modal-open {
   overflow: hidden;
 }
+
+
+.craft-variant-row { cursor: pointer; }
+.craft-variant-row:hover { background: rgba(59, 130, 246, 0.08); }
+.craft-variant-details td { background: rgba(15, 23, 42, 0.75); }
+.craft-variant-details.hidden { display: none; }
+.input-names-tip { text-decoration: underline dotted; cursor: help; }

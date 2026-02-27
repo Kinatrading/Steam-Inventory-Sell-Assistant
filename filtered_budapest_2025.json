@@ -1,0 +1,2278 @@
+[
+    {
+        "id": "sticker-9489",
+        "name": "Sticker | FURIA | Budapest 2025",
+        "def_index": "9489",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pLm4xfmE0qjzMfm-3cDu6WtO6A9caLLXjeVlb4v4LNqTi_mxh5ysG2Eyd6vbzvJOR9Yz89D",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9490",
+        "name": "Sticker | FURIA (Embroidered) | Budapest 2025",
+        "def_index": "9490",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pLm42biTB_jkZ_k-DBe67ysa_M5eaKQXDDBlegvs7U_GXHrxBl-tWvUnt_6dS_GP1cjW8B0R-9YrFDmxRtLojlY",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9491",
+        "name": "Sticker | FURIA (Holo) | Budapest 2025",
+        "def_index": "9491",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pLm42bvThH-0Jfh-yBa6varP_E7dKWRXjDBmbxy5bk9Gn3mxkgisjyGyNeqdnKWP1M-SswnpMm_I34",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9492",
+        "name": "Sticker | FURIA (Gold) | Budapest 2025",
+        "def_index": "9492",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pLm42bgThH10JTm_3EPvqWtP6U4c_TGVjKTl-sn5rA5HXGxkBl352qDmNuoeH2SZlQ-Sswn16KqI3A",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9493",
+        "name": "Sticker | Vitality | Budapest 2025",
+        "def_index": "9493",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64o7g6xfiRE6jzJTi-yMI7vH2avBpJqbGX2LJkbsk4-U_HXDmwUwktm-GnN-rbzvJOWS_p3-9",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9494",
+        "name": "Sticker | Vitality (Embroidered) | Budapest 2025",
+        "def_index": "9494",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64o7g62biTB_jkZ_k-DBe67yrbf1rdPbBCGHDw74h4rA8TSrlk08ht2uAy43_I3nBZgEjApFyELMMrFDmxZobiGYq",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9495",
+        "name": "Sticker | Vitality (Holo) | Budapest 2025",
+        "def_index": "9495",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64o7g62bvThH-0JTmqCEC6qr3P_I-ePbDWmGVwr4m6bRrHXvrw0t04W3cyN77di6TZ1U-SswnWwN4_1g",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9496",
+        "name": "Sticker | Vitality (Gold) | Budapest 2025",
+        "def_index": "9496",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64o7g62bgThH10MTlqHZZ6vOtO_U7d6bCDDSUkLkj5eM6Gnmwl01162qAyomtdHzBaAI-SswnYUUem-0",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9497",
+        "name": "Sticker | Falcons | Budapest 2025",
+        "def_index": "9497",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ob4pAG_EU7zzsPlrSNf7Kr_a_FodqjEDzSUx7h157FsHnrrzE8j42yByoy3MSXAbXJwh7E",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9498",
+        "name": "Sticker | Falcons (Embroidered) | Budapest 2025",
+        "def_index": "9498",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ob41VzqQw_-l5Ll7ydfofP8OvY8JKKSVmLHxL4jseBqGX_qzUwl5G7WyYmtJ33BaFQoXMAjQuQU8k7viUtvh9w",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9499",
+        "name": "Sticker | Falcons (Holo) | Budapest 2025",
+        "def_index": "9499",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ob41VHoTRK_yc_kr3EP7PSvbqFvI6HDDTTEwrwhtLg5Gy_llE4i4GzUz4mseHqSOxhgVMUhJOsS6A",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9500",
+        "name": "Sticker | Falcons (Gold) | Budapest 2025",
+        "def_index": "9500",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ob41V7oTRm_x8Cy-yEOuPf9bqZsJaDKWmTEmOx3tuc6SXC1wBlw62zQw9f8dC7EbRhgVMVtaAazvQ",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9501",
+        "name": "Sticker | The Mongolz | Budapest 2025",
+        "def_index": "9501",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Ynz8BfiE0Wmzc_irXtZuqf9OvA4dvTKXmXGw-pw6bBoSXrnlEUl5jvVno6hbzvJOS2Sp0M0",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9502",
+        "name": "Sticker | The Mongolz (Embroidered) | Budapest 2025",
+        "def_index": "9502",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Ynz8GbiTB_jkZ_k-DBe67ysOac-dKPKXz6Uwrl1tbBoHH2wkUtxtWuByN-teXmWbVByXsF5ROJbrFDmxb72Abt-",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9503",
+        "name": "Sticker | The Mongolz (Holo) | Budapest 2025",
+        "def_index": "9503",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Ynz8GbvThH-0JezpHQO7vavaac4dPHGXDXDlL1wtrQ6SX7nkUl3t2yHm9msdCmfbwI-Sswn8ZVF5eM",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9504",
+        "name": "Sticker | The Mongolz (Gold) | Budapest 2025",
+        "def_index": "9504",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Ynz8GbgThH10MKyrSMKt6f_O_1pdvaSXGSVkLcitrAxSy_jkUokt2yEmNz8c3qQbFc-SswngLGhoYY",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9505",
+        "name": "Sticker | MOUZ | Budapest 2025",
+        "def_index": "9505",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Yjh8Be1EEuin8PlpScJuKf_PadsIqXHC2OTk-sn4OVrG3zjwkQh5WSGm9r9bzvJOZGRzf29",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9506",
+        "name": "Sticker | MOUZ (Embroidered) | Budapest 2025",
+        "def_index": "9506",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Yjh8GbiTB_jkZ_k-DBe67ytPPE0cKeWXD_FkewitOdvGCzhxkV1t22Dy9j4cHPEPwAjWZpwTOMMrFDmxeeJjebb",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9507",
+        "name": "Sticker | MOUZ (Holo) | Budapest 2025",
+        "def_index": "9507",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Yjh8GbvThH-0MO0_nYMvqH8Of01efTADzeSlL0h4LhvHH2xwh4l6mXcytqqdHmWaVA-SswnPJU3r6U",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9508",
+        "name": "Sticker | MOUZ (Gold) | Budapest 2025",
+        "def_index": "9508",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Yjh8GbgThH10M-z-XsOvPeqOKE7d6fDVj_HlbYm57k_HyrnwBtz5DiEmI6qdCmfb1U-SswnfwblG3Y",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9509",
+        "name": "Sticker | Team Spirit | Budapest 2025",
+        "def_index": "9509",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655f9-BfiQE6inM-5-HsCufH2OqA6JPLDXDfHke1w6eA7HXm3wkUk6m_dydqgbzvJOfKWSVNo",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9510",
+        "name": "Sticker | Team Spirit (Embroidered) | Budapest 2025",
+        "def_index": "9510",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655f9-GbiTB_jkZ_k-DBe67z8O_E7dfPACDaSmOxz5uNoS3CxkUVx4WqGyo2hI3Kfb1UhWMRwQLICrFDmxcNQCgRd",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9511",
+        "name": "Sticker | Team Spirit (Holo) | Budapest 2025",
+        "def_index": "9511",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655f9-GbvThH-0JCwriYPu6urOvM5c6LGCDHHmbYkseNoHn-wkEgk6zyGmN6ocX-Ta1c-Sswn43hSMMU",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9512",
+        "name": "Sticker | Team Spirit (Gold) | Budapest 2025",
+        "def_index": "9512",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655f9-GbgThH10JC2qnoCuKSsOKJocPXHWj6SlrwhsuI7HX2xxEkm42jSzIqrdX3GOFU-SswnA9jkXj4",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9513",
+        "name": "Sticker | G2 esports | Budapest 2025",
+        "def_index": "9513",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM689W6vFzkQhmpn87jq3BZ7PCvP_c0IqiRCmTAkOog57hsGXvhlEh362jcysHpLywr1Xv1rA",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9514",
+        "name": "Sticker | G2 esports (Embroidered) | Budapest 2025",
+        "def_index": "9514",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM689XL71TlUxL4mpPy-CYVuKOvP6ZoIaeXCjKSlLYk4LM8Hyixw09ztWqAyNr8dXqSPVcgDZJ3EflK7EefcR02tA",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9515",
+        "name": "Sticker | G2 esports (Holo) | Budapest 2025",
+        "def_index": "9515",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM689XL4lbrTlP0x8-2qnVa7qr-Pfc-JaaQDTCVlO905LE4HXnhxk91sD-Gw42scnyScEZ-XdXYHJR5",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9516",
+        "name": "Sticker | G2 esports (Gold) | Budapest 2025",
+        "def_index": "9516",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM689XL7VbrRVPyy8-w-CQJ7PH2O6ZoIqDBC2GSk7ovsbY6HyvqxUlz4z7Tztj9eS6RcEZ-XYtLAfuv",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9517",
+        "name": "Sticker | paiN Gaming | Budapest 2025",
+        "def_index": "9517",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ib95Be1FB-gzcTj_HoLv6r-OfI8dqSWC2XGkLgn5uQ_GnrgwRsm5Gjcy4yhbzvJOUZ8oop3",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9518",
+        "name": "Sticker | paiN Gaming (Embroidered) | Budapest 2025",
+        "def_index": "9518",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ib95GbiTB_jkZ_k-DBe67z7afFpc6LCXjOTkroi6LBoGH_jxxh-smXczNn7dX2QPwYmCpslRLZcrFDmxfqZ19oz",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9519",
+        "name": "Sticker | paiN Gaming (Holo) | Budapest 2025",
+        "def_index": "9519",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ib95GbvThH-0MTmqXQC6vT2O6E7d6DLXGWUwLt0trFqTnDmwBh_sWnWz4qtcHmSOAA-SswnI48laQc",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9520",
+        "name": "Sticker | paiN Gaming (Gold) | Budapest 2025",
+        "def_index": "9520",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ib95GbgThH10MC2qXQK7PCra_dpdabCWGHGk-8usbE-SX_mk0xz4mqEwt6gdyqQOgI-SswnOw3ySts",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9521",
+        "name": "Sticker | Aurora | Budapest 2025",
+        "def_index": "9521",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZLm6xfkEk-gyMfjqXANvKf-bvw7I_WXDDTIw70lsrNoGXrgxxkj4GXcnoqubzvJOfgwWAcu",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9522",
+        "name": "Sticker | Aurora (Embroidered) | Budapest 2025",
+        "def_index": "9522",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZLm62biTB_jkZ_k-DBe67z2OqU8eKGWDGaTleog6bE5F3zlzUQj6z6EzNegeXKQbANxCJByROMJrFDmxW4bFdHT",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9523",
+        "name": "Sticker | Aurora (Holo) | Budapest 2025",
+        "def_index": "9523",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZLm62bvThH-0MKzrXJY66OtbPI4caKSWzTIwLYi57RqGirgwhklsW_Vzdz6JymfaFI-SswnNdzh8WI",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9524",
+        "name": "Sticker | Aurora (Gold) | Budapest 2025",
+        "def_index": "9524",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZLm62bgThH10MC3qncMtvf9afI_I6LHD2KSlusl6ecwTn_lwEt34Djcyt-gIH6fagE-SswnA2zbmG0",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9525",
+        "name": "Sticker | Natus Vincere | Budapest 2025",
+        "def_index": "9525",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-obi4xe1Qh_wzJXmpSFf7fOtOPxvJfSSCGOSl7ou47MwFy3nwEVy42jXm939bzvJOU-a_IW3",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9526",
+        "name": "Sticker | Natus Vincere (Embroidered) | Budapest 2025",
+        "def_index": "9526",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-obi42biTB_jkZ_k-DBe67z8a6U4dKSVWzLIkOh14bBqTSiwkEtx4mvUnoypcH2XbgIpCMB4RO9ZrFDmxaMURHbq",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9527",
+        "name": "Sticker | Natus Vincere (Holo) | Budapest 2025",
+        "def_index": "9527",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-obi42bvThH-0MG1qHddu_H-MKVvI6eQCjKRk7536Lc9SnDilEgh52XRn9f7dn_DPVA-Sswnn-4MYkI",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9528",
+        "name": "Sticker | Natus Vincere (Gold) | Budapest 2025",
+        "def_index": "9528",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-obi42bgThH10MCwpSAC7KOraaBpIfTCDD7Fkegv4rJsHy_iwE1y52yEy4r_cn6SOA4-SswnA0f-ILU",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9529",
+        "name": "Sticker | Team Liquid | Budapest 2025",
+        "def_index": "9529",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-I7lpAqxQ0ugn8a5qXNdufT3bPM1I6XDDDLBleh357c9HCy1l04ktzmDmda3MSXAC1xrtaA",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9530",
+        "name": "Sticker | Team Liquid (Embroidered) | Budapest 2025",
+        "def_index": "9530",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-I7l1VzqQw_-l5Ll7ydfofH_bPw5IvHLCDSVkbsmsrY6GnC1wEwjtWmBztmvJy2SawVzC5dxRrEU8k7v14te0AY",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9531",
+        "name": "Sticker | Team Liquid (Holo) | Budapest 2025",
+        "def_index": "9531",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-I7l1VHoTRK_y5Pl_3Rfu6avP_NocvbDCzOSk79z4rRoS3jqwkpz5W6Bm9ypeXrDaBhgVMWFXb1XOw",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9532",
+        "name": "Sticker | Team Liquid (Gold) | Budapest 2025",
+        "def_index": "9532",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-I7l1V7oTRm_nZe4_yFZ7KqoO_Q9IqTBXWXJwusjtbA7Sy3mk0Uk4mTWztypICmTbBhgVMV_1PX8VQ",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9533",
+        "name": "Sticker | 3DMAX | Budapest 2025",
+        "def_index": "9533",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6p4P5pAyzF06incPhr3YOvvH2PaFpI6GQVzXDmegv4OcxFi3llB5_5z7SnNm3MSXA29Jdr2g",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9534",
+        "name": "Sticker | 3DMAX (Embroidered) | Budapest 2025",
+        "def_index": "9534",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6p4P51VzqQw_-l5Ll7ydfofT6O_E5dPbBCj7Jkr8vsuQ7HnyxkUhy4W3Xzd_8dC_BagdzWZV1TbEU8k7vGhnphlg",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9535",
+        "name": "Sticker | 3DMAX (Holo) | Budapest 2025",
+        "def_index": "9535",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6p4P51VHoTRK_x5Dk-CcN6vSvOvY0c6bDXzXHkrpz6LY6HCq3lER-4jzSyIn_dnzDPBhgVMUsCyU1ng",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9536",
+        "name": "Sticker | 3DMAX (Gold) | Budapest 2025",
+        "def_index": "9536",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6p4P51V7oTRm_yMHlpScJuKP4baBreaLHWmTGlOsltrU-FnGwwEVxtTzUztf6cimSPxhgVMUvEvZyDA",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9537",
+        "name": "Sticker | Astralis | Budapest 2025",
+        "def_index": "9537",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZTg-BewExuhzc60qnJavqeqPvJpc_GXX2TCl7cg5bc5Fi3qzBlytWTUzt-sbzvJOe-eXxU1",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9538",
+        "name": "Sticker | Astralis (Embroidered) | Budapest 2025",
+        "def_index": "9538",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZTg-GbiTB_jkZ_k-DBe67z8PaA0dabLDWPEl74v47A9Sy2wxkol62XdwtiteCqTbFB2XsZxF-8DrFDmxV38sQKF",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9539",
+        "name": "Sticker | Astralis (Holo) | Budapest 2025",
+        "def_index": "9539",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZTg-GbvThH-0MO3qnEJvKD8bfNuI6WQXD-Rl7pztbNrHXrilklx4jjdmNigeHyfa1c-SswnEOayshU",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9540",
+        "name": "Sticker | Astralis (Gold) | Budapest 2025",
+        "def_index": "9540",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69ZTg-GbgThH10MTirSBev6StPPw-JPTHDz6SmbYntLI-TnCwwRwht27Smdmpdi2RbVU-SswnCEBJROk",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9541",
+        "name": "Sticker | TYLOO | Budapest 2025",
+        "def_index": "9541",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64J74pA-_FESnmJLhqCYM6_b_bKA7IfWWDGHEkughtOBsHCyykU1y6mqEzo23MSXAnbYRYGE",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9542",
+        "name": "Sticker | TYLOO (Embroidered) | Budapest 2025",
+        "def_index": "9542",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64J741VzqQw_-l5Ll7ydfofP3bfZoeKORXz6Tk7h0teQ8HH7gwkxy52_dzYr4dnzBaQV0D8Z4R7MU8k7vfvXvYP8",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9543",
+        "name": "Sticker | TYLOO (Holo) | Budapest 2025",
+        "def_index": "9543",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64J741VHoTRK_ycO5rnsL7Pf6OKc8cKSRVzHBx-wjs-VoGnDhlEt36j6Hnomqdy3DZhhgVMV3GCGK2Q",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9544",
+        "name": "Sticker | TYLOO (Gold) | Budapest 2025",
+        "def_index": "9544",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM64J741V7oTRm_n8G1_HcP7aqvP6Foc6XEVjHDxegutbY8Hyjlk0kk4jvQztugdHrFPxhgVMWi00TNNg",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9545",
+        "name": "Sticker | MIBR | Budapest 2025",
+        "def_index": "9545",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Y72-Be-REqozMCyqCQM66b9a6E4dKGSVjCWwr9y4Lc_Hi3nxhx3tW_Qmd_9bzvJOeUp1Tla",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9546",
+        "name": "Sticker | MIBR (Embroidered) | Budapest 2025",
+        "def_index": "9546",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Y72-GbiTB_jkZ_k-DBe67yvPPQ_JKXLXmWUlesu6bQ-H3Hmw09-5z7Sztv7dCrFaAcpDpUhEOQMrFDmxeOuoaAI",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9547",
+        "name": "Sticker | MIBR (Holo) | Budapest 2025",
+        "def_index": "9547",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Y72-GbvThH-0M_jqyRZv6T6avc1dvbCWWbAxb8h5-QwSSu2xk534j6Bz42uJ3qQaAE-Sswn9g4jP5M",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9548",
+        "name": "Sticker | MIBR (Gold) | Budapest 2025",
+        "def_index": "9548",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-Y72-GbgThH10JSx-3tY7vevP6c0IanCCzfCx7gn47c9H3jrwx5xtW3SzIv4I3qXalQ-Sswn_gMK8OQ",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9549",
+        "name": "Sticker | Passion UA | Budapest 2025",
+        "def_index": "9549",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65JT6_xewRU2nm8fl_3Rauar8bPQ5daTKCzaWmO1zs7JsGi2xkU5x42qGzNv6bzvJOT_7tpNU",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9550",
+        "name": "Sticker | Passion UA (Embroidered) | Budapest 2025",
+        "def_index": "9550",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65JT6_2biTB_jkZ_k-DBe67yvMKI9ePXAC2LJl78ks7M9S3vglExxtzjQwtn_cXOSbgUnWJZwR-BbrFDmxcfVDg0Q",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9551",
+        "name": "Sticker | Passion UA (Holo) | Budapest 2025",
+        "def_index": "9551",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65JT6_2bvThH-0JS1_icCuqb9a_07JPLFCmKTkewk6Lk9Sny2xRsmtT6Gz42rdHnCOgA-SswnCJA1WTY",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9552",
+        "name": "Sticker | Passion UA (Gold) | Budapest 2025",
+        "def_index": "9552",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65JT6_2bgThH10MLkrSQC7PD8baJsdqKWDWWRl-x3s7Q7THG3kRt_tz7Tw9ioc3zFPVU-SswnPUp2b1o",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9553",
+        "name": "Sticker | Legacy | Budapest 2025",
+        "def_index": "9553",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-ID38xfkGRuim8O3rnFe6_D4bqU7ePPBVzSRx7YgsrI9F3Dml04l4WXRn4n7bzvJOaFrj2cc",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9554",
+        "name": "Sticker | Legacy (Embroidered) | Budapest 2025",
+        "def_index": "9554",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-ID382biTB_jkZ_k-DBe67z2PPA5I6bCDzTCl74u5eVoFiuwxBt14WiHwov4d37FZlAmC8YlTLYPrFDmxRjGs-au",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9555",
+        "name": "Sticker | Legacy (Holo) | Budapest 2025",
+        "def_index": "9555",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-ID382bvThH-0JCy_HoNuqH9OvA9dfWVWTLJkrxwtrMwHXyww08h62jUmNn4dHLCPFM-SswnUV0cN7A",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9556",
+        "name": "Sticker | Legacy (Gold) | Budapest 2025",
+        "def_index": "9556",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-ID382bgThH10MW2-XsOuaSoOac7dKbBXzeUw-0j5rA6Tiy3xBgktW-GyY37dn3BZgQ-SswnEnKLNzI",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9557",
+        "name": "Sticker | FaZe Clan | Budapest 2025",
+        "def_index": "9557",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68obu7xe0FEjyn8_mqSRauqGvPfVsJaeXXmTAlLlytbNvTCjll0525mXTm4qhbzvJOQ1auv0a",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9558",
+        "name": "Sticker | FaZe Clan (Embroidered) | Budapest 2025",
+        "def_index": "9558",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68obu72biTB_jkZ_k-DBe67z4MPw1dPSWCGWWmLkn4-doHXixzUp05zvXydmudH2ePAMgCMdyQOFfrFDmxZkaC26U",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9559",
+        "name": "Sticker | FaZe Clan (Holo) | Budapest 2025",
+        "def_index": "9559",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68obu72bvThH-0MO2_HYP6fT6OPY5JKHDWjHJx-pw4rBvGyjrk0R_6mqEmImvdyiRaAY-SswnXWi518g",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9560",
+        "name": "Sticker | FaZe Clan (Gold) | Budapest 2025",
+        "def_index": "9560",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68obu72bgThH10MbkpCYKvqr2OPM9dfHED2bIw7gm5bdoTXrjl0twtT-AnNerInKVZgI-SswnU7w2rh4",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9561",
+        "name": "Sticker | B8 | Budapest 2025",
+        "def_index": "9561",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69t-6uADkQkqpz8WzrSFdvqKsbqFrdqDBVjOUxLx15LZqSXzgkBlwsWzVnMHpLyxHUznFMw",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9562",
+        "name": "Sticker | B8 (Embroidered) | Budapest 2025",
+        "def_index": "9562",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69t_L71TlUxL4mpPy-CYV6av6bvFodfaXXj6Rk-hz5rE-Fni1lB4m5znXmNatIyjEa1UpDpd2EflK7EcT1Ju-5g",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9563",
+        "name": "Sticker | B8 (Holo) | Budapest 2025",
+        "def_index": "9563",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69t_L4lbrTlP0xpDipHtfuPSqP_Q1d6HCDGLJlrh15eM_TXm3lBwh5W_dmYr8JHiUcEZ-XR8rPMqq",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9564",
+        "name": "Sticker | B8 (Gold) | Budapest 2025",
+        "def_index": "9564",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM69t_L7VbrRVOlycW4_nBf7aKoPPA6IvPBWjHCw74n4Lg7Si-ylktx4WnXmI2peSrBcEZ-XY2Z5yrj",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9565",
+        "name": "Sticker | GamerLegion | Budapest 2025",
+        "def_index": "9565",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM684u6vFqwR0j3ncOw_HYM7Kutbv1ucafGCjHDkL4msrZoHizjzUgm5TyEy8HpLywaL64eGg",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9566",
+        "name": "Sticker | GamerLegion (Embroidered) | Budapest 2025",
+        "def_index": "9566",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM684vL71TlUxL4mpPy-CYV7KatbPZrIvbGVzPAxLtz6eVoSSvilB934juEydz4J3LEOwApWZZwTPlK7Ee5TL1q4Q",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9567",
+        "name": "Sticker | GamerLegion (Holo) | Budapest 2025",
+        "def_index": "9567",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM684vL4lbrTlOiysCx_iAM7fT3MfFuc6LBDTfEk7ggs-A6TH_jwk0m5D_czNqhJXOQcEZ-Xc5gHIYS",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9568",
+        "name": "Sticker | GamerLegion (Gold) | Budapest 2025",
+        "def_index": "9568",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM684vL7VbrRVPwn5fkrSAO6av8MPY0I6mWVz7CmLsh6LVqTHC1xUR-sj7Tm9aoc3KRcEZ-XawnX05O",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9569",
+        "name": "Sticker | fnatic | Budapest 2025",
+        "def_index": "9569",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ong6RflEx6knMa3_yAI6fb4PvI9cqTKWz-Wwr1y4bA5S3jnkE0l4D7Xzdn8bzvJOWmVyPXH",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9570",
+        "name": "Sticker | fnatic (Embroidered) | Budapest 2025",
+        "def_index": "9570",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ong6WbiTB_jkZ_k-DBe67z8afdrIanCDDaTw7Yu5LM4HSvnxUR1sTyBmI79eC6TaAUnXJUhFOIDrFDmxaqBS0kF",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9571",
+        "name": "Sticker | fnatic (Holo) | Budapest 2025",
+        "def_index": "9571",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ong6WbvThH-0JC2qXYPvKWqa_Q9I_SQWzfHmb0k4LA4Hyyykx4k4WnVmdqgdXOVPQI-SswnRomjy3g",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9572",
+        "name": "Sticker | fnatic (Gold) | Budapest 2025",
+        "def_index": "9572",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ong6WbgThH10JK2qncKvPb2MPc6JKWXWjXFkusj5-M-GXjqzR5w5TvXyY2rdymUaFQ-SswnnNVunEA",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9573",
+        "name": "Sticker | PARIVISION | Budapest 2025",
+        "def_index": "9573",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ibm4xe_GUvwnZXmqnpft6asPPZsdKPECmXCxb8v5uM9HnHjx0t25GrTn46sbzvJOX1Soo-m",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9574",
+        "name": "Sticker | PARIVISION (Embroidered) | Budapest 2025",
+        "def_index": "9574",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ibm42biTB_jkZ_k-DBe67z3MfQ5caLKVzaTlrgm5LhrH3_rwUp0t2TSzoqqcymfaAZyXpImFuVZrFDmxUExnbGQ",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9575",
+        "name": "Sticker | PARIVISION (Holo) | Budapest 2025",
+        "def_index": "9575",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ibm42bvThH-0JDkqyBd6fetPvBrdKGXVmLElOog4LIwHH7nkRt3tz-AzNypdiqRbFQ-SswnhypGyf0",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9576",
+        "name": "Sticker | PARIVISION (Gold) | Budapest 2025",
+        "def_index": "9576",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65Ibm42bgThH10MDj_iEDvKX7P6JvdvHBCjWRlb8n6OVoGyi3xk0m5mWGwt-ocH7BbQQ-SswnLuWDwvg",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9577",
+        "name": "Sticker | Ninjas in Pyjamas | Budapest 2025",
+        "def_index": "9577",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-o7kpA6yFEylmJCwq3tfuqT2PqZuJKaXCj_Hwr11s7E8Tn3hzRl1tmzXm9y3MSXA_YWUteA",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9578",
+        "name": "Sticker | Ninjas in Pyjamas (Embroidered) | Budapest 2025",
+        "def_index": "9578",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-o7k1VzqQw_-l5Ll7ydfoab3aaJoIaHADDHHkOwi6LRoHn_gxk0k4m_Qmdn9JXuebAUgCpF1QuYU8k7v4DKWLHQ",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9579",
+        "name": "Sticker | Ninjas in Pyjamas (Holo) | Budapest 2025",
+        "def_index": "9579",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-o7k1VHoTRK_zcHlrXYO7qD7MKc9IaHCDzHEmb8utbdvHHuyxUok6j7QzY34c3KSahhgVMWbKc5NHw",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9580",
+        "name": "Sticker | Ninjas in Pyjamas (Gold) | Budapest 2025",
+        "def_index": "9580",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-o7k1V7oTRm_m5S4_yEPuPP5a_ZueKXCDGbExLoutLg9GnG3wEhx5Gjcydz7dSjGaBhgVMXNNi398A",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9581",
+        "name": "Sticker | Imperial Esports | Budapest 2025",
+        "def_index": "9581",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_YrkpAnlQ0-kyZCw-3Ba6vf8bfBuJKnDDWXFwOou4eA6TXGyk0Vw6j-EmN23MSXATD_ocLA",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9582",
+        "name": "Sticker | Imperial Esports (Embroidered) | Budapest 2025",
+        "def_index": "9582",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_Yrk1VzqQw_-l5Ll7ydfoaf6OfA9IaXBCGTFwrwk47JvSXzjxBwl4mXWnt2ocimQZwZ1WZQjROQU8k7vKrlOWLc",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9583",
+        "name": "Sticker | Imperial Esports (Holo) | Budapest 2025",
+        "def_index": "9583",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_Yrk1VHoTRK_n5K4pCALvKL5afQ9I_bHDTTBkbsl4LIwTnviwxwi6m3cw9f_eC-TaRhgVMUElpdM_g",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9584",
+        "name": "Sticker | Imperial Esports (Gold) | Budapest 2025",
+        "def_index": "9584",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_Yrk1V7oTRm_ysC3-CNd66qrOaFvIaLEVz6Sx74itbJsGizmkRx1t2iAw4n9cXiQahhgVMVTjR9-hA",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9585",
+        "name": "Sticker | FlyQuest | Budapest 2025",
+        "def_index": "9585",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pa66VjkFEilys-5_yEC7ar7OaU_cPbGXj_ClOgk4-M-Fy3mwU136zvcnMHpLyxKo0CmcQ",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9586",
+        "name": "Sticker | FlyQuest (Embroidered) | Budapest 2025",
+        "def_index": "9586",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pbL71TlUxL4mpPy-CYV6vaoaf08dKbHWWGRk-svtuU_F3nhl0p-sTnXy96teHvEPVNxXsN0R_lK7Ec-2RSX-A",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9587",
+        "name": "Sticker | FlyQuest (Holo) | Budapest 2025",
+        "def_index": "9587",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pbL4lbrTlP3zsTi-3IM6vaoafY5d_HLDTKUwO0vtOUwS3rhkxkmsD7Uzt2oeHqTcEZ-XedHi_RB",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9588",
+        "name": "Sticker | FlyQuest (Gold) | Budapest 2025",
+        "def_index": "9588",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68pbL7VbrRVOnx8G2qnpd66D8OKY4IvTECGPJl7gi5LNsHC_nzEh24TvTzdagdijDcEZ-XWAOwfYS",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9589",
+        "name": "Sticker | Lynn Vision | Budapest 2025",
+        "def_index": "9589",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-J765Be3QBipxpTirXMD6vH2MPA6JvOQXzDJxOogtec6GyvhxEl_5T-AnturbzvJOdDJFLEW",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9590",
+        "name": "Sticker | Lynn Vision (Embroidered) | Budapest 2025",
+        "def_index": "9590",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-J765GbiTB_jkZ_k-DBe67z8OfE5IvXBCj_EkexwtLBoSSiwxR92627RzdardC_EbgYhWMEkEOECrFDmxT-Tl20d",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9591",
+        "name": "Sticker | Lynn Vision (Holo) | Budapest 2025",
+        "def_index": "9591",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-J765GbvThH-0JOwrnpftqf6OPw8cqaXXWbAwLkjsrkxFy_gwBlz5m6HnNn_dn2XPwE-SswnX505L24",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9592",
+        "name": "Sticker | Lynn Vision (Gold) | Budapest 2025",
+        "def_index": "9592",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-J765GbgThH10MO0-XAJtqaqOPA4c_WRCDKWmLYv5bZtHn61zB9ysmiBn4z8dy_EOg8-SswnGkq6UaI",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9593",
+        "name": "Sticker | M80 | Budapest 2025",
+        "def_index": "9593",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-d-kpACzRxv1zse0_HMJt6T8PP05JqaRDTLGkehz4bE5Si21zEVx5G2Awty3MSXAlWHZXXk",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9594",
+        "name": "Sticker | M80 (Embroidered) | Budapest 2025",
+        "def_index": "9594",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-d-k1VzqQw_-l5Ll7ydfoar5a6E_cqSXCzTBluwntLI7Syi1xk1w5GXSzd36IH7FalMhXpYkQuAU8k7vxVUIRhI",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9595",
+        "name": "Sticker | M80 (Holo) | Budapest 2025",
+        "def_index": "9595",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-d-k1VHoTRK_ysC3-HIMvaqsOqU1dfSXVjOWlu0m47VtHCrgxkV-sj7SyY2sdSmXbRhgVMWLRdcQAg",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9596",
+        "name": "Sticker | M80 (Gold) | Budapest 2025",
+        "def_index": "9596",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-d-k1V7oTRm_ys-0rXEK7Kr_avE4JqPHWTORkbku5rc4THDgx0oh6mXVmNagIn6RaBhgVMVExNF3oA",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9597",
+        "name": "Sticker | Fluxo | Budapest 2025",
+        "def_index": "9597",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ovh8hezREz0zM_jqycN7Kb8aqc6IaKWWjWSmbpzteU-HHjmlEoh4mncm4uvbzvJOUTULOBN",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9598",
+        "name": "Sticker | Fluxo (Embroidered) | Budapest 2025",
+        "def_index": "9598",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ovh8mbiTB_jkZ_k-DBe67z_Ov05IqLDVz7Bme8l5-U-Fiq1l0R2t2_SyNmhcS3BaQZyCcN4FuEPrFDmxWeeQ9Cs",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9599",
+        "name": "Sticker | Fluxo (Holo) | Budapest 2025",
+        "def_index": "9599",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ovh8mbvThH-0JSwrScMufOsPaI4eKDBWjCVke8j6bIxTS_nxUR25WnWmNioeSqQPFA-SswndDkJYQw",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9600",
+        "name": "Sticker | Fluxo (Gold) | Budapest 2025",
+        "def_index": "9600",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM68ovh8mbgThH10JXlpHJev6f6PPc1cfPFCjLImOshtbQwG3_nw050tm3Wz476J3ySP1U-Sswnd3xEi8U",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9601",
+        "name": "Sticker | RED Canids | Budapest 2025",
+        "def_index": "9601",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65oLw6RezEhnzz8Dj-3IM7fOvO_07dvTLCmHJwLcntecwGXG1k0whtjzVw4mobzvJOXk1CEph",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9602",
+        "name": "Sticker | RED Canids (Embroidered) | Budapest 2025",
+        "def_index": "9602",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65oLw6WbiTB_jkZ_k-DBe67yqOPM0daLFDGHGle0htedvG3m1kxh_4GTTnomsIy6WbQAjCpN2E-cOrFDmxWyyAoci",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9603",
+        "name": "Sticker | RED Canids (Holo) | Budapest 2025",
+        "def_index": "9603",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65oLw6WbvThH-0MbmrnFZuvCvPqA5cqbBVjfJmesjteQ4GH_lzB5z5mTdz46sIHyeOwQ-SswnzYLQlNw",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9604",
+        "name": "Sticker | RED Canids (Gold) | Budapest 2025",
+        "def_index": "9604",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65oLw6WbgThH10JC2rnAJv6avbvY0cfGQC2GTmOgls7c6TXi1xRgj4D7Rn9ihd3mSa1U-SswnB4XVL3k",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9605",
+        "name": "Sticker | The Huns | Budapest 2025",
+        "def_index": "9605",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_JL6-RfiERv3nMG2-ycP7vH-MPw4caKXWDfHkr9y6OI6HHGwwxx15mSHyt6pbzvJOUSeHn_p",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9606",
+        "name": "Sticker | The Huns (Embroidered) | Budapest 2025",
+        "def_index": "9606",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_JL6-WbiTB_jkZ_k-DBe67z5bfFuIqDAXmSWkrwitedsHiu2zEwl4G2Bzd2vInrDZgIhX5ZyQOYDrFDmxeN3gkmP",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9607",
+        "name": "Sticker | The Huns (Holo) | Budapest 2025",
+        "def_index": "9607",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_JL6-WbvThH-0MTjqHJf7PH5MPI0dqXDV2LDwL0ktbhrS3Dilk0ksjuHzdr8IH7GaQY-SswnHNfW4Gg",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9608",
+        "name": "Sticker | The Huns (Gold) | Budapest 2025",
+        "def_index": "9608",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6_JL6-WbgThH10MSwqnoPuPH9OPI4dKOVX2KUk7cg4rdsHS3qxhwl5DyEw979JXqeOAI-SswnsdGEOEU",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9609",
+        "name": "Sticker | NRG | Budapest 2025",
+        "def_index": "9609",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-pXzpA7lR0ymy5fkqicJ7vf3MPw1JKjLVj6SmLpy5udoS3Cxwh5_4jzVzde3MSXAVVDblnA",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9610",
+        "name": "Sticker | NRG (Embroidered) | Budapest 2025",
+        "def_index": "9610",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-pXz1VzqQw_-l5Ll7ydfofH_PPVuc6jAVmXFwOhzs-RtHC-2xUgjsm_Xy9j_JHjEaFIhCMN1ReYU8k7vbq4N_Vs",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9611",
+        "name": "Sticker | NRG (Holo) | Budapest 2025",
+        "def_index": "9611",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-pXz1VHoTRK_ncC4rXdZuvH2O_M7JvKQWDbJl7wn6OQxGnGxw0Qj4WXXwt34dnqVOBhgVMWKXOhyYQ",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9612",
+        "name": "Sticker | NRG (Gold) | Budapest 2025",
+        "def_index": "9612",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM6-pXz1V7oTRm_ncC5-SYO7KH_PvRsI6XBDT_Ak-oitbFoHSq3wBty4TzQn96qd3mTaRhgVMUsKZTsgw",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9613",
+        "name": "Sticker | Rare Atom | Budapest 2025",
+        "def_index": "9613",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65obg5xfmFE-pzpXh-HsL7KOsMfZocKCQXTHGkL0lsuI8Fiqywxtytz_QmNqpbzvJOW2zF9OU",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9614",
+        "name": "Sticker | Rare Atom (Embroidered) | Budapest 2025",
+        "def_index": "9614",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65obg52biTB_jkZ_k-DBe67yqafM8IvHEDTTHx7sitrFvGC3kxkQh52qEz437J3mfbwR2DsEiRrIJrFDmxfS8Ewkb",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9615",
+        "name": "Sticker | Rare Atom (Holo) | Budapest 2025",
+        "def_index": "9615",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65obg52bvThH-0JW3rCNfvKv-OPc_c6mXXT7Ck7sj57c9G3-2xksjt2vTydj_eXvDPwE-SswnFnUDq9Y",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9616",
+        "name": "Sticker | Rare Atom (Gold) | Budapest 2025",
+        "def_index": "9616",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM65obg52bgThH10JflqCEDv_P5O_A-IvbAWTKRmb4lsbEwTHrqxBhz6j7cy4v4ciqUPQQ-Sswn5oZAoAs",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9617",
+        "name": "Sticker | StarLadder | Budapest 2025",
+        "def_index": "9617",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655P1-BezQEykz5e5-3RaufD6PvJseKGVXGXGxLgm5-c-Sn-yl0x14GzRnI6hbzvJOWz0bJU4",
+        "rarity": {
+            "id": "rarity_rare",
+            "name": "High Grade"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            },
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            },
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9618",
+        "name": "Sticker | StarLadder (Embroidered) | Budapest 2025",
+        "def_index": "9618",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655P1-GbiTB_jkZ_k-DBe67yrOPc-I6bKWjTIx-xy4rBsSnnkkUp-62zVm939Iy-QPQByW5UkRLYKrFDmxWOKcwGF",
+        "rarity": {
+            "id": "rarity_mythical",
+            "name": "Remarkable"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            },
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            },
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9619",
+        "name": "Sticker | StarLadder (Holo) | Budapest 2025",
+        "def_index": "9619",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655P1-GbvThH-0MawqXpa7qH-OvRvcKKRVjKTl70k6LZoG33glh936mjcmd-rd3iSagQ-Sswnp24Xzcg",
+        "rarity": {
+            "id": "rarity_legendary",
+            "name": "Exotic"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            },
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            },
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    },
+    {
+        "id": "sticker-9620",
+        "name": "Sticker | StarLadder (Gold) | Budapest 2025",
+        "def_index": "9620",
+        "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMi0MSnHtwM655P1-GbgThH10M_mrHACufP_OKc1dqGWDGPAmbsg47RqGn_hkx5w5GvWw92sJSmWbgc-Sswny6ADW94",
+        "rarity": {
+            "id": "rarity_ancient",
+            "name": "Extraordinary"
+        },
+        "crates": [
+            {
+                "id": "crate-5216",
+                "name": "Budapest 2025 Legends Sticker Capsule"
+            },
+            {
+                "id": "crate-5217",
+                "name": "Budapest 2025 Challengers Sticker Capsule"
+            },
+            {
+                "id": "crate-5218",
+                "name": "Budapest 2025 Contenders Sticker Capsule"
+            }
+        ],
+        "collections": []
+    }
+]

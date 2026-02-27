@@ -135,6 +135,43 @@
         <h2>Логування</h2>
         <pre id="log-output" class="log-output"></pre>
       </section>
+
+      <section class="theory-section card">
+        <h2>Теоретично відкритих капсул подобово</h2>
+        <p class="theory-note">
+          Дані базуються на основі середньо добового продажу "як є", нажаль
+          порахувати точно не вийде але наближені цифри і розуміння ситуації воно дасть.
+        </p>
+        <div class="controls">
+          <button id="theory-button" type="button">Порахувати по історії продажів</button>
+          <span id="theory-status" class="status">Очікування запуску…</span>
+        </div>
+        <div id="theory-output" class="theory-output">Ще немає розрахунку.</div>
+      </section>
+
+      <section class="theory-section card">
+        <h2>Теоретично відкритих капсул по турнірах (2021–2025)</h2>
+        <p class="theory-note">
+          Аналіз по stickers_clean.json для капсул Contenders/Challengers/Legends без Autograph.
+        </p>
+        <div class="theory-filters">
+          <div class="option theory-select-wrap">
+            <span>Турніри:</span>
+            <div id="theory-tournament-list" class="theory-tournament-list"></div>
+          </div>
+          <label class="option theory-range-wrap" for="theory-day-start">
+            Діапазон днів від старту історії:
+            <input type="number" id="theory-day-start" min="0" step="1" value="0" />
+            —
+            <input type="number" id="theory-day-end" min="1" step="1" value="180" />
+          </label>
+        </div>
+        <div class="controls">
+          <button id="theory-tournament-button" type="button">Порахувати вибраний турнір</button>
+          <span id="theory-tournament-status" class="status">Очікування запуску…</span>
+        </div>
+        <div id="theory-tournament-output" class="theory-output">Ще немає розрахунку.</div>
+      </section>
     </main>
     </div>
 

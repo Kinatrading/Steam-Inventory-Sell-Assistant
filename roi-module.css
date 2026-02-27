@@ -78,3 +78,76 @@
   background: #0f172a;
   color: var(--text);
 }
+
+.theory-section {
+  margin-top: 14px;
+}
+
+.theory-note {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.theory-output {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0f172a;
+  white-space: pre-wrap;
+  max-height: 340px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+.theory-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.theory-select-wrap,
+.theory-range-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#theory-day-start,
+#theory-day-end {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+}
+
+#theory-day-start,
+#theory-day-end {
+  width: 84px;
+}
+
+
+.theory-tournament-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 860px;
+}
+
+.theory-tournament-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: #0f172a;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.theory-tournament-item input {
+  margin: 0;
+}

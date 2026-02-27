@@ -58,6 +58,15 @@ const statusEl = document.getElementById("status");
 const cookieStatusEl = document.getElementById("cookie-status");
 const exclude003Checkbox = document.getElementById("exclude-003");
 const excludePriceThresholdInput = document.getElementById("exclude-price-threshold");
+const theoryButton = document.getElementById("theory-button");
+const theoryStatusEl = document.getElementById("theory-status");
+const theoryOutputEl = document.getElementById("theory-output");
+const theoryTournamentButton = document.getElementById("theory-tournament-button");
+const theoryTournamentStatusEl = document.getElementById("theory-tournament-status");
+const theoryTournamentOutputEl = document.getElementById("theory-tournament-output");
+const theoryTournamentListEl = document.getElementById("theory-tournament-list");
+const theoryDayStartEl = document.getElementById("theory-day-start");
+const theoryDayEndEl = document.getElementById("theory-day-end");
 
 const DEFAULT_BASE_PRICE = 0.21;
 const RARITY_CONFIG = {
@@ -89,6 +98,64 @@ const STEAM_FEE_THRESHOLD = 0.17;
 const STEAM_FEE_FLAT = 0.02;
 const EXCLUDE_PRICE_DEFAULT = 0.03;
 const EXCLUDE_PRICE_EPSILON = 0.0001;
+const THEORY_DATASET_PATH = "filtered_budapest_2025.json";
+const THEORY_TOURNAMENT_DATASET_CANDIDATE_PATHS = ["stickers_clean.json", "../stickers_clean.json", "/stickers_clean.json"];
+const THEORY_TOURNAMENT_YEAR_MIN = 2021;
+const THEORY_TOURNAMENT_YEAR_MAX = 2025;
+const THEORY_FETCH_DELAY_MS = 220;
+const THEORY_MULTI_TOURNAMENT_FETCH_DELAY_MS = 1000;
+const THEORY_RETRY_429_DELAY_MS = 3 * 60 * 1000;
+const PRICE_HISTORY_URL = "https://steamcommunity.com/market/pricehistory/?appid=730&market_hash_name=";
+const THEORY_HISTORY_CACHE_KEY = "roiTheoryHistoryCache";
+const THEORY_HISTORY_CACHE_TTL_MS = 12 * 60 * 60 * 1000;
+const THEORY_RECENT_DAYS = 30;
+const THEORY_RARITY_DENOMINATOR = {
+  Remarkable: 6.2,
+  Exotic: 32,
+  Extraordinary: 156
+};
+
+const THEORY_CAPSULE_TYPES = new Set(["contenders", "challengers", "legends"]);
+
+const parseStickerCapsuleMeta = (capsuleName) => {
+  if (typeof capsuleName !== "string") {
+    return null;
+  }
+  const match = capsuleName.match(/^(.*)\s+(Contenders|Challengers|Legends)\s+Sticker Capsule$/i);
+  if (!match) {
+    return null;
+  }
+  return {
+    tournamentName: match[1]?.trim() || "",
+    capsuleType: match[2].toLowerCase(),
+    capsuleName: capsuleName.trim()
+  };
+};
+
+const isSharedAcrossAllThreeCapsules = (item) => {
+  const crates = Array.isArray(item?.crates) ? item.crates : [];
+  const parsed = crates
+    .map((crate) => parseStickerCapsuleMeta(crate?.name))
+    .filter((value) => value && value.tournamentName);
+
+  if (parsed.length < 3) {
+    return false;
+  }
+
+  const byTournament = new Map();
+  parsed.forEach((entry) => {
+    if (!byTournament.has(entry.tournamentName)) {
+      byTournament.set(entry.tournamentName, new Set());
+    }
+    byTournament.get(entry.tournamentName).add(entry.capsuleType);
+  });
+
+  return Array.from(byTournament.values()).some(
+    (capsulesSet) =>
+      THEORY_CAPSULE_TYPES.size === capsulesSet.size &&
+      Array.from(THEORY_CAPSULE_TYPES).every((capsuleType) => capsulesSet.has(capsuleType))
+  );
+};
 
 const RARITY_BY_COLOR = Object.fromEntries(
   Object.entries(RARITY_CONFIG).map(([key, value]) => [value.color.toLowerCase(), key])
@@ -540,7 +607,9 @@ const appendCapsuleRowsFromUrl = async (url, items) => {
   const data = await response.json();
   const rows = parseCapsuleBaseHtml(data.results_html || "");
   rows.forEach((row) => {
-    items.push(row);
+    if (isStickerCapsule(row.name)) {
+      items.push(row);
+    }
   });
 };
 
@@ -610,7 +679,10 @@ const buildBasePriceMap = (capsuleItems, tournaments) => {
       const match = normalizedItems.find(
         (item) =>
           aliases.some((alias) => item.nameLower.includes(alias)) &&
-          item.nameLower.includes(capsuleLower)
+          item.nameLower.includes(capsuleLower) &&
+          (item.nameLower.includes("sticker") || item.nameLower.includes("наліп")) &&
+          !item.nameLower.includes("autograph") &&
+          !item.nameLower.includes("автограф")
       );
       tournamentMap.set(capsule.key, match?.priceValue ?? DEFAULT_BASE_PRICE);
     });
@@ -618,6 +690,663 @@ const buildBasePriceMap = (capsuleItems, tournaments) => {
   });
 
   return map;
+};
+
+const updateTheoryStatus = (message) => {
+  if (theoryStatusEl) {
+    theoryStatusEl.textContent = message;
+  }
+  pushLive(`Теорія: ${message}`, "info");
+};
+
+const normalizeSaleCount = (value) => {
+  const parsed = Number.parseInt(String(value).replace(/[^\d]/g, ""), 10);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const formatDayKey = (value) => {
+  const parsed = Date.parse(value);
+  if (!Number.isFinite(parsed)) {
+    return null;
+  }
+  return new Date(parsed).toISOString().slice(0, 10);
+};
+
+const groupDatasetByCapsule = (items) => {
+  const grouped = new Map();
+  items.forEach((item) => {
+    const rarityName = item?.rarity?.name;
+    if (rarityName === "High Grade") {
+      return;
+    }
+    if (isSharedAcrossAllThreeCapsules(item)) {
+      return;
+    }
+    const denominator = THEORY_RARITY_DENOMINATOR[rarityName];
+    if (!denominator) {
+      return;
+    }
+    const capsuleName = item?.crates?.[0]?.name;
+    if (!capsuleName) {
+      return;
+    }
+    if (!grouped.has(capsuleName)) {
+      grouped.set(capsuleName, []);
+    }
+    grouped.get(capsuleName).push({
+      name: item.name,
+      rarityName,
+      denominator
+    });
+  });
+
+  grouped.forEach((itemsInCapsule, capsuleName) => {
+    const byRarity = itemsInCapsule.reduce((acc, item) => {
+      acc[item.rarityName] = (acc[item.rarityName] || 0) + 1;
+      return acc;
+    }, {});
+
+    grouped.set(
+      capsuleName,
+      itemsInCapsule.map((item) => ({
+        ...item,
+        chanceMultiplier: item.denominator * (byRarity[item.rarityName] || 1)
+      }))
+    );
+  });
+
+  return grouped;
+};
+
+const buildDailySalesRows = (historyRows) => {
+  const salesByDay = new Map();
+  historyRows.forEach((row) => {
+    const dayKey = formatDayKey(row?.[0]);
+    if (!dayKey) {
+      return;
+    }
+    const sold = normalizeSaleCount(row?.[2]);
+    salesByDay.set(dayKey, (salesByDay.get(dayKey) || 0) + sold);
+  });
+  return Array.from(salesByDay.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+};
+
+const normalizeCachedHistoryRows = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return [];
+  }
+
+  const looksCompact =
+    Array.isArray(rows[0]) &&
+    rows[0].length >= 2 &&
+    typeof rows[0][0] === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(rows[0][0]);
+
+  if (looksCompact) {
+    return rows.map((row) => [String(row[0]), normalizeSaleCount(row[1])]);
+  }
+
+  return buildDailySalesRows(rows);
+};
+
+const loadTheoryHistoryCache = () => {
+  try {
+    const raw = localStorage.getItem(THEORY_HISTORY_CACHE_KEY);
+    if (!raw) {
+      return {};
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch (error) {
+    return {};
+  }
+};
+
+const saveTheoryHistoryCache = (cache) => {
+  try {
+    localStorage.setItem(THEORY_HISTORY_CACHE_KEY, JSON.stringify(cache));
+  } catch (error) {
+    // ignore storage errors
+  }
+};
+
+const getCachedHistoryRows = (cache, marketHashName) => {
+  const entry = cache[marketHashName];
+  if (!entry || !Array.isArray(entry.rows) || !Number.isFinite(entry.ts)) {
+    return null;
+  }
+  if (Date.now() - entry.ts > THEORY_HISTORY_CACHE_TTL_MS) {
+    return null;
+  }
+  return normalizeCachedHistoryRows(entry.rows);
+};
+
+const putCachedHistoryRows = (cache, marketHashName, rows, persist = false) => {
+  cache[marketHashName] = {
+    ts: Date.now(),
+    rows: normalizeCachedHistoryRows(rows)
+  };
+  if (persist) {
+    saveTheoryHistoryCache(cache);
+  }
+};
+
+const fetchStickerPriceHistory = async (marketHashName) => {
+  const url = `${PRICE_HISTORY_URL}${encodeURIComponent(marketHashName)}`;
+
+  while (true) {
+    const response = await fetch(url, {
+      credentials: "include",
+      headers: {
+        "Accept-Language": "en-US,en;q=0.9",
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    });
+
+    if (response.status === 429) {
+      const retryMsg = `HTTP 429 для ${marketHashName}. Пауза 3 хв і повтор...`;
+      updateTheoryStatus(retryMsg);
+      updateTheoryTournamentStatus(retryMsg);
+      await sleep(THEORY_RETRY_429_DELAY_MS);
+      continue;
+    }
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} для ${marketHashName}`);
+    }
+
+    const data = await response.json();
+    return Array.isArray(data?.prices) ? data.prices : [];
+  }
+};
+
+const analyzeSales = (historyRows) => {
+  const sortedDays = normalizeCachedHistoryRows(historyRows);
+  const totalSold = sortedDays.reduce((acc, [, value]) => acc + value, 0);
+  const daysCount = sortedDays.length;
+  const averageSoldPerDay = daysCount === 0 ? 0 : totalSold / daysCount;
+  const recentEntries = sortedDays.slice(-THEORY_RECENT_DAYS);
+  const recentSoldTotal = recentEntries.reduce((acc, [, value]) => acc + value, 0);
+  const averageSoldPerDay30d =
+    recentEntries.length === 0 ? 0 : recentSoldTotal / recentEntries.length;
+
+  return {
+    daysCount,
+    totalSold,
+    averageSoldPerDay,
+    averageSoldPerDay30d
+  };
+};
+
+const renderTheoryOutput = (capsuleRows) => {
+  if (!theoryOutputEl) {
+    return;
+  }
+  if (!capsuleRows.length) {
+    theoryOutputEl.textContent = "Немає даних для обраного набору.";
+    return;
+  }
+
+  const lines = [];
+  capsuleRows.forEach((capsule) => {
+    lines.push(`${capsule.capsuleName} (market_hash_name: ${capsule.capsuleName})`);
+    lines.push("-".repeat(72));
+    capsule.items.forEach((item) => {
+      lines.push(
+        `${item.name} | ${item.rarityName} | продано/доба(вся) ${item.averageSoldPerDay.toFixed(2)} | ` +
+          `продано/доба(30д) ${item.averageSoldPerDay30d.toFixed(2)} | множник ${item.chanceMultiplier.toFixed(2)} | ` +
+          `теоретично капсул/доба(вся) ${item.theoreticalOpened.toFixed(2)} | теоретично капсул/доба(30д) ${item.theoreticalOpened30d.toFixed(2)}`
+      );
+    });
+    lines.push(`Мінімально відкрито: ${capsule.minOpened.toFixed(2)} (продажі/доба: ${capsule.minSold.toFixed(2)})`);
+    lines.push(`Середнє значення: ${capsule.avgOpened.toFixed(2)} (продажі/доба: ${capsule.avgSold.toFixed(2)})`);
+    lines.push(`Середнє значення за останні 30 днів: ${capsule.avgOpened30d.toFixed(2)} (продажі/доба: ${capsule.avgSold30d.toFixed(2)})`);
+    lines.push(`Максимально відкрито: ${capsule.maxOpened.toFixed(2)} (продажі/доба: ${capsule.maxSold.toFixed(2)})`);
+    lines.push("");
+  });
+
+  theoryOutputEl.textContent = lines.join("\n");
+};
+
+const updateTheoryTournamentStatus = (message) => {
+  if (theoryTournamentStatusEl) {
+    theoryTournamentStatusEl.textContent = message;
+  }
+  pushLive(`Теорія (турніри): ${message}`, "info");
+};
+
+const parseTournamentCapsuleName = (capsuleName) => {
+  if (typeof capsuleName !== "string") {
+    return null;
+  }
+  if (/autograph/i.test(capsuleName)) {
+    return null;
+  }
+  const parsedMeta = parseStickerCapsuleMeta(capsuleName);
+  if (!parsedMeta) {
+    return null;
+  }
+  const tournamentName = parsedMeta.tournamentName;
+  if (!tournamentName) {
+    return null;
+  }
+  const yearMatch = tournamentName.match(/(20\d{2})/);
+  if (!yearMatch) {
+    return null;
+  }
+  const year = Number.parseInt(yearMatch[1], 10);
+  if (!Number.isFinite(year) || year < THEORY_TOURNAMENT_YEAR_MIN || year > THEORY_TOURNAMENT_YEAR_MAX) {
+    return null;
+  }
+  return {
+    tournamentName,
+    capsuleName: capsuleName.trim()
+  };
+};
+
+const buildTournamentTheoryMap = (datasetItems) => {
+  const tournamentMap = new Map();
+
+  datasetItems.forEach((item) => {
+    const rarityName = item?.rarity?.name;
+    if (rarityName === "High Grade") {
+      return;
+    }
+    if (isSharedAcrossAllThreeCapsules(item)) {
+      return;
+    }
+    const denominator = THEORY_RARITY_DENOMINATOR[rarityName];
+    if (!denominator) {
+      return;
+    }
+
+    const crates = Array.isArray(item?.crates) ? item.crates : [];
+    const validCapsule = crates
+      .map((crate) => parseTournamentCapsuleName(crate?.name))
+      .find((parsed) => parsed !== null);
+
+    if (!validCapsule) {
+      return;
+    }
+
+    if (!tournamentMap.has(validCapsule.tournamentName)) {
+      tournamentMap.set(validCapsule.tournamentName, new Map());
+    }
+    const capsulesMap = tournamentMap.get(validCapsule.tournamentName);
+    if (!capsulesMap.has(validCapsule.capsuleName)) {
+      capsulesMap.set(validCapsule.capsuleName, []);
+    }
+
+    capsulesMap.get(validCapsule.capsuleName).push({
+      name: item.name,
+      rarityName,
+      denominator
+    });
+  });
+
+  tournamentMap.forEach((capsulesMap, tournamentName) => {
+    const normalizedCapsules = new Map();
+    capsulesMap.forEach((stickers, capsuleName) => {
+      const byRarity = stickers.reduce((acc, sticker) => {
+        acc[sticker.rarityName] = (acc[sticker.rarityName] || 0) + 1;
+        return acc;
+      }, {});
+
+      normalizedCapsules.set(
+        capsuleName,
+        stickers.map((sticker) => ({
+          ...sticker,
+          chanceMultiplier: sticker.denominator * (byRarity[sticker.rarityName] || 1)
+        }))
+      );
+    });
+    tournamentMap.set(tournamentName, normalizedCapsules);
+  });
+
+  return new Map(Array.from(tournamentMap.entries()).sort((a, b) => a[0].localeCompare(b[0])));
+};
+
+const analyzeSalesInDayRange = (historyRows, dayStart, dayEnd) => {
+  const sortedDays = normalizeCachedHistoryRows(historyRows);
+  const startIndex = Math.max(0, Math.floor(dayStart));
+  const hasEnd = Number.isFinite(dayEnd) && dayEnd > startIndex;
+  const endIndex = hasEnd ? Math.floor(dayEnd) : sortedDays.length;
+  const selectedDays = sortedDays.slice(startIndex, endIndex);
+  const soldValues = selectedDays.map(([, sold]) => sold);
+  const totalSold = soldValues.reduce((acc, sold) => acc + sold, 0);
+  const daysCount = soldValues.length;
+
+  return {
+    periodLabel: `${startIndex}-${hasEnd ? endIndex : "кінець"}`,
+    daysCount,
+    averageSoldPerDay: daysCount === 0 ? 0 : totalSold / daysCount
+  };
+};
+
+const buildCompactTournamentSummaryLines = (tournamentName, periodLabel, capsuleRows) => {
+  const lines = [`Турнір: ${tournamentName}`, `Період днів від старту історії: ${periodLabel}`, ""];
+  capsuleRows.forEach((capsule) => {
+    lines.push(`${capsule.capsuleName}`);
+    lines.push(`Мінімально відкрито/доба: ${capsule.minOpened.toFixed(2)}`);
+    lines.push(`Середньодобово відкрито: ${capsule.avgOpened.toFixed(2)}`);
+    lines.push(`Максимально відкрито/доба: ${capsule.maxOpened.toFixed(2)}`);
+    lines.push("");
+  });
+  return lines;
+};
+
+const renderTheoryTournamentOutput = (tournamentResults, periodLabel) => {
+  if (!theoryTournamentOutputEl) {
+    return;
+  }
+  if (!tournamentResults.length) {
+    theoryTournamentOutputEl.textContent = "Немає даних для обраних турнірів.";
+    return;
+  }
+
+  const lines = [];
+
+  tournamentResults.forEach(({ tournamentName, capsuleRows }) => {
+    lines.push(`Турнір: ${tournamentName}`);
+    lines.push(`Період днів від старту історії: ${periodLabel}`);
+    lines.push("");
+
+    capsuleRows.forEach((capsule) => {
+      lines.push(`${capsule.capsuleName}`);
+      lines.push("-".repeat(72));
+      capsule.items.forEach((item) => {
+        lines.push(
+          `${item.name} | ${item.rarityName} | днів у періоді ${item.daysCount} | ` +
+            `продано/доба ${item.averageSoldPerDay.toFixed(2)} | множник ${item.chanceMultiplier.toFixed(2)} | ` +
+            `теоретично капсул/доба ${item.theoreticalOpened.toFixed(2)}`
+        );
+      });
+      lines.push(`Мінімально відкрито/доба: ${capsule.minOpened.toFixed(2)}`);
+      lines.push(`Середньодобово відкрито: ${capsule.avgOpened.toFixed(2)}`);
+      lines.push(`Максимально відкрито/доба: ${capsule.maxOpened.toFixed(2)}`);
+      lines.push("");
+    });
+  });
+
+  if (tournamentResults.length > 1) {
+    lines.push("=".repeat(72));
+    lines.push("Підсумок по вибраних турнірах");
+    lines.push("=".repeat(72));
+    lines.push("");
+
+    tournamentResults.forEach(({ tournamentName, capsuleRows }) => {
+      lines.push(...buildCompactTournamentSummaryLines(tournamentName, periodLabel, capsuleRows));
+    });
+  }
+
+  theoryTournamentOutputEl.textContent = lines.join("\n");
+};
+
+const loadTournamentDataset = async () => {
+  const candidates = [
+    ...(typeof chrome !== "undefined" && chrome.runtime?.getURL
+      ? THEORY_TOURNAMENT_DATASET_CANDIDATE_PATHS.map((path) => chrome.runtime.getURL(path))
+      : []),
+    ...THEORY_TOURNAMENT_DATASET_CANDIDATE_PATHS
+  ];
+
+  const uniqueCandidates = Array.from(new Set(candidates));
+  for (const url of uniqueCandidates) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        continue;
+      }
+      const data = await response.json();
+      if (Array.isArray(data)) {
+        return data;
+      }
+    } catch (error) {
+      // ignore candidate errors and try next path
+    }
+  }
+
+  throw new Error("Не вдалося завантажити stickers_clean.json");
+};
+
+let tournamentTheoryMap = null;
+
+const ensureTournamentTheoryMap = async () => {
+  if (tournamentTheoryMap) {
+    return tournamentTheoryMap;
+  }
+  updateTheoryTournamentStatus("Завантаження stickers_clean.json...");
+  const dataset = await loadTournamentDataset();
+  tournamentTheoryMap = buildTournamentTheoryMap(dataset);
+  return tournamentTheoryMap;
+};
+
+const getSelectedTheoryTournaments = () => {
+  if (!theoryTournamentListEl) {
+    return [];
+  }
+  return Array.from(theoryTournamentListEl.querySelectorAll('input[type="checkbox"]:checked')).map(
+    (input) => input.value
+  );
+};
+
+const populateTheoryTournamentSelect = async () => {
+  if (!theoryTournamentListEl) {
+    return;
+  }
+  try {
+    const tournamentMap = await ensureTournamentTheoryMap();
+    theoryTournamentListEl.innerHTML = "";
+    Array.from(tournamentMap.keys()).forEach((tournamentName, index) => {
+      const label = document.createElement("label");
+      label.className = "theory-tournament-item";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.value = tournamentName;
+      checkbox.checked = index === 0;
+
+      const textNode = document.createElement("span");
+      textNode.textContent = tournamentName;
+
+      label.appendChild(checkbox);
+      label.appendChild(textNode);
+      theoryTournamentListEl.appendChild(label);
+    });
+    updateTheoryTournamentStatus(`Турнірів знайдено: ${tournamentMap.size}`);
+  } catch (error) {
+    updateTheoryTournamentStatus(`Помилка: ${error.message}`);
+  }
+};
+
+const runTheoryTournamentAnalyzer = async () => {
+  if (!theoryTournamentButton || !theoryTournamentOutputEl || !theoryTournamentListEl) {
+    return;
+  }
+
+  theoryTournamentButton.disabled = true;
+  theoryTournamentOutputEl.textContent = "Збираємо історію...";
+
+  try {
+    const tournamentMap = await ensureTournamentTheoryMap();
+    const selectedTournaments = getSelectedTheoryTournaments();
+    if (selectedTournaments.length === 0) {
+      throw new Error("Оберіть хоча б один турнір у списку.");
+    }
+
+    const dayStart = Number.parseInt(theoryDayStartEl?.value || "0", 10);
+    const dayEndRaw = Number.parseInt(theoryDayEndEl?.value || "0", 10);
+    const normalizedDayStart = Number.isFinite(dayStart) && dayStart >= 0 ? dayStart : 0;
+    const normalizedDayEnd = Number.isFinite(dayEndRaw) && dayEndRaw > normalizedDayStart ? dayEndRaw : NaN;
+    const periodLabel = `${normalizedDayStart}-${Number.isFinite(normalizedDayEnd) ? normalizedDayEnd : "кінець"}`;
+
+    const isMultiTournament = selectedTournaments.length > 1;
+    const fetchDelayMs = isMultiTournament
+      ? THEORY_MULTI_TOURNAMENT_FETCH_DELAY_MS
+      : THEORY_FETCH_DELAY_MS;
+
+    const tournamentResults = [];
+    const historyCache = loadTheoryHistoryCache();
+    let networkFetchesCount = 0;
+
+    for (const selectedTournament of selectedTournaments) {
+      const selectedCapsules = tournamentMap.get(selectedTournament);
+      if (!selectedCapsules) {
+        continue;
+      }
+
+      const capsuleRows = [];
+
+      for (const [capsuleName, stickers] of selectedCapsules.entries()) {
+        const analyzedItems = [];
+        for (let index = 0; index < stickers.length; index += 1) {
+          const sticker = stickers[index];
+          updateTheoryTournamentStatus(
+            `${selectedTournament} • ${capsuleName}: ${index + 1}/${stickers.length}`
+          );
+
+          let historyRows = getCachedHistoryRows(historyCache, sticker.name);
+          if (!historyRows) {
+            if (networkFetchesCount > 0) {
+              await sleep(fetchDelayMs);
+            }
+            historyRows = await fetchStickerPriceHistory(sticker.name);
+            networkFetchesCount += 1;
+            putCachedHistoryRows(historyCache, sticker.name, historyRows, true);
+          }
+
+          const sales = analyzeSalesInDayRange(historyRows, normalizedDayStart, normalizedDayEnd);
+          analyzedItems.push({
+            ...sticker,
+            daysCount: sales.daysCount,
+            averageSoldPerDay: sales.averageSoldPerDay,
+            theoreticalOpened: sales.averageSoldPerDay * sticker.chanceMultiplier
+          });
+        }
+
+        const openedValues = analyzedItems.map((item) => item.theoreticalOpened);
+        const minOpened = openedValues.length ? Math.min(...openedValues) : 0;
+        const maxOpened = openedValues.length ? Math.max(...openedValues) : 0;
+        const avgOpened =
+          openedValues.length === 0
+            ? 0
+            : openedValues.reduce((acc, value) => acc + value, 0) / openedValues.length;
+
+        capsuleRows.push({
+          capsuleName,
+          items: analyzedItems,
+          minOpened,
+          avgOpened,
+          maxOpened
+        });
+      }
+
+      tournamentResults.push({
+        tournamentName: selectedTournament,
+        capsuleRows
+      });
+    }
+
+    saveTheoryHistoryCache(historyCache);
+    renderTheoryTournamentOutput(tournamentResults, periodLabel);
+    updateTheoryTournamentStatus("Готово.");
+  } catch (error) {
+    theoryTournamentOutputEl.textContent = `Помилка: ${error.message}`;
+    updateTheoryTournamentStatus("Помилка.");
+  } finally {
+    theoryTournamentButton.disabled = false;
+  }
+};
+
+const runTheoryAnalyzer = async () => {
+  if (!theoryButton || !theoryOutputEl) {
+    return;
+  }
+  theoryButton.disabled = true;
+  theoryOutputEl.textContent = "Збираємо історію...";
+  updateTheoryStatus("Завантаження набору filtered_budapest_2025.json...");
+
+  try {
+    const datasetUrl = chrome.runtime.getURL(THEORY_DATASET_PATH);
+    const datasetResponse = await fetch(datasetUrl);
+    if (!datasetResponse.ok) {
+      throw new Error(`Не вдалося завантажити ${THEORY_DATASET_PATH}`);
+    }
+    const dataset = await datasetResponse.json();
+    const grouped = groupDatasetByCapsule(Array.isArray(dataset) ? dataset : []);
+    const capsuleRows = [];
+    const historyCache = loadTheoryHistoryCache();
+
+    for (const [capsuleName, stickers] of grouped.entries()) {
+      const analyzedItems = [];
+
+      for (let index = 0; index < stickers.length; index += 1) {
+        const sticker = stickers[index];
+        updateTheoryStatus(`${capsuleName}: ${index + 1}/${stickers.length}`);
+        if (index > 0) {
+          await sleep(THEORY_FETCH_DELAY_MS);
+        }
+        let historyRows = getCachedHistoryRows(historyCache, sticker.name);
+        if (!historyRows) {
+          historyRows = await fetchStickerPriceHistory(sticker.name);
+          putCachedHistoryRows(historyCache, sticker.name, historyRows, true);
+        }
+        const sales = analyzeSales(historyRows);
+        analyzedItems.push({
+          ...sticker,
+          averageSoldPerDay: sales.averageSoldPerDay,
+          averageSoldPerDay30d: sales.averageSoldPerDay30d,
+          theoreticalOpened: sales.averageSoldPerDay * sticker.chanceMultiplier,
+          theoreticalOpened30d: sales.averageSoldPerDay30d * sticker.chanceMultiplier
+        });
+      }
+
+      const openedValues = analyzedItems.map((item) => item.theoreticalOpened);
+      const openedValues30d = analyzedItems.map((item) => item.theoreticalOpened30d);
+      const soldValues = analyzedItems.map((item) => item.averageSoldPerDay);
+      const soldValues30d = analyzedItems.map((item) => item.averageSoldPerDay30d);
+      const minOpened = openedValues.length ? Math.min(...openedValues) : 0;
+      const maxOpened = openedValues.length ? Math.max(...openedValues) : 0;
+      const avgOpened =
+        openedValues.length === 0
+          ? 0
+          : openedValues.reduce((acc, value) => acc + value, 0) / openedValues.length;
+      const minSold = soldValues.length ? Math.min(...soldValues) : 0;
+      const maxSold = soldValues.length ? Math.max(...soldValues) : 0;
+      const avgSold =
+        soldValues.length === 0 ? 0 : soldValues.reduce((acc, value) => acc + value, 0) / soldValues.length;
+      const avgOpened30d =
+        openedValues30d.length === 0
+          ? 0
+          : openedValues30d.reduce((acc, value) => acc + value, 0) / openedValues30d.length;
+      const avgSold30d =
+        soldValues30d.length === 0
+          ? 0
+          : soldValues30d.reduce((acc, value) => acc + value, 0) / soldValues30d.length;
+
+      capsuleRows.push({
+        capsuleName,
+        items: analyzedItems,
+        minOpened,
+        avgOpened,
+        maxOpened,
+        minSold,
+        avgSold,
+        maxSold,
+        avgOpened30d,
+        avgSold30d
+      });
+    }
+
+    saveTheoryHistoryCache(historyCache);
+    renderTheoryOutput(capsuleRows);
+    updateTheoryStatus("Готово.");
+  } catch (error) {
+    theoryOutputEl.textContent = `Помилка: ${error.message}`;
+    updateTheoryStatus("Помилка.");
+  } finally {
+    theoryButton.disabled = false;
+  }
 };
 
 const readSteamCookies = () =>
@@ -770,10 +1499,15 @@ excludePriceThresholdInput?.addEventListener("input", () => {
   }
 });
 
+theoryButton?.addEventListener("click", runTheoryAnalyzer);
+theoryTournamentButton?.addEventListener("click", runTheoryTournamentAnalyzer);
+
 
 window.SteamSuiteRoiModule = {
   startFetch,
   collectBasePrices,
+  runTheoryAnalyzer,
+  runTheoryTournamentAnalyzer,
   runFxRatesAnalyzer: async (options = {}) => {
     const fxModule = window.SteamSuiteRoiFxModule;
     if (!fxModule?.runSteamRatesAnalyzer) {
@@ -782,6 +1516,8 @@ window.SteamSuiteRoiModule = {
     return fxModule.runSteamRatesAnalyzer(options);
   }
 };
+
+populateTheoryTournamentSelect();
 
 readSteamCookies().then((cookies) => {
   const cookieStatus = formatCookieStatus(cookies);

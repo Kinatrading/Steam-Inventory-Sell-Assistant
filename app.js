@@ -9,12 +9,16 @@ const MARKET_CONFIG = {
 const APP_BUILD = '2026-02-11-4';
 const PRICE_HISTORY_URL = 'https://steamcommunity.com/market/pricehistory';
 const PRICE_HISTORY_RANGE_DAYS = 30;
+const CRAFTS_PRICE_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
+const CRAFTS_PRICE_CACHE_KEY = 'steam-suite:crafts-price-cache-v1';
 
 const ui = {
   statusPill: document.getElementById('statusPill'),
   parseInventoryBtn: document.getElementById('parseInventoryBtn'),
   toggleGroupingBtn: document.getElementById('toggleGroupingBtn'),
   checkAllPricesBtn: document.getElementById('checkAllPricesBtn'),
+  craftsInventorySourceInput: document.getElementById('craftsInventorySourceInput'),
+  craftsInventorySourceLabel: document.getElementById('craftsInventorySourceLabel'),
   openRoiModuleBtn: document.getElementById('openRoiModuleBtn'),
   inventoryMeta: document.getElementById('inventoryMeta'),
   inventoryTableHead: document.getElementById('inventoryTableHead'),
@@ -38,9 +42,11 @@ const ui = {
   langUkBtn: document.getElementById('langUkBtn'),
   langEnBtn: document.getElementById('langEnBtn'),
   inventoryModuleBtn: document.getElementById('inventoryModuleBtn'),
+  craftsModuleBtn: document.getElementById('craftsModuleBtn'),
   roiModuleBtn: document.getElementById('roiModuleBtn'),
   ratesModuleBtn: document.getElementById('ratesModuleBtn'),
   inventoryModuleContent: document.getElementById('inventoryModuleContent'),
+  craftsModuleContent: document.getElementById('craftsModuleContent'),
   roiModuleContent: document.getElementById('roiModuleContent'),
   ratesModuleContent: document.getElementById('ratesModuleContent'),
   mainTitle: document.getElementById('mainTitle'),
@@ -57,6 +63,27 @@ const ui = {
   ratesConcurrencyInput: document.getElementById('ratesConcurrencyInput'),
   ratesTable: document.getElementById('ratesTable'),
   ratesCompareTable: document.getElementById('ratesCompareTable'),
+  craftsTitle: document.getElementById('craftsTitle'),
+  craftsSubtitle: document.getElementById('craftsSubtitle'),
+  craftsItemsTitle: document.getElementById('craftsItemsTitle'),
+  craftsRefreshBtn: document.getElementById('craftsRefreshBtn'),
+  checkCraftsBtn: document.getElementById('checkCraftsBtn'),
+  checkCraftPricesBtn: document.getElementById('checkCraftPricesBtn'),
+  checkCraftStepUpPricesBtn: document.getElementById('checkCraftStepUpPricesBtn'),
+  craftsMeta: document.getElementById('craftsMeta'),
+  craftsTable: document.getElementById('craftsTable'),
+  craftsResultsTitle: document.getElementById('craftsResultsTitle'),
+  craftsResultsTable: document.getElementById('craftsResultsTable'),
+  craftsVariantsTitle: document.getElementById('craftsVariantsTitle'),
+  craftsVariantsTable: document.getElementById('craftsVariantsTable'),
+  craftsInterestingTitle: document.getElementById('craftsInterestingTitle'),
+  craftsInterestingTable: document.getElementById('craftsInterestingTable'),
+  craftsStepUpTitle: document.getElementById('craftsStepUpTitle'),
+  craftsStepUpTable: document.getElementById('craftsStepUpTable'),
+  exportCraftsItemsCsvBtn: document.getElementById('exportCraftsItemsCsvBtn'),
+  exportCraftsResultsCsvBtn: document.getElementById('exportCraftsResultsCsvBtn'),
+  exportCraftsVariantsCsvBtn: document.getElementById('exportCraftsVariantsCsvBtn'),
+  exportCraftsInterestingCsvBtn: document.getElementById('exportCraftsInterestingCsvBtn'),
   priceHistoryModal: document.getElementById('priceHistoryModal'),
   priceHistoryTitle: document.getElementById('priceHistoryTitle'),
   priceHistorySubtitle: document.getElementById('priceHistorySubtitle'),
@@ -87,6 +114,12 @@ const state = {
   sortDirection: 'asc',
   activeModule: 'inventory',
   ratesResult: null,
+  craftsItems: [],
+  craftsItemsDbIndex: null,
+  craftsBestResults: [],
+  craftsAllResults: [],
+  craftsMarketMetaIndex: null,
+  craftsPriceByBucket: new Map(),
   currentHistory: null,
   currentHistoryRange: 'recent',
 };
@@ -107,9 +140,11 @@ const I18N = {
     languageLabel: 'Мова',
     hintTitle: 'Підказка',
     hintDescriptionInventory: 'Масовий лістинг виконується з паузою 250ms між кожним sellitem.',
+    hintDescriptionCrafts: 'Модуль “Крафти” показує тільки предмети інвентарю, де знайдено float.',
     hintDescriptionRoi: 'Кнопка “Зібрати базу для ROI” завантажує ціни капсул. Для фільтра дешевих наліпок вкажіть свій поріг ціни у валюті акаунта.',
     hintDescriptionRates: 'Модуль “Курс” рахує курси Steam по валютах (USD-якір) через itemordershistogram.',
     mainTitleInventory: 'Steam Inventory Sell Assistant',
+    mainTitleCrafts: 'Steam Crafts Assistant',
     mainTitleRoi: 'Steam ROI Assistant',
     mainTitleRates: 'Steam Currency Assistant',
     mainSubtitle: 'Зібрати інвентар → згрупувати/розгрупувати → перевірити ціну → виставити.',
@@ -118,9 +153,33 @@ const I18N = {
     groupBtn: 'Згрупувати',
     ungroupBtn: 'Розгрупувати',
     checkAllPricesBtn: 'Оновити ціни (всі)',
+    craftsInventorySourceLabel: 'Джерело інвентарю (SteamID / profiles URL / inventory URL)',
+    craftsInventorySourcePlaceholder: 'https://steamcommunity.com/profiles/7656xxxxxxxxxxxxxx',
+    craftsInventorySourceInvalid: 'Некоректне джерело інвентарю. Вкажіть SteamID, profiles URL або inventory URL.',
     inventoryModuleBtn: 'Inventory',
+    craftsModuleBtn: 'Крафти',
     roiModuleBtn: 'ROI',
     ratesModuleBtn: 'Курс',
+    craftsTitle: 'Крафти',
+    craftsSubtitle: 'Список предметів з інвентарю, в яких знайдено float.',
+    craftsItemsTitle: 'Предмети для крафту',
+    craftsRefreshBtn: 'Оновити список',
+    checkCraftsBtn: 'Перевірити крафти',
+    checkCraftPricesBtn: 'Перевірити ціни',
+    checkCraftStepUpPricesBtn: 'Перевірити ціни +1 крок',
+    craftsResultsTitle: 'Найкращі плюсові крафти',
+    craftsVariantsTitle: 'Можливі крафти і результати',
+    craftsInterestingTitle: 'Крафти на цікаві числа',
+    craftsStepUpTitle: 'Підрахунок апгрейду якості (+1 крок)',
+    craftsMeta: '{count} предметів',
+    craftsNoData: 'Немає предметів з float. Спарсіть інвентар.',
+    craftsResultsNoData: 'Немає плюсових крафтів. Потрібно щонайменше 10 предметів однієї рідкості в межах колекції.',
+    craftsVariantsNoData: 'Немає крафтів для відображення.',
+    craftsInterestingNoData: 'Немає крафтів з цікавими float.',
+    craftsStepUpNoData: 'Немає комбінацій для апгрейду якості на +1 крок.',
+    exportCsv: 'Зберегти CSV',
+    craftsPricesMissingMeta: 'База для маркет-тегів не завантажена. Перевірте crafts-market-meta.json.',
+    craftsResultsMissingDb: 'База колекцій не завантажена. Перевірте data/items_simplified.json.',
     ratesTitle: 'Курс валют (Steam)',
     ratesSubtitle: 'Порівняння цін по валютах через itemordershistogram. розрахунок різниці купівлі турнірних капсул з магазину кс2, доллар як 0',
     ratesRunBtn: 'Запустити курс',
@@ -173,9 +232,11 @@ const I18N = {
     languageLabel: 'Language',
     hintTitle: 'Hint',
     hintDescriptionInventory: 'Bulk listing runs with a 250ms delay between each sellitem call.',
+    hintDescriptionCrafts: 'The “Crafts” module shows only inventory items where float is available.',
     hintDescriptionRoi: '“Collect ROI base” loads capsule prices. Use the price threshold field in your account currency to exclude cheap stickers.',
     hintDescriptionRates: 'The “Rates” module calculates Steam currency rates (USD anchor) via itemordershistogram.',
     mainTitleInventory: 'Steam Inventory Sell Assistant',
+    mainTitleCrafts: 'Steam Crafts Assistant',
     mainTitleRoi: 'Steam ROI Assistant',
     mainTitleRates: 'Steam Currency Assistant',
     mainSubtitle: 'Collect inventory → group/ungroup → check prices → list items.',
@@ -184,9 +245,33 @@ const I18N = {
     groupBtn: 'Group',
     ungroupBtn: 'Ungroup',
     checkAllPricesBtn: 'Refresh prices (all)',
+    craftsInventorySourceLabel: 'Inventory source (SteamID / profiles URL / inventory URL)',
+    craftsInventorySourcePlaceholder: 'https://steamcommunity.com/profiles/7656xxxxxxxxxxxxxx',
+    craftsInventorySourceInvalid: 'Invalid inventory source. Provide SteamID, profiles URL, or inventory URL.',
     inventoryModuleBtn: 'Inventory',
+    craftsModuleBtn: 'Crafts',
     roiModuleBtn: 'ROI',
     ratesModuleBtn: 'Rates',
+    craftsTitle: 'Crafts',
+    craftsSubtitle: 'List of inventory items that have a float value.',
+    craftsItemsTitle: 'Craft items',
+    craftsRefreshBtn: 'Refresh list',
+    checkCraftsBtn: 'Check crafts',
+    checkCraftPricesBtn: 'Check prices',
+    checkCraftStepUpPricesBtn: 'Check prices +1 step',
+    craftsResultsTitle: 'Best profitable crafts',
+    craftsVariantsTitle: 'Possible crafts and outcomes',
+    craftsInterestingTitle: 'Crafts for interesting numbers',
+    craftsStepUpTitle: 'Quality step-up calculator (+1 tier)',
+    craftsMeta: '{count} items',
+    craftsNoData: 'No float items yet. Parse inventory first.',
+    craftsResultsNoData: 'No profitable crafts found. You need at least 10 items of one rarity within a collection.',
+    craftsVariantsNoData: 'No crafts to display yet.',
+    craftsInterestingNoData: 'No crafts with interesting float outputs.',
+    craftsStepUpNoData: 'No combinations found for +1 quality step-up.',
+    exportCsv: 'Export CSV',
+    craftsPricesMissingMeta: 'Market tags metadata is not loaded. Check crafts-market-meta.json.',
+    craftsResultsMissingDb: 'Collection database is not loaded. Check data/items_simplified.json.',
     ratesTitle: 'Steam currency rates',
     ratesSubtitle: 'Cross-currency comparison via itemordershistogram. Tournament capsule buy-difference from CS2 store, dollar as 0.',
     ratesRunBtn: 'Run rates',
@@ -343,6 +428,7 @@ function updateInventoryTitle() {
 }
 
 function getModuleLocalizationKey(baseKey) {
+  if (state.activeModule === 'crafts') return `${baseKey}Crafts`;
   if (state.activeModule === 'roi') return `${baseKey}Roi`;
   if (state.activeModule === 'rates') return `${baseKey}Rates`;
   return `${baseKey}Inventory`;
@@ -359,7 +445,14 @@ function applyLocalization() {
   ui.controlsTitle.textContent = t('controlsTitle');
   ui.parseInventoryBtn.textContent = t('parseInventoryBtn');
   ui.checkAllPricesBtn.textContent = t('checkAllPricesBtn');
+  if (ui.craftsInventorySourceInput) {
+    ui.craftsInventorySourceInput.placeholder = t('craftsInventorySourcePlaceholder');
+  }
+  if (ui.craftsInventorySourceLabel) {
+    ui.craftsInventorySourceLabel.textContent = t('craftsInventorySourceLabel');
+  }
   ui.inventoryModuleBtn.textContent = t('inventoryModuleBtn');
+  ui.craftsModuleBtn.textContent = t('craftsModuleBtn');
   ui.roiModuleBtn.textContent = t('roiModuleBtn');
   ui.ratesModuleBtn.textContent = t('ratesModuleBtn');
   updateInventoryTitle();
@@ -368,6 +461,21 @@ function applyLocalization() {
   ui.sortDirectionLabel.textContent = t('sortDirectionLabel');
   updateSortControlsText();
   ui.logsTitle.textContent = t('logsTitle');
+  ui.craftsTitle.textContent = t('craftsTitle');
+  ui.craftsSubtitle.textContent = t('craftsSubtitle');
+  if (ui.craftsItemsTitle) ui.craftsItemsTitle.textContent = t('craftsItemsTitle');
+  ui.craftsRefreshBtn.textContent = t('craftsRefreshBtn');
+  if (ui.checkCraftsBtn) ui.checkCraftsBtn.textContent = t('checkCraftsBtn');
+  if (ui.checkCraftPricesBtn) ui.checkCraftPricesBtn.textContent = t('checkCraftPricesBtn');
+  if (ui.checkCraftStepUpPricesBtn) ui.checkCraftStepUpPricesBtn.textContent = t('checkCraftStepUpPricesBtn');
+  if (ui.craftsResultsTitle) ui.craftsResultsTitle.textContent = t('craftsResultsTitle');
+  if (ui.craftsVariantsTitle) ui.craftsVariantsTitle.textContent = t('craftsVariantsTitle');
+  if (ui.craftsInterestingTitle) ui.craftsInterestingTitle.textContent = t('craftsInterestingTitle');
+  if (ui.craftsStepUpTitle) ui.craftsStepUpTitle.textContent = t('craftsStepUpTitle');
+  if (ui.exportCraftsItemsCsvBtn) ui.exportCraftsItemsCsvBtn.textContent = t('exportCsv');
+  if (ui.exportCraftsResultsCsvBtn) ui.exportCraftsResultsCsvBtn.textContent = t('exportCsv');
+  if (ui.exportCraftsVariantsCsvBtn) ui.exportCraftsVariantsCsvBtn.textContent = t('exportCsv');
+  if (ui.exportCraftsInterestingCsvBtn) ui.exportCraftsInterestingCsvBtn.textContent = t('exportCsv');
   ui.ratesTitle.textContent = t('ratesTitle');
   ui.ratesSubtitle.textContent = t('ratesSubtitle');
   ui.ratesRunBtn.textContent = t('ratesRunBtn');
@@ -386,6 +494,10 @@ function setLanguage(language) {
   setActiveModule(state.activeModule);
   populateSortColumns();
   renderTable();
+  renderCraftsResultsTable();
+  renderCraftsVariantsTable();
+  renderCraftsInterestingTable();
+  renderCraftsStepUpTable();
 }
 
 function updateSortControlsText() {
@@ -999,6 +1111,39 @@ async function resolveMarketCurrency() {
   }
 }
 
+
+function parseInventorySourceInput(rawValue) {
+  const value = String(rawValue || '').trim();
+  if (!value) return { steamId: null, inventoryUrl: null, sourceType: 'account' };
+
+  const fromDigits = value.match(/^(\d{17})$/)?.[1];
+  if (fromDigits) return { steamId: fromDigits, inventoryUrl: null, sourceType: 'custom' };
+
+  const fromProfile = value.match(/\/profiles\/(\d{17})/i)?.[1];
+  if (fromProfile) return { steamId: fromProfile, inventoryUrl: null, sourceType: 'custom' };
+
+  const fromInventory = value.match(/\/inventory\/(\d{17})\/+730\/2/i)?.[1];
+  if (fromInventory) {
+    const inventoryUrl = value.startsWith('http') ? value : `https://${value.replace(/^\/+/, '')}`;
+    return { steamId: fromInventory, inventoryUrl, sourceType: 'custom' };
+  }
+
+  return { steamId: null, inventoryUrl: null, sourceType: 'invalid' };
+}
+
+function buildInventoryUrlWithParams(baseUrl) {
+  try {
+    const parsed = new URL(baseUrl);
+    parsed.searchParams.set('l', parsed.searchParams.get('l') || 'ukrainian');
+    parsed.searchParams.set('count', parsed.searchParams.get('count') || '1000');
+    parsed.searchParams.set('preserve_bbcode', parsed.searchParams.get('preserve_bbcode') || '1');
+    parsed.searchParams.set('raw_asset_properties', parsed.searchParams.get('raw_asset_properties') || '1');
+    return parsed.toString();
+  } catch {
+    return baseUrl;
+  }
+}
+
 async function resolveSteamId() {
   const data = await runInSteamTab(() => {
     const fromGlobal = window.g_steamID || window.g_steamid || null;
@@ -1083,10 +1228,11 @@ function buildAssetFloatMap(assetPropertiesList) {
   );
 }
 
-async function fetchInventoryWithFallbacks(steamId) {
+async function fetchInventoryWithFallbacks(steamId, customInventoryUrl = null) {
   const variants = [
-    new URLSearchParams({ l: 'english', count: '2000' }),
-    new URLSearchParams({ count: '2000' }),
+    new URLSearchParams({ l: 'ukrainian', count: '1000', preserve_bbcode: '1', raw_asset_properties: '1' }),
+    new URLSearchParams({ l: 'english', count: '1000', preserve_bbcode: '1', raw_asset_properties: '1' }),
+    new URLSearchParams({ count: '1000', raw_asset_properties: '1' }),
     new URLSearchParams(),
   ];
 
@@ -1097,9 +1243,13 @@ async function fetchInventoryWithFallbacks(steamId) {
     const suffix = params.toString() ? `?${params.toString()}` : '';
     const label = index === 0 ? 'inventory' : `inventory-fallback-${index}`;
 
+    const inventoryUrl = customInventoryUrl && index === 0
+      ? buildInventoryUrlWithParams(customInventoryUrl)
+      : `https://steamcommunity.com/inventory/${steamId}/${APP_ID}/${CONTEXT_ID}${suffix}`;
+
     const response = await steamFetchWithBackoff(
       {
-        url: `https://steamcommunity.com/inventory/${steamId}/${APP_ID}/${CONTEXT_ID}${suffix}`,
+        url: inventoryUrl,
         method: 'GET',
         headers: { Accept: 'application/json' },
         responseType: 'json',
@@ -1124,17 +1274,30 @@ async function fetchInventoryWithFallbacks(steamId) {
   return lastResponse;
 }
 
-async function parseInventory() {
-  try {
-    await resolveSteamId();
-  } catch (error) {
-    log(error.message, 'error');
-    setStatus('Немає SteamID', 'danger');
+async function parseInventory(sourceInputValue = '') {
+  const source = parseInventorySourceInput(sourceInputValue || '');
+
+  if (source.sourceType === 'invalid') {
+    log(t('craftsInventorySourceInvalid'), 'error');
+    setStatus(t('craftsInventorySourceInvalid'), 'danger');
     return;
   }
 
+  if (source.steamId) {
+    state.steamId = source.steamId;
+    log(`SteamID для інвентарю: ${state.steamId} (custom source)`, 'info');
+  } else {
+    try {
+      await resolveSteamId();
+    } catch (error) {
+      log(error.message, 'error');
+      setStatus('Немає SteamID', 'danger');
+      return;
+    }
+  }
+
   setStatus(`Парсинг інвентарю (${state.steamId})...`, 'warning');
-  const response = await fetchInventoryWithFallbacks(state.steamId);
+  const response = await fetchInventoryWithFallbacks(state.steamId, source.inventoryUrl);
 
   if (!response?.ok || !response?.data?.assets || !response?.data?.descriptions) {
     log(`Інвентар не завантажено: ${response?.status || 'unknown'}`, 'error');
@@ -1170,7 +1333,15 @@ async function parseInventory() {
       return a.marketHashName.localeCompare(b.marketHashName, 'uk');
     });
 
+  state.craftsItems = state.inventory.filter((item) => Number.isFinite(item.floatValue));
+  state.craftsBestResults = [];
+  state.craftsAllResults = [];
   renderTable();
+  renderCraftsTable();
+  renderCraftsResultsTable();
+  renderCraftsVariantsTable();
+  renderCraftsInterestingTable();
+  renderCraftsStepUpTable();
   setStatus('Інвентар готовий', 'success');
   log(`Інвентар зібрано: ${state.inventory.length} предметів.`, 'info');
 }
@@ -1383,6 +1554,895 @@ async function checkAllPrices() {
   log(`Оновлено ціни для ${uniqueHashes.length} груп market_hash_name.`, 'info');
 }
 
+
+function rarityIdToMarketTag(rarityId = '') {
+  const normalized = String(rarityId || '').replace(/^rarity_/, '');
+  if (!normalized) return null;
+  const token = normalized
+    .split('_')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('_');
+  return token ? `tag_Rarity_${token}` : null;
+}
+
+function collectionIdToMarketTag(collectionId = '') {
+  const raw = String(collectionId || '').trim();
+  if (!raw) return null;
+  if (raw.startsWith('tag_set_')) return raw;
+
+  const normalized = raw
+    .replace(/^collection-/, '')
+    .replace(/^tag_/, '')
+    .replace(/-/g, '_');
+
+  if (!normalized.startsWith('set_')) return null;
+  return `tag_${normalized}`;
+}
+
+
+function applyCraftInputPrices(inputRows = []) {
+  let updated = 0;
+  inputRows.forEach((row) => {
+    const marketHashName = row?.marketHashName;
+    const priceCents = Number(row?.priceCents);
+    if (!marketHashName || !Number.isFinite(priceCents) || priceCents <= 0) return;
+
+    const nextPrice = centsToPrice(priceCents);
+    const existing = state.priceByHash.get(marketHashName) || {};
+    const existingSell = Number(existing.lowestSell);
+    const shouldUpdate = !Number.isFinite(existingSell) || nextPrice < existingSell;
+    if (!shouldUpdate) return;
+
+    state.priceByHash.set(marketHashName, {
+      ...existing,
+      lowestSell: nextPrice,
+      lowestSellRaw: String(priceCents),
+    });
+    updated += 1;
+  });
+  return updated;
+}
+
+
+function normalizeMarketHashName(marketHashName = '') {
+  return String(marketHashName)
+    .replace(/\s*\((Factory New|Minimal Wear|Field-Tested|Well-Worn|Battle-Scarred)\)\s*$/i, '')
+    .trim();
+}
+
+function buildLowestSellByBaseNameIndex() {
+  const byBaseName = new Map();
+  state.priceByHash.forEach((marketData, marketHashName) => {
+    const baseName = normalizeMarketHashName(marketHashName);
+    if (!baseName) return;
+    const lowestSell = Number(marketData?.lowestSell);
+    if (!Number.isFinite(lowestSell) || lowestSell <= 0) return;
+
+    const existing = Number(byBaseName.get(baseName));
+    if (!Number.isFinite(existing) || lowestSell < existing) {
+      byBaseName.set(baseName, lowestSell);
+    }
+  });
+  return byBaseName;
+}
+
+function parseMarketSearchResults(resultsHtml = '') {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(String(resultsHtml || ''), 'text/html');
+  const rows = [];
+  doc.querySelectorAll('.market_listing_searchresult').forEach((row) => {
+    const marketHashName = row.getAttribute('data-hash-name') || '';
+    const priceNode = row.querySelector('.market_listing_their_price .normal_price[data-price]');
+    const rawPrice = Number(priceNode?.getAttribute('data-price'));
+    if (!marketHashName || !Number.isFinite(rawPrice) || rawPrice <= 0) return;
+    rows.push({ marketHashName, priceCents: Math.round(rawPrice) });
+  });
+  return rows;
+}
+
+function buildMarketSearchUrl({ collectionTag, rarityTag, start = 0, count = 10 }) {
+  const normalizedCollection = String(collectionTag || '').trim();
+  const normalizedRarity = String(rarityTag || '').trim();
+  if (!normalizedCollection) throw new Error('collection-tag-missing');
+  if (!normalizedRarity) throw new Error('rarity-tag-missing');
+
+  const pairs = [
+    ['query', ''],
+    ['start', String(start)],
+    ['count', String(count)],
+    ['search_descriptions', '0'],
+    ['sort_column', 'price'],
+    ['sort_dir', 'asc'],
+    ['appid', '730'],
+    ['category_730_ItemSet[]', normalizedCollection],
+    ['category_730_ProPlayer[]', 'any'],
+    ['category_730_StickerCapsule[]', 'any'],
+    ['category_730_Tournament[]', 'any'],
+    ['category_730_TournamentTeam[]', 'any'],
+    ['category_730_Type[]', 'any'],
+    ['category_730_Weapon[]', 'any'],
+    ['category_730_Quality[]', 'tag_normal'],
+    ['category_730_Rarity[]', normalizedRarity],
+  ];
+
+  const query = pairs.map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
+  return `https://steamcommunity.com/market/search/render/?${query}`;
+}
+
+function resolveCollectionTagForBucket(bucket, metaIndex) {
+  const byNameTag = metaIndex.collectionTagByName.get(bucket.collection);
+  const tagVotes = new Map();
+
+  (bucket.itemNames || []).forEach((itemName) => {
+    const entry = metaIndex.byName.get(itemName);
+    if (!entry) return;
+    (Array.isArray(entry.collections) ? entry.collections : []).forEach((collection) => {
+      if (collection?.name !== bucket.collection) return;
+      const tag = collectionIdToMarketTag(collection.id);
+      if (!tag) return;
+      tagVotes.set(tag, (tagVotes.get(tag) || 0) + 1);
+    });
+  });
+
+  const votedTag = Array.from(tagVotes.entries()).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+  return votedTag || byNameTag || null;
+}
+
+function loadCraftsPriceCache() {
+  try {
+    const raw = localStorage.getItem(CRAFTS_PRICE_CACHE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveCraftsPriceCache(cacheObj) {
+  try {
+    localStorage.setItem(CRAFTS_PRICE_CACHE_KEY, JSON.stringify(cacheObj || {}));
+  } catch {
+    // ignore storage errors
+  }
+}
+
+function isCraftPriceCacheEntryFresh(entry) {
+  const checkedAt = Number(entry?.checkedAt || 0);
+  if (!Number.isFinite(checkedAt) || checkedAt <= 0) return false;
+  return (Date.now() - checkedAt) < CRAFTS_PRICE_CACHE_TTL_MS;
+}
+
+async function fetchMarketRowsByCollectionAndRarity({ collectionTag, rarityTag }) {
+  const collected = [];
+  const count = 10;
+  let start = 0;
+  let total = null;
+
+  while (total === null || start < total) {
+    const url = buildMarketSearchUrl({ collectionTag, rarityTag, start, count });
+    const response = await fetch(url, { credentials: 'include' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const payload = await response.json();
+    if (!payload?.success) throw new Error('market-search-failed');
+
+    const rows = parseMarketSearchResults(payload.results_html || '');
+    collected.push(...rows);
+
+    const totalCount = Number(payload.total_count);
+    total = Number.isFinite(totalCount) ? totalCount : collected.length;
+    start += Number(payload.pagesize || count) || count;
+
+    if (!rows.length) break;
+  }
+
+  return collected;
+}
+
+
+async function loadCraftsMarketMetaDb() {
+  try {
+    const response = await fetch(chrome.runtime.getURL('crafts-market-meta.json'));
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+
+    const byName = new Map();
+    const rarityTagByName = new Map();
+    const collectionTagByName = new Map();
+
+    (Array.isArray(data) ? data : []).forEach((entry) => {
+      if (!entry?.name) return;
+      byName.set(entry.name, entry);
+
+      if (entry?.rarityName && entry?.rarityId) {
+        const rarityTag = rarityIdToMarketTag(entry.rarityId);
+        if (rarityTag) rarityTagByName.set(entry.rarityName, rarityTag);
+      }
+
+      (Array.isArray(entry.collections) ? entry.collections : []).forEach((collection) => {
+        if (!collection?.name || !collection?.id) return;
+        const collectionTag = collectionIdToMarketTag(collection.id);
+        if (collectionTag) collectionTagByName.set(collection.name, collectionTag);
+      });
+    });
+
+    state.craftsMarketMetaIndex = { byName, rarityTagByName, collectionTagByName };
+    log(`Базу маркет-мета завантажено: ${byName.size} записів.`, 'info');
+  } catch (error) {
+    state.craftsMarketMetaIndex = null;
+    log(`Не вдалося завантажити базу маркет-мета: ${error.message}`, 'warn');
+  }
+}
+
+async function checkCraftPrices() {
+  if (!state.craftsItemsDbIndex || !window.SteamCraftCalculator) {
+    setStatus(t('craftsResultsMissingDb'), 'danger');
+    return;
+  }
+  if (!state.craftsMarketMetaIndex) {
+    setStatus(t('craftsPricesMissingMeta'), 'danger');
+    return;
+  }
+
+  const buckets = window.SteamCraftCalculator.getCraftBuckets(state.craftsItems || [], state.craftsItemsDbIndex);
+  if (!buckets.length) {
+    state.craftsPriceByBucket = new Map();
+    renderCraftsResultsTable();
+    renderCraftsVariantsTable();
+    renderCraftsInterestingTable();
+    renderCraftsStepUpTable();
+    setStatus(t('craftsResultsNoData'), 'warning');
+    return;
+  }
+
+  setStatus('Перевірка цін крафтів…', 'warning');
+  const priceByBucket = new Map();
+  const cache = loadCraftsPriceCache();
+  let cacheHits = 0;
+  let fetched = 0;
+
+  for (const bucket of buckets) {
+    const key = `${bucket.collection}__${bucket.inputRarity}`;
+    const collectionTag = resolveCollectionTagForBucket(bucket, state.craftsMarketMetaIndex);
+    const inputRarityTag = state.craftsMarketMetaIndex.rarityTagByName.get(bucket.inputRarity);
+    const outputRarityTag = state.craftsMarketMetaIndex.rarityTagByName.get(bucket.outputRarity);
+
+    if (!collectionTag || !inputRarityTag || !outputRarityTag) {
+      log(`Пропуск крафту ${bucket.collection} / ${bucket.inputRarity}: не знайдено market теги.`, 'warn');
+      continue;
+    }
+
+    const cacheEntry = cache[key];
+    const sameTags = cacheEntry
+      && cacheEntry.collectionTag === collectionTag
+      && cacheEntry.inputRarityTag === inputRarityTag
+      && cacheEntry.outputRarityTag === outputRarityTag;
+    if (sameTags && isCraftPriceCacheEntryFresh(cacheEntry) && cacheEntry.value) {
+      const cachedValue = cacheEntry.value;
+      applyCraftInputPrices(cachedValue.inputRows || []);
+      priceByBucket.set(key, cachedValue);
+      cacheHits += 1;
+      continue;
+    }
+
+    try {
+      fetched += 1;
+      log(`Крафт ціни: ${bucket.collection} -> collection tag ${collectionTag}, rarity ${inputRarityTag}`, 'info');
+      const inputRows = await fetchMarketRowsByCollectionAndRarity({ collectionTag, rarityTag: inputRarityTag });
+      const outputRows = await fetchMarketRowsByCollectionAndRarity({ collectionTag, rarityTag: outputRarityTag });
+      applyCraftInputPrices(inputRows);
+      const inputPrices = inputRows.map((row) => row.priceCents).filter((price) => Number.isFinite(price) && price > 0).sort((a, b) => a - b);
+      const outputPrices = outputRows.map((row) => row.priceCents).filter((price) => Number.isFinite(price) && price > 0);
+      const outputPricesByName = {};
+      outputRows.forEach((entry) => {
+        const baseName = normalizeMarketHashName(entry.marketHashName);
+        const price = Number(entry.priceCents);
+        if (!baseName || !Number.isFinite(price) || price <= 0) return;
+        if (!Number.isFinite(outputPricesByName[baseName]) || price < outputPricesByName[baseName]) {
+          outputPricesByName[baseName] = price;
+        }
+      });
+
+      if (inputPrices.length < 10 || !outputPrices.length) continue;
+
+      const inputCostCents = inputPrices.slice(0, 10).reduce((sum, price) => sum + price, 0);
+      const expectedOutputCents = Math.round(outputPrices.reduce((sum, price) => sum + price, 0) / outputPrices.length);
+
+      const value = {
+        inputCostCents,
+        expectedOutputCents,
+        expectedProfitCents: expectedOutputCents - inputCostCents,
+        inputRowsCount: inputRows.length,
+        outputRowsCount: outputRows.length,
+        inputRows: inputRows.map((row) => ({ marketHashName: row.marketHashName, priceCents: row.priceCents })),
+        outputPricesByName,
+      };
+
+      priceByBucket.set(key, value);
+      cache[key] = {
+        checkedAt: Date.now(),
+        collectionTag,
+        inputRarityTag,
+        outputRarityTag,
+        value,
+      };
+    } catch (error) {
+      log(`Ціни крафту ${bucket.collection} / ${bucket.inputRarity}: ${error.message}`, 'warn');
+    }
+  }
+
+  saveCraftsPriceCache(cache);
+  state.craftsPriceByBucket = priceByBucket;
+  renderCraftsTable();
+  renderCraftsResultsTable();
+  renderCraftsVariantsTable();
+  renderCraftsInterestingTable();
+  renderCraftsStepUpTable();
+  setStatus(`Ціни перевірено: ${priceByBucket.size} колекцій (cache: ${cacheHits}, нові: ${fetched}).`, 'success');
+}
+
+async function checkCraftStepUpPrices() {
+  if (!state.craftsItemsDbIndex || !window.SteamCraftCalculator) {
+    setStatus(t('craftsResultsMissingDb'), 'danger');
+    return;
+  }
+  if (!state.craftsMarketMetaIndex) {
+    setStatus(t('craftsPricesMissingMeta'), 'danger');
+    return;
+  }
+
+  const rows = buildCraftsStepUpRows();
+  if (!rows.length) {
+    setStatus(t('craftsStepUpNoData'), 'warning');
+    renderCraftsStepUpTable();
+    return;
+  }
+
+  const requestMap = new Map();
+  rows.forEach((entry) => {
+    const collectionTag = resolveCollectionTagForBucket({
+      collection: entry.collection,
+      itemNames: entry.inputNames || [],
+    }, state.craftsMarketMetaIndex);
+    const rarityTag = state.craftsMarketMetaIndex.rarityTagByName.get(entry.nextStepRarity);
+    if (!collectionTag || !rarityTag) return;
+
+    const key = `${entry.collection}__${entry.nextStepRarity}`;
+    if (!requestMap.has(key)) {
+      requestMap.set(key, {
+        key,
+        collection: entry.collection,
+        nextStepRarity: entry.nextStepRarity,
+        collectionTag,
+        rarityTag,
+      });
+    }
+  });
+
+  const requests = Array.from(requestMap.values());
+  if (!requests.length) {
+    setStatus(t('craftsStepUpNoData'), 'warning');
+    return;
+  }
+
+  let done = 0;
+  let updated = 0;
+  setStatus(`Перевірка цін +1 крок… ${done}/${requests.length}`, 'warning');
+
+  for (const request of requests) {
+    try {
+      const marketRows = await fetchMarketRowsByCollectionAndRarity({
+        collectionTag: request.collectionTag,
+        rarityTag: request.rarityTag,
+      });
+      updated += applyCraftInputPrices(marketRows || []);
+    } catch (error) {
+      log(`Ціни +1 крок ${request.collection} / ${request.nextStepRarity}: ${error.message}`, 'warn');
+    }
+
+    done += 1;
+    setStatus(`Перевірка цін +1 крок… ${done}/${requests.length}`, 'warning');
+  }
+
+  renderCraftsStepUpTable();
+  setStatus(`Ціни +1 крок перевірено: ${done} наборів (оновлено цін: ${updated}).`, 'success');
+}
+
+async function loadCraftsItemsDb() {
+  try {
+    const response = await fetch(chrome.runtime.getURL('calc1-main/extension/data/items_simplified.json'));
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    state.craftsItemsDbIndex = window.SteamCraftCalculator?.buildItemIndex(data || []);
+    log(`Базу крафтів завантажено: ${Array.isArray(data) ? data.length : 0} записів.`, 'info');
+  } catch (error) {
+    state.craftsItemsDbIndex = null;
+    log(`Не вдалося завантажити базу крафтів: ${error.message}`, 'warn');
+  }
+}
+
+function runCraftsCheck() {
+  if (!state.craftsItemsDbIndex || !window.SteamCraftCalculator) {
+    state.craftsBestResults = [];
+    state.craftsAllResults = [];
+    renderCraftsResultsTable(t('craftsResultsMissingDb'));
+    renderCraftsVariantsTable(t('craftsResultsMissingDb'));
+    renderCraftsInterestingTable(t('craftsResultsMissingDb'));
+    renderCraftsStepUpTable(t('craftsResultsMissingDb'));
+    return;
+  }
+
+  state.craftsAllResults = window.SteamCraftCalculator.analyzeCrafts
+    ? window.SteamCraftCalculator.analyzeCrafts(
+      state.craftsItems || [],
+      state.craftsItemsDbIndex
+    )
+    : window.SteamCraftCalculator.analyzePositiveCrafts(
+      state.craftsItems || [],
+      state.craftsItemsDbIndex
+    );
+
+  state.craftsBestResults = window.SteamCraftCalculator.analyzePositiveCrafts(
+    state.craftsItems || [],
+    state.craftsItemsDbIndex
+  );
+
+  renderCraftsResultsTable();
+  renderCraftsVariantsTable();
+  renderCraftsInterestingTable();
+  renderCraftsStepUpTable();
+
+  if (!state.craftsAllResults.length) {
+    renderCraftsVariantsTable();
+    renderCraftsInterestingTable();
+    renderCraftsStepUpTable();
+    log('Крафти: не знайдено комбінацій.', 'warn');
+    return;
+  }
+
+  log(
+    `Крафти: знайдено ${state.craftsAllResults.length} комбінацій (плюсових: ${state.craftsBestResults.length}).`,
+    'info'
+  );
+}
+
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function buildCraftVariants(rows = []) {
+  const groups = new Map();
+  rows.forEach((row) => {
+    const usedIds = (row.usedItems || []).map((entry) => entry.assetid || '').filter(Boolean).sort();
+    const comboKey = `${row.collection}__${row.inputRarity}__${usedIds.join('|')}`;
+    if (!groups.has(comboKey)) {
+      const bucketKey = `${row.collection}__${row.inputRarity}`;
+      const pricing = state.craftsPriceByBucket.get(bucketKey);
+      const inputFloatsTip = (row.usedItems || [])
+        .map((entry) => `${entry.name}: ${Number(entry.floatValue || 0).toFixed(6)}`)
+        .join('\n');
+      groups.set(comboKey, {
+        key: comboKey,
+        collection: row.collection,
+        inputRarity: row.inputRarity,
+        outputRarity: row.outputRarity,
+        inputNames: row.inputNames || [],
+        inputFloatsTip,
+        avgInputPercent: row.avgInputPercent,
+        avgInputFloat: row.avgInputFloat,
+        inputWearBest: row.inputWearBest,
+        inputWearWorst: row.inputWearWorst,
+        usedItems: row.usedItems || [],
+        inputCostCents: pricing?.inputCostCents ?? null,
+        outputs: [],
+      });
+    }
+
+    const group = groups.get(comboKey);
+    const bucketKey = `${row.collection}__${row.inputRarity}`;
+    const pricing = state.craftsPriceByBucket.get(bucketKey);
+    const outputPricesByName = pricing?.outputPricesByName || {};
+    const outputPriceCents = Number(outputPricesByName[row.expectedName]);
+
+    group.outputs.push({
+      name: row.expectedName,
+      expectedFloat: row.expectedFloat,
+      expectedWear: row.expectedWear,
+      priceCents: Number.isFinite(outputPriceCents) ? outputPriceCents : null,
+    });
+  });
+
+  const variants = Array.from(groups.values()).map((group) => {
+    const equalChance = group.outputs.length ? 1 / group.outputs.length : 0;
+    const expectedOutputCents = group.outputs.length
+      ? Math.round(group.outputs.reduce((sum, entry) => sum + (entry.priceCents || 0), 0) / group.outputs.length)
+      : null;
+    const outputReturnPercent = Number.isFinite(group.inputCostCents) && group.inputCostCents > 0 && Number.isFinite(expectedOutputCents)
+      ? (expectedOutputCents / group.inputCostCents) * 100
+      : null;
+
+    return {
+      ...group,
+      outputs: group.outputs,
+      expectedOutputCents,
+      profitCents: Number.isFinite(group.inputCostCents) && Number.isFinite(expectedOutputCents)
+        ? expectedOutputCents - group.inputCostCents
+        : null,
+      chanceEach: equalChance,
+      outputReturnPercent,
+    };
+  });
+
+  variants.sort((a, b) => {
+    const returnA = Number.isFinite(a.outputReturnPercent) ? a.outputReturnPercent : -Infinity;
+    const returnB = Number.isFinite(b.outputReturnPercent) ? b.outputReturnPercent : -Infinity;
+    if (returnA !== returnB) return returnB - returnA;
+    const profitA = Number.isFinite(a.profitCents) ? a.profitCents : -Infinity;
+    const profitB = Number.isFinite(b.profitCents) ? b.profitCents : -Infinity;
+    if (profitA !== profitB) return profitB - profitA;
+    return a.collection.localeCompare(b.collection, 'uk');
+  });
+
+  return variants;
+}
+
+
+function formatFullFloat(value) {
+  const floatValue = Number(value);
+  if (!Number.isFinite(floatValue)) return '—';
+  const raw = String(value);
+  if (raw && !raw.includes('e') && !raw.includes('E')) return raw;
+  return floatValue.toFixed(20).replace(/0+$/, '').replace(/\.$/, '');
+}
+
+function getInterestingFloatReasons(value) {
+  const floatValue = Number(value);
+  if (!Number.isFinite(floatValue) || floatValue < 0) return [];
+
+  const reasons = [];
+  const fullFloat = formatFullFloat(floatValue);
+  const decimal = fullFloat.split('.')[1] || '';
+
+  if (floatValue <= 0.009) reasons.push('≤0.009');
+  const repeatMatch = decimal.match(/(\d)\1{4,}/);
+  if (repeatMatch && Number(repeatMatch.index) <= 2) reasons.push('repeat x5 (start<=3)');
+
+  for (let index = 0; index <= Math.min(2, decimal.length - 5); index += 1) {
+    const chunk = decimal.slice(index, index + 5);
+    if (chunk === '12345' || chunk === '23456') {
+      reasons.push(`pattern ${chunk} (start<=3)`);
+      break;
+    }
+  }
+
+  if (floatValue >= 0.07 && floatValue <= 0.072) reasons.push('0.07-0.072');
+  if (floatValue >= 0.15 && floatValue <= 0.152) reasons.push('0.15-0.152');
+  if (/^0\.\d0000\d*$/.test(fullFloat)) reasons.push('x.10000 / x.20000');
+  return Array.from(new Set(reasons));
+}
+
+function buildInterestingCraftVariants(variants = []) {
+  return variants
+    .map((variant) => {
+      const interestingOutputs = (variant.outputs || [])
+        .map((entry) => {
+          const reasons = getInterestingFloatReasons(entry.expectedFloat);
+          return reasons.length ? { ...entry, reasons } : null;
+        })
+        .filter(Boolean);
+
+      if (!interestingOutputs.length) return null;
+      return {
+        ...variant,
+        interestingOutputs,
+      };
+    })
+    .filter(Boolean);
+}
+
+
+function buildCraftsStepUpRows() {
+  if (!state.craftsItemsDbIndex || !window.SteamCraftCalculator) return [];
+
+  const wearOrder = Array.isArray(window.SteamCraftCalculator.WEAR_ORDER)
+    ? window.SteamCraftCalculator.WEAR_ORDER
+    : ['Battle-Scarred', 'Well-Worn', 'Field-Tested', 'Minimal Wear', 'Factory New'];
+
+  const variants = buildCraftVariants(state.craftsAllResults || []);
+  const rows = [];
+
+  variants.forEach((variant) => {
+    const avgInputPercent = Number(variant.avgInputPercent);
+    if (!Number.isFinite(avgInputPercent) || avgInputPercent < 0 || avgInputPercent > 1) return;
+
+    const comboItems = Array.isArray(variant.usedItems) ? variant.usedItems : [];
+    if (comboItems.length !== 10) return;
+
+    (variant.outputs || []).forEach((firstOutput) => {
+      const firstWearRank = wearOrder.indexOf(firstOutput.expectedWear);
+      if (firstWearRank < 0) return;
+
+      const nextStepRarity = window.SteamCraftCalculator.getNextRarity(variant.outputRarity);
+      if (!nextStepRarity) return;
+
+      const secondOutputsDb = state.craftsItemsDbIndex.byCollectionRarity?.get(`${variant.collection}__${nextStepRarity}`) || [];
+      const nextStepOutputs = secondOutputsDb
+        .map((item) => {
+          const span = Number(item.max_float) - Number(item.min_float);
+          if (!Number.isFinite(span) || span <= 0) return null;
+          const floatValue = Number(item.min_float) + (span * avgInputPercent);
+          const wear = window.SteamCraftCalculator.detectWearLabel(floatValue);
+          if (!wear) return null;
+          const wearRank = wearOrder.indexOf(wear);
+          if (wearRank <= firstWearRank) return null;
+          return {
+            name: item.name,
+            floatValue,
+            wear,
+            wearDelta: wearRank - firstWearRank,
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) => {
+          if (a.wearDelta !== b.wearDelta) return b.wearDelta - a.wearDelta;
+          return a.floatValue - b.floatValue;
+        });
+
+      if (!nextStepOutputs.length) return;
+
+      const noteMilSpec001 = variant.outputRarity === 'Industrial Grade' && nextStepRarity === 'Mil-Spec Grade'
+        && nextStepOutputs.some((entry) => entry.floatValue <= 0.01);
+
+      rows.push({
+        collection: variant.collection,
+        inputRarity: variant.inputRarity,
+        outputRarity: variant.outputRarity,
+        nextStepRarity,
+        inputNames: variant.inputNames || [],
+        inputFloatsTip: variant.inputFloatsTip || '',
+        usedItems: comboItems,
+        firstOutputName: firstOutput.name,
+        firstOutputFloat: firstOutput.expectedFloat,
+        firstOutputWear: firstOutput.expectedWear,
+        firstOutputPriceCents: Number(firstOutput.priceCents),
+        nextStepOutputs,
+        noteMilSpec001,
+        needMore: 9,
+      });
+    });
+  });
+
+  rows.sort((a, b) => {
+    if (a.nextStepOutputs.length !== b.nextStepOutputs.length) return b.nextStepOutputs.length - a.nextStepOutputs.length;
+    if (a.firstOutputFloat !== b.firstOutputFloat) return a.firstOutputFloat - b.firstOutputFloat;
+    return a.collection.localeCompare(b.collection, 'uk');
+  });
+
+  return rows;
+}
+
+function renderCraftsStepUpTable(forcedMessage = '') {
+  if (!ui.craftsStepUpTable) return;
+
+  const rows = buildCraftsStepUpRows();
+  const lowestSellByBaseName = buildLowestSellByBaseNameIndex();
+  if (ui.craftsStepUpTitle) {
+    ui.craftsStepUpTitle.textContent = `${t('craftsStepUpTitle')} (${rows.length})`;
+  }
+
+  if (!rows.length) {
+    ui.craftsStepUpTable.innerHTML = `<tbody><tr><td>${forcedMessage || t('craftsStepUpNoData')}</td></tr></tbody>`;
+    return;
+  }
+
+  ui.craftsStepUpTable.innerHTML = `
+    <thead><tr><th>Колекція</th><th>Готовий вхід (10 скінів)</th><th>Результат крафту #1</th><th>Якщо додати ще 9 таких (крафт #2)</th><th>Ціни</th><th>Нотатка</th></tr></thead>
+    <tbody>${rows.map((entry) => {
+      const firstPriceFromState = Number(lowestSellByBaseName.get(entry.firstOutputName));
+      const firstPrice = Number.isFinite(firstPriceFromState)
+        ? formatPrice(firstPriceFromState)
+        : (Number.isFinite(entry.firstOutputPriceCents) ? formatPrice(entry.firstOutputPriceCents / 100) : '—');
+      const nextStepText = entry.nextStepOutputs
+        .map((next) => `${next.name} (${formatFullFloat(next.floatValue)} • ${next.wear})`)
+        .join(' • ');
+      const nextStepTip = `Крафт #2:\n10x ${entry.firstOutputName} (${formatFullFloat(entry.firstOutputFloat)})\nМожливі виходи:\n${entry.nextStepOutputs.map((next) => `${next.name} => ${formatFullFloat(next.floatValue)} (${next.wear})`).join('\n')}`;
+      const inputTip = `Використано вже готову комбінацію з 10 скінів:\n${entry.inputFloatsTip || entry.usedItems.map((item) => `${item.name}: ${formatFullFloat(item.floatValue)}`).join('\n')}`;
+      const nextStepPrices = entry.nextStepOutputs
+        .map((next) => {
+          const lowestSell = Number(lowestSellByBaseName.get(next.name));
+          return `${next.name}: ${Number.isFinite(lowestSell) ? formatPrice(lowestSell) : '—'}`;
+        })
+        .join(' • ');
+      const note = entry.noteMilSpec001 ? 'Mil-Spec ≤ 0.01' : '';
+      return `<tr>
+        <td>${escapeHtml(entry.collection)}<br><small>${escapeHtml(entry.inputRarity)} → ${escapeHtml(entry.outputRarity)} → ${escapeHtml(entry.nextStepRarity)}</small></td>
+        <td class="input-names-tip" title="${escapeHtml(inputTip)}">${escapeHtml(entry.inputNames.join(' • '))}<br><small>10/10 готово</small></td>
+        <td>${escapeHtml(entry.firstOutputName)}<br><small>${escapeHtml(formatFullFloat(entry.firstOutputFloat))} • ${escapeHtml(entry.firstOutputWear)} • ціна: ${escapeHtml(firstPrice)}</small></td>
+        <td class="input-names-tip" title="${escapeHtml(nextStepTip)}">${escapeHtml(nextStepText)}<br><small>додати ще: ${entry.needMore}</small></td>
+        <td><small>${escapeHtml(nextStepPrices)}</small></td>
+        <td>${escapeHtml(note)}</td>
+      </tr>`;
+    }).join('')}</tbody>
+  `;
+}
+
+function renderCraftsVariantsTable(forcedMessage = '') {
+  if (!ui.craftsVariantsTable) return;
+
+  const variants = buildCraftVariants(state.craftsAllResults || []);
+  if (ui.craftsVariantsTitle) {
+    ui.craftsVariantsTitle.textContent = `${t('craftsVariantsTitle')} (${variants.length})`;
+  }
+  if (!variants.length) {
+    ui.craftsVariantsTable.innerHTML = `<tbody><tr><td>${forcedMessage || t('craftsVariantsNoData')}</td></tr></tbody>`;
+    return;
+  }
+
+  ui.craftsVariantsTable.innerHTML = `
+    <thead><tr><th>Колекція</th><th>Вхід</th><th>Назва input</th><th>Ціна входу</th><th>Очік. вихід</th><th>Очік. % виходу</th><th>P/L</th><th>Результати</th></tr></thead>
+    <tbody>${variants.map((variant, index) => {
+      const rowId = `craft-variant-${index}`;
+      const outputsPreview = variant.outputs.slice(0, 3).map((entry) => escapeHtml(entry.name)).join(' • ');
+      const outputsMore = variant.outputs.length > 3 ? ` +${variant.outputs.length - 3}` : '';
+      const detailsRows = variant.outputs.map((entry) => {
+        const chance = variant.chanceEach * 100;
+        const price = Number.isFinite(entry.priceCents) ? formatPrice(entry.priceCents / 100) : '—';
+        return `<tr><td>${escapeHtml(entry.name)}</td><td>${escapeHtml(formatFullFloat(entry.expectedFloat))}</td><td>${escapeHtml(entry.expectedWear)}</td><td>${chance.toFixed(2)}%</td><td>${price}</td></tr>`;
+      }).join('');
+
+      const namesText = `${variant.inputNames.slice(0, 3).join(' • ')}${variant.inputNames.length > 3 ? ' …' : ''}`;
+      const safeTooltip = escapeHtml(variant.inputFloatsTip);
+      const inputCost = Number.isFinite(variant.inputCostCents) ? formatPrice(variant.inputCostCents / 100) : '—';
+      const expected = Number.isFinite(variant.expectedOutputCents) ? formatPrice(variant.expectedOutputCents / 100) : '—';
+      const outputPercent = Number.isFinite(variant.outputReturnPercent) ? `${variant.outputReturnPercent.toFixed(2)}%` : '—';
+      const profit = Number.isFinite(variant.profitCents) ? formatPrice(variant.profitCents / 100) : '—';
+
+      return `
+        <tr class="craft-variant-row" data-target="${rowId}">
+          <td>${escapeHtml(variant.collection)}</td>
+          <td>${escapeHtml(variant.inputRarity)} → ${escapeHtml(variant.outputRarity)}</td>
+          <td class="input-names-tip" title="${safeTooltip}">${escapeHtml(namesText)}</td>
+          <td>${inputCost}</td>
+          <td>${expected}</td>
+          <td>${outputPercent}</td>
+          <td>${profit}</td>
+          <td>${outputsPreview}${outputsMore}</td>
+        </tr>
+        <tr id="${rowId}" class="craft-variant-details hidden"><td colspan="8"><table class="inventory-table"><thead><tr><th>Можливий скін</th><th>Очік. float</th><th>Wear</th><th>Шанс</th><th>Ціна</th></tr></thead><tbody>${detailsRows}</tbody></table></td></tr>
+      `;
+    }).join('')}</tbody>
+  `;
+
+  ui.craftsVariantsTable.querySelectorAll('.craft-variant-row').forEach((row) => {
+    row.addEventListener('click', () => {
+      const targetId = row.getAttribute('data-target');
+      const detailsRow = ui.craftsVariantsTable.querySelector(`#${targetId}`);
+      if (detailsRow) detailsRow.classList.toggle('hidden');
+    });
+  });
+}
+
+function renderCraftsInterestingTable(forcedMessage = '') {
+  if (!ui.craftsInterestingTable) return;
+
+  const allVariants = buildCraftVariants(state.craftsAllResults || []);
+  const interestingVariants = buildInterestingCraftVariants(allVariants);
+  if (ui.craftsInterestingTitle) {
+    ui.craftsInterestingTitle.textContent = `${t('craftsInterestingTitle')} (${interestingVariants.length})`;
+  }
+
+  if (!interestingVariants.length) {
+    ui.craftsInterestingTable.innerHTML = `<tbody><tr><td>${forcedMessage || t('craftsInterestingNoData')}</td></tr></tbody>`;
+    return;
+  }
+
+  ui.craftsInterestingTable.innerHTML = `
+    <thead><tr><th>Колекція</th><th>Вхід</th><th>Назва input</th><th>Ціна входу</th><th>Очік. вихід</th><th>Очік. % виходу</th><th>Цікавих результатів</th></tr></thead>
+    <tbody>${interestingVariants.map((variant, index) => {
+      const rowId = `craft-interesting-${index}`;
+      const namesText = `${variant.inputNames.slice(0, 3).join(' • ')}${variant.inputNames.length > 3 ? ' …' : ''}`;
+      const safeTooltip = escapeHtml(variant.inputFloatsTip);
+      const inputCost = Number.isFinite(variant.inputCostCents) ? formatPrice(variant.inputCostCents / 100) : '—';
+      const expected = Number.isFinite(variant.expectedOutputCents) ? formatPrice(variant.expectedOutputCents / 100) : '—';
+      const outputPercent = Number.isFinite(variant.outputReturnPercent) ? `${variant.outputReturnPercent.toFixed(2)}%` : '—';
+
+      const detailsRows = variant.interestingOutputs.map((entry) => {
+        const chance = variant.chanceEach * 100;
+        const price = Number.isFinite(entry.priceCents) ? formatPrice(entry.priceCents / 100) : '—';
+        return `<tr><td>${escapeHtml(entry.name)}</td><td>${escapeHtml(formatFullFloat(entry.expectedFloat))}</td><td>${escapeHtml(entry.expectedWear)}</td><td>${escapeHtml(entry.reasons.join(', '))}</td><td>${chance.toFixed(2)}%</td><td>${price}</td></tr>`;
+      }).join('');
+
+      return `
+        <tr class="craft-variant-row" data-target="${rowId}">
+          <td>${escapeHtml(variant.collection)}</td>
+          <td>${escapeHtml(variant.inputRarity)} → ${escapeHtml(variant.outputRarity)}</td>
+          <td class="input-names-tip" title="${safeTooltip}">${escapeHtml(namesText)}</td>
+          <td>${inputCost}</td>
+          <td>${expected}</td>
+          <td>${outputPercent}</td>
+          <td>${variant.interestingOutputs.length}</td>
+        </tr>
+        <tr id="${rowId}" class="craft-variant-details hidden"><td colspan="7"><table class="inventory-table"><thead><tr><th>Можливий скін</th><th>Очік. float</th><th>Wear</th><th>Причина</th><th>Шанс</th><th>Ціна</th></tr></thead><tbody>${detailsRows}</tbody></table></td></tr>
+      `;
+    }).join('')}</tbody>
+  `;
+
+  ui.craftsInterestingTable.querySelectorAll('.craft-variant-row').forEach((row) => {
+    row.addEventListener('click', () => {
+      const targetId = row.getAttribute('data-target');
+      const detailsRow = ui.craftsInterestingTable.querySelector(`#${targetId}`);
+      if (detailsRow) detailsRow.classList.toggle('hidden');
+    });
+  });
+}
+
+function escapeCsv(value) {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+  if (/[",\n]/.test(text)) return `"${text.replace(/"/g, '""')}"`;
+  return text;
+}
+
+function exportTableToCsv(tableElement, filename, { excludeDetails = false } = {}) {
+  if (!tableElement) return;
+  const headers = Array.from(tableElement.querySelectorAll('thead th')).map((th) => th.textContent.trim());
+  const rows = [];
+
+  Array.from(tableElement.querySelectorAll('tbody tr')).forEach((tr) => {
+    if (excludeDetails && tr.classList.contains('craft-variant-details')) return;
+    if (tr.querySelector('td[colspan]')) return;
+    const cells = Array.from(tr.querySelectorAll('td')).map((td) => td.textContent);
+    if (!cells.length) return;
+    rows.push(cells);
+  });
+
+  if (!headers.length || !rows.length) {
+    log('CSV: немає даних для експорту.', 'warn');
+    return;
+  }
+
+  const csvLines = [headers, ...rows].map((row) => row.map(escapeCsv).join(','));
+  const blob = new Blob([`${csvLines.join('\n')}\n`], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
+}
+
+function renderCraftsResultsTable(forcedMessage = '') {
+  const rows = state.craftsBestResults || [];
+
+  if (!ui.craftsResultsTable) return;
+
+  if (!rows.length) {
+    ui.craftsResultsTable.innerHTML = `<tbody><tr><td>${forcedMessage || t('craftsResultsNoData')}</td></tr></tbody>`;
+    return;
+  }
+
+  ui.craftsResultsTable.innerHTML = `
+    <thead><tr><th>Колекція</th><th>Вхід</th><th>Назви input</th><th>Вихід</th><th>Результат</th><th>Float</th><th>Wear</th><th>Items в колекції</th><th>Avg input float</th><th>Витрати (10 input)</th><th>Очік. вихід</th><th>P/L</th></tr></thead>
+    <tbody>${rows.slice(0, 150).map((row) => {
+      const bucketKey = `${row.collection}__${row.inputRarity}`;
+      const pricing = state.craftsPriceByBucket.get(bucketKey);
+      const inputCost = pricing ? formatPrice(pricing.inputCostCents / 100) : '—';
+      const outputValue = pricing ? formatPrice(pricing.expectedOutputCents / 100) : '—';
+      const profit = pricing ? formatPrice(pricing.expectedProfitCents / 100) : '—';
+      return `<tr><td>${row.collection}</td><td>${row.inputRarity} (${row.inputWearWorst}…${row.inputWearBest})</td><td>${row.inputNames.slice(0, 3).join(' • ')}${row.inputNames.length > 3 ? ' …' : ''} (${row.distinctInputNames})</td><td>${row.outputRarity}</td><td>${row.expectedName}</td><td>${escapeHtml(formatFullFloat(row.expectedFloat))}</td><td>${row.expectedWear}</td><td>${row.inputItemsCount}</td><td>${escapeHtml(formatFullFloat(row.avgInputFloat))}</td><td>${inputCost}</td><td>${outputValue}</td><td>${profit}</td></tr>`;
+    }).join('')}</tbody>
+  `;
+}
+
 async function loadItemNameIds() {
   try {
     const response = await fetch(chrome.runtime.getURL('cs2.json'));
@@ -1489,6 +2549,29 @@ async function listMultipleItems(rowData, quantity, priceValue) {
   setStatus(t('done'), 'success');
 }
 
+function renderCraftsTable() {
+  const rows = (state.craftsItems || []).slice().sort((a, b) => {
+    if (a.marketHashName === b.marketHashName) return (a.floatValue || 0) - (b.floatValue || 0);
+    return a.marketHashName.localeCompare(b.marketHashName, 'uk');
+  });
+
+  ui.craftsMeta.textContent = t('craftsMeta', { count: rows.length });
+
+  if (!rows.length) {
+    ui.craftsTable.innerHTML = `<tbody><tr><td>${t('craftsNoData')}</td></tr></tbody>`;
+    return;
+  }
+
+  ui.craftsTable.innerHTML = `
+    <thead><tr><th>${t('item')}</th><th>assetid</th><th>float</th><th>price</th></tr></thead>
+    <tbody>${rows.map((row) => {
+      const marketData = state.priceByHash.get(row.marketHashName) || {};
+      const inputPrice = Number.isFinite(marketData.lowestSell) ? formatPrice(marketData.lowestSell) : '--';
+      return `<tr><td>${row.marketHashName}</td><td>${row.assetid}</td><td>${Number(row.floatValue).toFixed(6)}</td><td>${inputPrice}</td></tr>`;
+    }).join('')}</tbody>
+  `;
+}
+
 function renderRatesTables() {
   if (!state.ratesResult) {
     ui.ratesTable.innerHTML = `<tbody><tr><td>${t('ratesNoData')}</td></tr></tbody>`;
@@ -1554,7 +2637,9 @@ async function runRatesModule() {
 }
 
 function setActiveModule(moduleKey) {
-  if (moduleKey === 'roi') {
+  if (moduleKey === 'crafts') {
+    state.activeModule = 'crafts';
+  } else if (moduleKey === 'roi') {
     state.activeModule = 'roi';
   } else if (moduleKey === 'rates') {
     state.activeModule = 'rates';
@@ -1563,13 +2648,19 @@ function setActiveModule(moduleKey) {
   }
 
   ui.inventoryModuleBtn.classList.toggle('active', state.activeModule === 'inventory');
+  ui.craftsModuleBtn.classList.toggle('active', state.activeModule === 'crafts');
   ui.roiModuleBtn.classList.toggle('active', state.activeModule === 'roi');
   ui.ratesModuleBtn.classList.toggle('active', state.activeModule === 'rates');
   ui.inventoryModuleContent.classList.toggle('hidden', state.activeModule !== 'inventory');
+  ui.craftsModuleContent.classList.toggle('hidden', state.activeModule !== 'crafts');
   ui.roiModuleContent.classList.toggle('hidden', state.activeModule !== 'roi');
   ui.ratesModuleContent.classList.toggle('hidden', state.activeModule !== 'rates');
   ui.hintDescription.textContent = t(getModuleLocalizationKey('hintDescription'));
   ui.mainTitle.textContent = t(getModuleLocalizationKey('mainTitle'));
+
+  if (state.activeModule === 'crafts') {
+    renderCraftsTable();
+  }
 
   if (state.activeModule === 'rates') {
     renderRatesTables();
@@ -1678,9 +2769,10 @@ function renderTable() {
 }
 
 function bindEvents() {
-  ui.parseInventoryBtn.addEventListener('click', parseInventory);
+  ui.parseInventoryBtn.addEventListener('click', () => parseInventory(''));
   ui.checkAllPricesBtn.addEventListener('click', checkAllPrices);
   ui.inventoryModuleBtn.addEventListener('click', () => setActiveModule('inventory'));
+  ui.craftsModuleBtn.addEventListener('click', () => setActiveModule('crafts'));
   ui.roiModuleBtn.addEventListener('click', () => setActiveModule('roi'));
   ui.ratesModuleBtn.addEventListener('click', () => setActiveModule('rates'));
   ui.toggleGroupingBtn.addEventListener('click', () => {
@@ -1702,6 +2794,22 @@ function bindEvents() {
     renderTable();
   });
   ui.ratesRunBtn.addEventListener('click', runRatesModule);
+  ui.craftsRefreshBtn.addEventListener('click', () => parseInventory(ui.craftsInventorySourceInput?.value || ''));
+  ui.checkCraftsBtn?.addEventListener('click', runCraftsCheck);
+  ui.checkCraftPricesBtn?.addEventListener('click', checkCraftPrices);
+  ui.checkCraftStepUpPricesBtn?.addEventListener('click', checkCraftStepUpPrices);
+  ui.exportCraftsItemsCsvBtn?.addEventListener('click', () => {
+    exportTableToCsv(ui.craftsTable, `crafts-items-${Date.now()}.csv`);
+  });
+  ui.exportCraftsResultsCsvBtn?.addEventListener('click', () => {
+    exportTableToCsv(ui.craftsResultsTable, `crafts-results-${Date.now()}.csv`);
+  });
+  ui.exportCraftsVariantsCsvBtn?.addEventListener('click', () => {
+    exportTableToCsv(ui.craftsVariantsTable, `crafts-variants-${Date.now()}.csv`, { excludeDetails: true });
+  });
+  ui.exportCraftsInterestingCsvBtn?.addEventListener('click', () => {
+    exportTableToCsv(ui.craftsInterestingTable, `crafts-interesting-${Date.now()}.csv`, { excludeDetails: true });
+  });
   ui.closePriceHistory?.addEventListener('click', closeHistoryModal);
   ui.resetHistoryZoom?.addEventListener('click', resetHistoryZoom);
   ui.noiseFilterToggle?.addEventListener('change', () => {
@@ -1735,12 +2843,17 @@ function bindEvents() {
 
 
 (async function init() {
-  await loadItemNameIds();
+  await Promise.all([loadItemNameIds(), loadCraftsItemsDb(), loadCraftsMarketMetaDb()]);
   bindEvents();
   populateSortColumns();
   applyLocalization();
   setActiveModule('inventory');
   renderRatesTables();
+  renderCraftsTable();
+  renderCraftsResultsTable();
+  renderCraftsVariantsTable();
+  renderCraftsInterestingTable();
+  renderCraftsStepUpTable();
   await resolveMarketCurrency();
   renderTable();
   setStatus(t('idle'));
