@@ -36,7 +36,7 @@ const CAPSULE_SEARCH_PAGES = 20;
 const CAPSULE_SEARCH_URL =
   "https://steamcommunity.com/market/search/render/?query=capsule&count=10&search_descriptions=0&sort_column=price&sort_dir=asc&appid=730&category_730_ItemSet%5B%5D=any&category_730_ProPlayer%5B%5D=any&category_730_Tournament%5B%5D=any&category_730_TournamentTeam%5B%5D=any&category_730_Type%5B%5D=any&category_730_Weapon%5B%5D=any";
 const RMR_BASE_SEARCH_URL =
-  "https://steamcommunity.com/market/search/render/?query=rmr&start=0&count=10&search_descriptions=0&sort_column=price&sort_dir=desc&appid=730&category_730_ItemSet%5B%5D=any&category_730_ProPlayer%5B%5D=any&category_730_StickerCapsule%5B%5D=any&category_730_Tournament%5B%5D=any&category_730_TournamentTeam%5B%5D=any&category_730_Type%5B%5D=tag_CSGO_Type_WeaponCase&category_730_Weapon%5B%5D=any";
+  "https://steamcommunity.com/market/search/render?query=rmr&start=0&count=10&search_descriptions=0&sort_column=price&sort_dir=desc&appid=730&category_730_ItemSet%5B%5D=any&category_730_ProPlayer%5B%5D=any&category_730_StickerCapsule%5B%5D=any&category_730_Tournament%5B%5D=any&category_730_TournamentTeam%5B%5D=any&category_730_Type%5B%5D=tag_CSGO_Type_WeaponCase&category_730_Weapon%5B%5D=any";
 
 const TOURNAMENT_ALIASES = {
   bud2025: ["budapest 2025", "2025 budapest", "budapest"],
@@ -579,6 +579,11 @@ const parseCapsuleBaseHtml = (html) => {
     .filter(Boolean);
 };
 
+const isRmrCapsuleName = (name) => {
+  const normalized = String(name || "").toLowerCase();
+  return /(^|\s)2020\s+rmr\s+(contenders|challengers|legends)(\s|$)/i.test(normalized);
+};
+
 const isStickerCapsule = (name) => {
   const normalized = name.toLowerCase();
   const hasCapsule =
@@ -588,7 +593,7 @@ const isStickerCapsule = (name) => {
     normalized.includes("наклейка капсула") ||
     normalized.includes("капсула") && normalized.includes("наліп");
   const isAutograph = normalized.includes("autograph") || normalized.includes("автограф");
-  return hasCapsule && !isAutograph;
+  return (hasCapsule || isRmrCapsuleName(name)) && !isAutograph;
 };
 
 const appendCapsuleRowsFromUrl = async (url, items) => {
@@ -680,7 +685,11 @@ const buildBasePriceMap = (capsuleItems, tournaments) => {
         (item) =>
           aliases.some((alias) => item.nameLower.includes(alias)) &&
           item.nameLower.includes(capsuleLower) &&
-          (item.nameLower.includes("sticker") || item.nameLower.includes("наліп")) &&
+          (
+            item.nameLower.includes("sticker") ||
+            item.nameLower.includes("наліп") ||
+            isRmrCapsuleName(item.nameLower)
+          ) &&
           !item.nameLower.includes("autograph") &&
           !item.nameLower.includes("автограф")
       );
