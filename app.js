@@ -106,6 +106,7 @@ const state = {
   itemNameIds: new Map(),
   steamId: null,
   groupedMode: false,
+  listingInputs: new Map(),
   priceByHash: new Map(),
   marketCurrencyInitialized: false,
   language: 'uk',
@@ -210,6 +211,8 @@ const I18N = {
     quantity: 'Кількість',
     stickers: 'Наліпки / брелоки',
     listing: 'Лістинг',
+    netPrice: 'Net',
+    grossPrice: 'Gross',
     currency: 'валюта',
     actions: 'Дії',
     history: 'Історія',
@@ -221,7 +224,7 @@ const I18N = {
     historyRecent: 'Останні 30 днів (по днях)',
     historyFull: 'Історичні дані за весь час (по днях)',
     historyLoadFailed: 'Не вдалося отримати історію.',
-    providePrice: 'Вкажіть валідну ціну лістингу (мінімум 0.03).',
+    providePrice: 'Вкажіть валідну ціну лістингу (мінімум Net 0.01 / Gross 0.03).',
     provideQty: 'Вкажіть валідну кількість (мінімум 1).',
     done: 'Готово',
   },
@@ -302,6 +305,8 @@ const I18N = {
     quantity: 'Quantity',
     stickers: 'Stickers / charms',
     listing: 'Listing',
+    netPrice: 'Net',
+    grossPrice: 'Gross',
     currency: 'currency',
     actions: 'Actions',
     history: 'History',
@@ -313,7 +318,7 @@ const I18N = {
     historyRecent: 'Last 30 days (daily)',
     historyFull: 'Full history (daily)',
     historyLoadFailed: 'Failed to load history.',
-    providePrice: 'Provide a valid listing price (minimum 0.03).',
+    providePrice: 'Provide a valid listing price (minimum Net 0.01 / Gross 0.03).',
     provideQty: 'Provide a valid quantity (minimum 1).',
     done: 'Done',
   },
@@ -375,6 +380,8 @@ const SORT_COLUMNS = [
   { key: 'highestBuy', type: 'number', label: 'highest_buy_order' },
   { key: 'lowestSell', type: 'number', label: 'lowest_sell_order' },
 ];
+
+const steamMarketFees = window.SteamMarketFees || null;
 
 function t(key, vars = {}) {
   const dict = I18N[state.language] || I18N.uk;
@@ -535,6 +542,81 @@ function centsToPrice(valueInCents) {
   const cents = Number(valueInCents);
   if (!Number.isFinite(cents)) return null;
   return cents / 100;
+}
+
+function formatInputPrice(price) {
+  return Number.isFinite(price) ? price.toFixed(2) : '';
+}
+
+function calculateGrossFromNet(price) {
+  if (steamMarketFees?.calculateGrossFromNet) {
+    return steamMarketFees.calculateGrossFromNet(price);
+  }
+
+  return null;
+}
+
+function calculateNetFromGross(price) {
+  if (steamMarketFees?.calculateNetFromGross) {
+    return steamMarketFees.calculateNetFromGross(price);
+  }
+
+  return null;
+}
+
+function getListingInputState(rowId) {
+  if (!state.listingInputs.has(rowId)) {
+    state.listingInputs.set(rowId, {
+      quantity: '1',
+      netPrice: '',
+      grossPrice: '',
+      lastEdited: 'net',
+    });
+  }
+
+  return state.listingInputs.get(rowId);
+}
+
+function getListingStateKey(rowData) {
+  return `${rowData.marketHashName}__${rowData.hasTradeBan ? '1' : '0'}`;
+}
+
+function updateListingState(rowId, field, rawValue) {
+  const draft = getListingInputState(rowId);
+  const nextValue = String(rawValue ?? '').trim();
+
+  if (field === 'quantity') {
+    draft.quantity = nextValue || '1';
+    return draft;
+  }
+
+  draft.lastEdited = field;
+
+  if (!nextValue) {
+    draft.netPrice = '';
+    draft.grossPrice = '';
+    return draft;
+  }
+
+  const numericValue = Number(nextValue);
+  if (!Number.isFinite(numericValue) || numericValue <= 0) {
+    draft[field === 'net' ? 'netPrice' : 'grossPrice'] = nextValue;
+    draft[field === 'net' ? 'grossPrice' : 'netPrice'] = '';
+    return draft;
+  }
+
+  if (field === 'net') {
+    const grossPrice = calculateGrossFromNet(numericValue);
+    draft.netPrice = formatInputPrice(numericValue);
+    draft.grossPrice = formatInputPrice(grossPrice);
+    return draft;
+  }
+
+  const netPrice = calculateNetFromGross(numericValue);
+  const normalizedGrossPrice = calculateGrossFromNet(netPrice);
+  draft.grossPrice = formatInputPrice(normalizedGrossPrice);
+  draft.netPrice = formatInputPrice(netPrice);
+  return draft;
 }
 
 function log(message, level = 'info') {
@@ -1357,6 +1439,7 @@ async function parseInventory(sourceInputValue = '') {
   state.craftsItems = state.inventory.filter((item) => Number.isFinite(item.floatValue));
   state.craftsBestResults = [];
   state.craftsAllResults = [];
+  state.listingInputs = new Map();
   renderTable();
   renderCraftsTable();
   renderCraftsResultsTable();
@@ -2476,7 +2559,16 @@ async function loadItemNameIds() {
   }
 }
 
-async function listItemForSaleByAssetId(assetid, priceValue) {
+async function listItemForSaleByAssetId(assetid, grossPriceValue) {
+  const netPrice = calculateNetFromGross(grossPriceValue);
+  if (!Number.isFinite(netPrice) || netPrice < 0.01) {
+    return { ok: false, message: 'invalid-net-price' };
+  }
+
+  const netPriceCents = steamMarketFees?.priceToCents
+    ? steamMarketFees.priceToCents(netPrice)
+    : Math.round(netPrice * 100);
+
   const result = await runInSteamTab(
     async (payload) => {
       const sessionId =
@@ -2494,7 +2586,7 @@ async function listItemForSaleByAssetId(assetid, priceValue) {
         contextid: payload.contextid,
         assetid: payload.assetid,
         amount: '1',
-        price: String(payload.netPrice),
+        price: String(payload.netPriceCents),
       });
 
       const response = await fetch('https://steamcommunity.com/market/sellitem/', {
@@ -2512,7 +2604,7 @@ async function listItemForSaleByAssetId(assetid, priceValue) {
         appid: APP_ID,
         contextid: CONTEXT_ID,
         assetid,
-        netPrice: Math.ceil((priceValue * 100) / 1.15),
+        netPriceCents,
       },
     ]
   );
@@ -2563,7 +2655,11 @@ async function listMultipleItems(rowData, quantity, priceValue) {
       continue;
     }
 
-    log(`Виставлено (${index + 1}/${countToSell}): ${rowData.marketHashName} за ${formatPrice(priceValue)}.`, 'info');
+    const netPrice = calculateNetFromGross(priceValue);
+    log(
+      `Виставлено (${index + 1}/${countToSell}): ${rowData.marketHashName} gross ${formatPrice(priceValue)} / net ${formatPrice(netPrice)}.`,
+      'info'
+    );
     await delay(250);
   }
 
@@ -2722,6 +2818,8 @@ function renderTable() {
     const row = document.createElement('tr');
     const group = `${rowData.marketHashName} • ${rowData.hasTradeBan ? 'tradeban' : t('noTradeban')}`;
     const marketData = state.priceByHash.get(rowData.marketHashName) || {};
+    const listingStateKey = getListingStateKey(rowData);
+    const listingDraft = getListingInputState(listingStateKey);
 
     const highestBuyText = Number.isFinite(marketData.highestBuy)
       ? `${formatPrice(marketData.highestBuy)} ${marketData.highestBuyRaw != null ? `<span class="muted">(${marketData.highestBuyRaw})</span>` : ''}`
@@ -2745,8 +2843,31 @@ function renderTable() {
       </td>
       <td>
         <div class="listing-inputs">
-          <input class="qty-input" type="number" min="1" step="1" value="1" />
-          <input class="price-input" type="number" step="0.01" min="0.03" placeholder="0.50" />
+          <input class="qty-input" type="number" min="1" step="1" value="${escapeHtml(listingDraft.quantity || '1')}" />
+          <div class="price-pair">
+            <label class="price-field price-field-primary">
+              <span class="price-field-label">${t('netPrice')}</span>
+              <input
+                class="price-input net-price-input"
+                type="number"
+                step="0.01"
+                min="0.01"
+                placeholder="0.50"
+                value="${escapeHtml(listingDraft.netPrice)}"
+              />
+            </label>
+            <label class="price-field price-field-secondary">
+              <span class="price-field-label">${t('grossPrice')}</span>
+              <input
+                class="price-input gross-price-input"
+                type="number"
+                step="0.01"
+                min="0.03"
+                placeholder="0.60"
+                value="${escapeHtml(listingDraft.grossPrice)}"
+              />
+            </label>
+          </div>
         </div>
       </td>
       <td class="cell-actions">
@@ -2765,11 +2886,36 @@ function renderTable() {
       openHistoryModal(rowData.marketHashName);
     });
 
-    row.querySelector('.sell-item')?.addEventListener('click', async () => {
-      const qtyValue = Number(row.querySelector('.qty-input').value);
-      const priceValue = Number(row.querySelector('.price-input').value);
+    const qtyInput = row.querySelector('.qty-input');
+    const netPriceInput = row.querySelector('.net-price-input');
+    const grossPriceInput = row.querySelector('.gross-price-input');
 
-      if (!Number.isFinite(priceValue) || priceValue < 0.03) {
+    qtyInput?.addEventListener('input', (event) => {
+      updateListingState(listingStateKey, 'quantity', event.target.value);
+    });
+
+    netPriceInput?.addEventListener('input', (event) => {
+      const draft = updateListingState(listingStateKey, 'net', event.target.value);
+      if (grossPriceInput) grossPriceInput.value = draft.grossPrice;
+      if (netPriceInput && draft.netPrice !== event.target.value.trim()) {
+        netPriceInput.value = draft.netPrice;
+      }
+    });
+
+    grossPriceInput?.addEventListener('input', (event) => {
+      const draft = updateListingState(listingStateKey, 'gross', event.target.value);
+      if (netPriceInput) netPriceInput.value = draft.netPrice;
+      if (grossPriceInput && draft.grossPrice !== event.target.value.trim()) {
+        grossPriceInput.value = draft.grossPrice;
+      }
+    });
+
+    row.querySelector('.sell-item')?.addEventListener('click', async () => {
+      const qtyValue = Number(qtyInput?.value);
+      const grossPriceValue = Number(grossPriceInput?.value);
+      const netPriceValue = Number(netPriceInput?.value);
+
+      if (!Number.isFinite(grossPriceValue) || grossPriceValue < 0.03 || !Number.isFinite(netPriceValue) || netPriceValue < 0.01) {
         log(t('providePrice'), 'error');
         return;
       }
@@ -2779,7 +2925,7 @@ function renderTable() {
         return;
       }
 
-      await listMultipleItems(rowData, qtyValue, priceValue);
+      await listMultipleItems(rowData, qtyValue, grossPriceValue);
     });
 
     ui.inventoryTableBody.appendChild(row);
