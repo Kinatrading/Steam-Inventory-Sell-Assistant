@@ -570,6 +570,9 @@ function getListingInputState(rowId) {
       quantity: '1',
       netPrice: '',
       grossPrice: '',
+      netPriceRaw: '',
+      grossPriceRaw: '',
+      editingField: null,
       lastEdited: 'net',
     });
   }
@@ -581,9 +584,10 @@ function getListingStateKey(rowData) {
   return `${rowData.marketHashName}__${rowData.hasTradeBan ? '1' : '0'}`;
 }
 
-function updateListingState(rowId, field, rawValue) {
+function updateListingState(rowId, field, rawValue, options = {}) {
   const draft = getListingInputState(rowId);
   const nextValue = String(rawValue ?? '').trim();
+  const shouldCommit = options.commit === true;
 
   if (field === 'quantity') {
     draft.quantity = nextValue || '1';
@@ -591,10 +595,14 @@ function updateListingState(rowId, field, rawValue) {
   }
 
   draft.lastEdited = field;
+  draft.editingField = shouldCommit ? null : field;
+  draft[field === 'net' ? 'netPriceRaw' : 'grossPriceRaw'] = nextValue;
 
   if (!nextValue) {
     draft.netPrice = '';
     draft.grossPrice = '';
+    draft.netPriceRaw = '';
+    draft.grossPriceRaw = '';
     return draft;
   }
 
@@ -607,16 +615,25 @@ function updateListingState(rowId, field, rawValue) {
 
   if (field === 'net') {
     const grossPrice = calculateGrossFromNet(numericValue);
-    draft.netPrice = formatInputPrice(numericValue);
+    draft.netPrice = shouldCommit ? formatInputPrice(numericValue) : nextValue;
     draft.grossPrice = formatInputPrice(grossPrice);
+    draft.netPriceRaw = draft.netPrice;
+    draft.grossPriceRaw = draft.grossPrice;
     return draft;
   }
 
   const netPrice = calculateNetFromGross(numericValue);
   const normalizedGrossPrice = calculateGrossFromNet(netPrice);
-  draft.grossPrice = formatInputPrice(normalizedGrossPrice);
+  draft.grossPrice = shouldCommit ? formatInputPrice(normalizedGrossPrice) : nextValue;
   draft.netPrice = formatInputPrice(netPrice);
+  draft.grossPriceRaw = draft.grossPrice;
+  draft.netPriceRaw = draft.netPrice;
   return draft;
+}
+
+function syncListingPriceInputs(draft, netPriceInput, grossPriceInput) {
+  if (netPriceInput) netPriceInput.value = draft.netPrice;
+  if (grossPriceInput) grossPriceInput.value = draft.grossPrice;
 }
 
 function log(message, level = 'info') {
@@ -2894,20 +2911,40 @@ function renderTable() {
       updateListingState(listingStateKey, 'quantity', event.target.value);
     });
 
+    const commitListingPriceField = (field) => {
+      const activeInput = field === 'net' ? netPriceInput : grossPriceInput;
+      const rawValue = activeInput?.value ?? '';
+      const draft = updateListingState(listingStateKey, field, rawValue, { commit: true });
+      syncListingPriceInputs(draft, netPriceInput, grossPriceInput);
+    };
+
+    const handleListingPriceEnter = (field, event) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      commitListingPriceField(field);
+      event.target.blur();
+    };
+
     netPriceInput?.addEventListener('input', (event) => {
       const draft = updateListingState(listingStateKey, 'net', event.target.value);
       if (grossPriceInput) grossPriceInput.value = draft.grossPrice;
-      if (netPriceInput && draft.netPrice !== event.target.value.trim()) {
-        netPriceInput.value = draft.netPrice;
-      }
+    });
+    netPriceInput?.addEventListener('blur', () => {
+      commitListingPriceField('net');
+    });
+    netPriceInput?.addEventListener('keydown', (event) => {
+      handleListingPriceEnter('net', event);
     });
 
     grossPriceInput?.addEventListener('input', (event) => {
       const draft = updateListingState(listingStateKey, 'gross', event.target.value);
       if (netPriceInput) netPriceInput.value = draft.netPrice;
-      if (grossPriceInput && draft.grossPrice !== event.target.value.trim()) {
-        grossPriceInput.value = draft.grossPrice;
-      }
+    });
+    grossPriceInput?.addEventListener('blur', () => {
+      commitListingPriceField('gross');
+    });
+    grossPriceInput?.addEventListener('keydown', (event) => {
+      handleListingPriceEnter('gross', event);
     });
 
     row.querySelector('.sell-item')?.addEventListener('click', async () => {
