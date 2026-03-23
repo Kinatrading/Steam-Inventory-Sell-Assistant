@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Steam Inventory Sell Assistant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Парсинг інвентарю, перевірка цін, історія BUY/SELL та виставлення предметів на продаж.",
   "action": {
     "default_title": "Open Inventory Sell Assistant"

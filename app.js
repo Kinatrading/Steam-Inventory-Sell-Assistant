@@ -1168,15 +1168,36 @@ async function resolveSteamId() {
   log(`SteamID для інвентарю: ${state.steamId}`, 'info');
 }
 
-function parseTradeBan(description) {
+function resolveTradableFlag(description, asset) {
+  const candidates = [description?.tradable, asset?.tradable];
+
+  for (const candidate of candidates) {
+    if (candidate === 0 || candidate === '0') return false;
+    if (candidate === 1 || candidate === '1') return true;
+  }
+
+  return null;
+}
+
+function parseTradeBan(description, asset = null) {
+  const tradable = resolveTradableFlag(description, asset);
   const ownerDescriptions = Array.isArray(description?.owner_descriptions) ? description.owner_descriptions : [];
   const text = ownerDescriptions.map((entry) => entry?.value || '').join(' | ');
+  const dateMatch = text.match(/(\d{1,2}\s+[A-Za-z]+\s+\d{4}[^|<]*)/);
+
+  if (tradable === true) {
+    return { hasTradeBan: false, tradeBanText: t('no') };
+  }
+
+  if (tradable === false) {
+    return { hasTradeBan: true, tradeBanText: dateMatch ? dateMatch[1].trim() : t('hasTradeban') };
+  }
+
   if (!text) return { hasTradeBan: false, tradeBanText: t('no') };
 
   const hasBan = /Tradable After|tradable|обмін|недоступний/i.test(text);
   if (!hasBan) return { hasTradeBan: false, tradeBanText: t('no') };
 
-  const dateMatch = text.match(/(\d{1,2}\s+[A-Za-z]+\s+\d{4}[^|<]*)/);
   return { hasTradeBan: true, tradeBanText: dateMatch ? dateMatch[1].trim() : t('hasTradeban') };
 }
 
@@ -1315,7 +1336,7 @@ async function parseInventory(sourceInputValue = '') {
     .map((asset) => {
       const description = byClass.get(`${asset.classid}_${asset.instanceid}`) || null;
       if (!description?.market_hash_name) return null;
-      const trade = parseTradeBan(description);
+      const trade = parseTradeBan(description, asset);
       const assetId = String(asset.assetid);
       return {
         assetid: assetId,
