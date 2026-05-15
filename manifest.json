@@ -17,5 +17,16 @@
   ],
   "host_permissions": [
     "https://steamcommunity.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://steamcommunity.com/market/listings/730/*"
+      ],
+      "js": [
+        "market-normal-toggle.js"
+      ],
+      "run_at": "document_idle"
+    }
   ]
 }
