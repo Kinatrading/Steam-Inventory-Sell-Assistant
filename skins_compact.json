@@ -1,0 +1,26 @@
+[
+  {
+    "name": "AK-47 | Crane Flight",
+    "gid": "G180720910B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Searing Rage",
+    "gid": "G180720B7093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | The Oligarch",
+    "gid": "G180720C80A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | The Outsiders",
+    "gid": "G180720713004",
+    "min_float": 0,
+    "max_float": 0.9
+  }
+]

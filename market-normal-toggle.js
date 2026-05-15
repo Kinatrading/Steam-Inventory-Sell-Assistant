@@ -2,6 +2,8 @@
   const QUALITY_PARAM = 'category_730_Quality';
   const NORMAL_TAG = 'tag_normal';
   const TOGGLE_ID = 'sisa-normal-toggle';
+  const FLOAT_INFO_ID = 'sisa-float-info';
+  const SKINS_DATA_URL = chrome.runtime.getURL('skins_compact.json');
 
   function isMarketListingPage() {
     return location.hostname === 'steamcommunity.com' && location.pathname.includes('/market/listings/730/');
@@ -49,6 +51,110 @@
     return button;
   }
 
+  function createFloatInfoNode() {
+    const info = document.createElement('div');
+    info.id = FLOAT_INFO_ID;
+    info.textContent = 'Float: завантаження...';
+
+    Object.assign(info.style, {
+      position: 'fixed',
+      top: '52px',
+      left: '12px',
+      zIndex: '999999',
+      padding: '8px 12px',
+      border: '1px solid #3f5a6b',
+      borderRadius: '6px',
+      background: '#101822',
+      color: '#c7d5e0',
+      fontSize: '12px',
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.35)'
+    });
+
+    return info;
+  }
+
+  function getNameFromPath() {
+    const marker = '/market/listings/730/';
+    const start = location.pathname.indexOf(marker);
+    if (start === -1) return '';
+    const encodedName = location.pathname.slice(start + marker.length);
+    return decodeURIComponent(encodedName || '').trim();
+  }
+
+  function getListingTokenFromPath() {
+    const marker = '/market/listings/730/';
+    const start = location.pathname.indexOf(marker);
+    if (start === -1) return '';
+    return decodeURIComponent(location.pathname.slice(start + marker.length) || '').trim();
+  }
+
+  function getNameFromLink() {
+    const listingLink = document.querySelector('a[href*="/market/listings/730/"]');
+    return listingLink?.textContent?.trim() || '';
+  }
+
+  function resolveItemName() {
+    return getNameFromPath() || getNameFromLink() || '';
+  }
+
+  async function loadFloatRange({ marketHashName, listingToken }) {
+    if (!marketHashName && !listingToken) return null;
+
+    const response = await fetch(SKINS_DATA_URL);
+    if (!response.ok) {
+      throw new Error(`skins-compact-json-http-${response.status}`);
+    }
+
+    const skins = await response.json();
+    const normalizedToken = String(listingToken || '').trim();
+    const normalizedName = String(marketHashName || '').trim();
+
+    let skin = null;
+    if (normalizedToken) {
+      skin = skins.find((item) => String(item?.gid || '').trim() === normalizedToken);
+    }
+
+    if (!skin && normalizedName) {
+      skin = skins.find((item) => String(item?.name || '').trim() === normalizedName);
+    }
+
+    if (!skin) return null;
+
+    const minFloat = Number(skin.min_float);
+    const maxFloat = Number(skin.max_float);
+    if (!Number.isFinite(minFloat) || !Number.isFinite(maxFloat)) {
+      return null;
+    }
+
+    return { minFloat, maxFloat };
+  }
+
+  async function renderFloatRange() {
+    const infoNode = document.getElementById(FLOAT_INFO_ID);
+    if (!infoNode) return;
+
+    try {
+      const itemName = resolveItemName();
+      const listingToken = getListingTokenFromPath();
+      if (!itemName && !listingToken) {
+        infoNode.textContent = 'Float: назву предмета не знайдено';
+        return;
+      }
+
+      const range = await loadFloatRange({ marketHashName: itemName, listingToken });
+      if (!range) {
+        const label = itemName || listingToken;
+        infoNode.textContent = `Float: для "${label}" немає даних`;
+        return;
+      }
+
+      infoNode.textContent = `Float: min ${range.minFloat.toFixed(2)} / max ${range.maxFloat.toFixed(2)}`;
+    } catch (error) {
+      infoNode.textContent = 'Float: помилка завантаження';
+      console.error('[SISA] float range error', error);
+    }
+  }
+
   function mountButton() {
     if (!isMarketListingPage()) {
       return;
@@ -59,6 +165,8 @@
     }
 
     document.body.appendChild(createButton());
+    document.body.appendChild(createFloatInfoNode());
+    renderFloatRange();
   }
 
   if (document.readyState === 'loading') {
