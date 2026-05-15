@@ -4,6 +4,12 @@
   const TOGGLE_ID = 'sisa-normal-toggle';
   const FLOAT_INFO_ID = 'sisa-float-info';
   const SKINS_DATA_URL = chrome.runtime.getURL('skins_compact.json');
+  const NAV_EVENT = 'sisa:navigation-change';
+  const FLOAT_RECALC_DEBOUNCE_MS = 120;
+
+  let skinsCache = null;
+  let lastRenderedListingKey = '';
+  let renderTimer = null;
 
   function isMarketListingPage() {
     return location.hostname === 'steamcommunity.com' && location.pathname.includes('/market/listings/730/');
@@ -100,12 +106,14 @@
   async function loadFloatRange({ marketHashName, listingToken }) {
     if (!marketHashName && !listingToken) return null;
 
-    const response = await fetch(SKINS_DATA_URL);
-    if (!response.ok) {
-      throw new Error(`skins-compact-json-http-${response.status}`);
+    if (!Array.isArray(skinsCache)) {
+      const response = await fetch(SKINS_DATA_URL);
+      if (!response.ok) {
+        throw new Error(`skins-compact-json-http-${response.status}`);
+      }
+      skinsCache = await response.json();
     }
-
-    const skins = await response.json();
+    const skins = skinsCache;
     const normalizedToken = String(listingToken || '').trim();
     const normalizedName = String(marketHashName || '').trim();
 
@@ -127,6 +135,57 @@
     }
 
     return { minFloat, maxFloat };
+  }
+
+  function scheduleFloatRender() {
+    if (renderTimer) {
+      clearTimeout(renderTimer);
+    }
+    renderTimer = setTimeout(() => {
+      renderTimer = null;
+      renderFloatRange();
+    }, FLOAT_RECALC_DEBOUNCE_MS);
+  }
+
+  function installNavigationObserver() {
+    const onUrlChange = () => {
+      const listingKey = `${location.pathname}${location.search}`;
+      if (listingKey === lastRenderedListingKey) {
+        return;
+      }
+
+      lastRenderedListingKey = listingKey;
+      if (!isMarketListingPage()) {
+        return;
+      }
+
+      scheduleFloatRender();
+    };
+
+    const originalPushState = history.pushState;
+    history.pushState = function patchedPushState(...args) {
+      const result = originalPushState.apply(this, args);
+      window.dispatchEvent(new Event(NAV_EVENT));
+      return result;
+    };
+
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function patchedReplaceState(...args) {
+      const result = originalReplaceState.apply(this, args);
+      window.dispatchEvent(new Event(NAV_EVENT));
+      return result;
+    };
+
+    window.addEventListener('popstate', onUrlChange);
+    window.addEventListener(NAV_EVENT, onUrlChange);
+
+    const listingNameNode = document.getElementById('largeiteminfo_item_name');
+    if (listingNameNode) {
+      const observer = new MutationObserver(() => onUrlChange());
+      observer.observe(listingNameNode, { childList: true, subtree: true, characterData: true });
+    }
+
+    onUrlChange();
   }
 
   async function renderFloatRange() {
@@ -166,7 +225,7 @@
 
     document.body.appendChild(createButton());
     document.body.appendChild(createFloatInfoNode());
-    renderFloatRange();
+    installNavigationObserver();
   }
 
   if (document.readyState === 'loading') {
