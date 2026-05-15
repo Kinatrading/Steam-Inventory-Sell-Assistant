@@ -22,5 +22,6881 @@
     "gid": "G180720713004",
     "min_float": 0,
     "max_float": 0.9
+  },
+  {
+    "name": "AK-47 | Inheritance",
+    "gid": "G18072093093004",
+    "min_float": 0,
+    "max_float": 0.797346
+  },
+  {
+    "name": "AK-47 | Hydroponic",
+    "gid": "G180720C8033004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "AK-47 | Cartel",
+    "gid": "G1807208A033004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "AK-47 | Case Hardened",
+    "gid": "G1807202C3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Phantom Disruptor",
+    "gid": "G180720AD073004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "AK-47 | Neon Revolution",
+    "gid": "G180720D8043004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "AK-47 | Legion of Anubis",
+    "gid": "G180720BF073004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "AK-47 | Asiimov",
+    "gid": "G180720A1063004",
+    "min_float": 0.05,
+    "max_float": 0.7
+  },
+  {
+    "name": "AK-47 | Redline",
+    "gid": "G1807209A023004",
+    "min_float": 0.1,
+    "max_float": 0.7
+  },
+  {
+    "name": "AK-47 | Ice Coaled",
+    "gid": "G180720F7083004",
+    "min_float": 0,
+    "max_float": 0.77
+  },
+  {
+    "name": "AK-47 | Aquamarine Revenge",
+    "gid": "G180720DA033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Nightwish",
+    "gid": "G180720F5083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Point Disarray",
+    "gid": "G180720FA033004",
+    "min_float": 0,
+    "max_float": 0.67
+  },
+  {
+    "name": "AK-47 | Frontside Misty",
+    "gid": "G180720EA033004",
+    "min_float": 0.02,
+    "max_float": 0.87
+  },
+  {
+    "name": "AK-47 | Head Shot",
+    "gid": "G180720C5093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Neon Rider",
+    "gid": "G180720C3053004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "AK-47 | Fire Serpent",
+    "gid": "G180720B4013004",
+    "min_float": 0.06,
+    "max_float": 0.76
+  },
+  {
+    "name": "AK-47 | First Class",
+    "gid": "G180720D5023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | B the Monster",
+    "gid": "G1807208E013004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "AK-47 | Jaguar",
+    "gid": "G180720BC023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Emerald Pinstripe",
+    "gid": "G180720AC023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Jet Set",
+    "gid": "G180720D4023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Leet Museo",
+    "gid": "G180720BF083004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "AK-47 | Slate",
+    "gid": "G1807208B083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Fuel Injector",
+    "gid": "G1807208C043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Orbit Mk01",
+    "gid": "G18072090053004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "AK-47 | Aphrodite",
+    "gid": "G180720F50A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Olive Polycam",
+    "gid": "G1807209B093004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "AK-47 | Blue Laminate",
+    "gid": "G180720E2013004",
+    "min_float": 0.02,
+    "max_float": 0.4
+  },
+  {
+    "name": "AK-47 | Safety Net",
+    "gid": "G1807209B063004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "AK-47 | Baroque Purple",
+    "gid": "G180720E9053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Nouveau Rouge",
+    "gid": "G1807209D0A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AK-47 | Breakthrough",
+    "gid": "G180720CE0A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "AK-47 | Midnight Laminate",
+    "gid": "G180720C2093004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "AK-47 | VariCamo Grey",
+    "gid": "G180720880A3004",
+    "min_float": 0,
+    "max_float": 0.671875
+  },
+  {
+    "name": "AK-47 | Safari Mesh",
+    "gid": "G180720483004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "AK-47 | Jungle Spray",
+    "gid": "G1807207A3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "AUG | Surveillance",
+    "gid": "G180820E3073004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "AUG | Steel Sentinel",
+    "gid": "G180820AE093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AUG | Akihabara Accept",
+    "gid": "G180820C7033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AUG | Chameleon",
+    "gid": "G18082098023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "AUG | Fleet Flock",
+    "gid": "G1808209D043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AUG | Arctic Wolf",
+    "gid": "G180820F6063004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "AUG | Eye of Zapems",
+    "gid": "G18082086013004",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "AUG | Aristocrat",
+    "gid": "G180820C7043004",
+    "min_float": 0,
+    "max_float": 0.66
+  },
+  {
+    "name": "AUG | Commando Company",
+    "gid": "G1808209C0A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "AUG | Navy Murano",
+    "gid": "G180820E4053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AUG | Contractor",
+    "gid": "G1808202E3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "AUG | Storm",
+    "gid": "G180820643004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "AUG | Daedalus",
+    "gid": "G180820BC033004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "AUG | Condemned",
+    "gid": "G1808206E3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "AUG | Sweeper",
+    "gid": "G1808209A063004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "AUG | Radiation Hazard",
+    "gid": "G180820F7023004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "AWP | Man-o'-war",
+    "gid": "G1809208B033004",
+    "min_float": 0.1,
+    "max_float": 0.2
+  },
+  {
+    "name": "AWP | PAW",
+    "gid": "G180920CE053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "AWP | Lightning Strike",
+    "gid": "G180920333004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "AWP | Ice Coaled",
+    "gid": "G180920C20A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | LongDog",
+    "gid": "G180920BD093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Printstream",
+    "gid": "G180920B6093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Queen's Gambit",
+    "gid": "G1809208E0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Chrome Cannon",
+    "gid": "G18092092093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Asiimov",
+    "gid": "G18092097023004",
+    "min_float": 0.18,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Chromatic Aberration",
+    "gid": "G180920F8083004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "AWP | Redline",
+    "gid": "G18092083023004",
+    "min_float": 0.1,
+    "max_float": 0.4
+  },
+  {
+    "name": "AWP | Oni Taiji",
+    "gid": "G18092096053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "AWP | Hyper Beast",
+    "gid": "G180920DB033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Neo-Noir",
+    "gid": "G180920A3063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "AWP | Fever Dream",
+    "gid": "G18092080053004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "AWP | Atheris",
+    "gid": "G180920C6063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Containment Breach",
+    "gid": "G180920F7063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Wildfire",
+    "gid": "G18092095073004",
+    "min_float": 0.01,
+    "max_float": 0.7
+  },
+  {
+    "name": "AWP | Corticera",
+    "gid": "G180920B5013004",
+    "min_float": 0.06,
+    "max_float": 0.3
+  },
+  {
+    "name": "AWP | Crakow!",
+    "gid": "G18092089013004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Green Energy",
+    "gid": "G180920800A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "AWP | Mortis",
+    "gid": "G180920B3053004",
+    "min_float": 0,
+    "max_float": 0.64
+  },
+  {
+    "name": "AWP | Exoskeleton",
+    "gid": "G180920CF073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Duality",
+    "gid": "G180920C6093004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "AWP | CMYK",
+    "gid": "G180920A3013004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "AWP | BOOM",
+    "gid": "G180920AE013004",
+    "min_float": 0.06,
+    "max_float": 0.28
+  },
+  {
+    "name": "AWP | Electric Hive",
+    "gid": "G180920E3013004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "AWP | Pit Viper",
+    "gid": "G180920FB013004",
+    "min_float": 0.08,
+    "max_float": 0.5
+  },
+  {
+    "name": "AWP | POP AWP",
+    "gid": "G180920A2083004",
+    "min_float": 0,
+    "max_float": 0.44
+  },
+  {
+    "name": "AWP | Sun in Leo",
+    "gid": "G180920C3033004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "AWP | Exothermic",
+    "gid": "G180920E20A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "AWP | The End",
+    "gid": "G180920CC0A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "AWP | Safari Mesh",
+    "gid": "G180920483004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Fade",
+    "gid": "G18F40320263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Gamma Doppler",
+    "gid": "G18F40320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Gamma Doppler",
+    "gid": "G18F40320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Gamma Doppler",
+    "gid": "G18F40320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Gamma Doppler",
+    "gid": "G18F40320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Gamma Doppler",
+    "gid": "G18F40320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Marble Fade",
+    "gid": "G18F403209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Freehand",
+    "gid": "G18F40320C4043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Doppler",
+    "gid": "G18F403209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Tiger Tooth",
+    "gid": "G18F4032099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bayonet | Blue Steel",
+    "gid": "G18F403202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bayonet | Damascus Steel",
+    "gid": "G18F403209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Bayonet | Stained",
+    "gid": "G18F403202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bayonet | Rust Coat",
+    "gid": "G18F403209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bayonet | Lore",
+    "gid": "G18F40320AE043003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ Bayonet | Black Laminate",
+    "gid": "G18F40320B3043003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bayonet | Autotronic",
+    "gid": "G18F40320BD043003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Bayonet | Forest DDPAT",
+    "gid": "G18F40320053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Boreal Forest",
+    "gid": "G18F403204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Bright Water",
+    "gid": "G18F40320C2043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Bayonet | Crimson Web",
+    "gid": "G18F403200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Night",
+    "gid": "G18F40320283003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Ultraviolet",
+    "gid": "G18F40320623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Scorched",
+    "gid": "G18F40320AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bayonet | Urban Masked",
+    "gid": "G18F403208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Osiris",
+    "gid": "G181A20DD023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "PP-Bizon | High Roller",
+    "gid": "G181A20A4053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "PP-Bizon | Antique",
+    "gid": "G181A20B2023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "PP-Bizon | Judgement of Anubis",
+    "gid": "G181A209E043004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "PP-Bizon | Fuel Rod",
+    "gid": "G181A20FC033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "PP-Bizon | Embargo",
+    "gid": "G181A20F4063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "PP-Bizon | Space Cat",
+    "gid": "G181A20E5083004",
+    "min_float": 0,
+    "max_float": 0.67
+  },
+  {
+    "name": "PP-Bizon | Bamboo Print",
+    "gid": "G181A20C9033004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Facility Sketch",
+    "gid": "G181A2087063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "PP-Bizon | Blue Streak",
+    "gid": "G181A200D3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Night Ops",
+    "gid": "G181A20EC013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "PP-Bizon | Wood Block Camo",
+    "gid": "G181A20AD0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "PP-Bizon | Bizoom",
+    "gid": "G181A20DE0A3004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "PP-Bizon | Thermal Currents",
+    "gid": "G181A20F00A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "PP-Bizon | Seabird",
+    "gid": "G181A20E9063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "PP-Bizon | Chemical Green",
+    "gid": "G181A20F8023004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "PP-Bizon | Candy Apple",
+    "gid": "G181A20033004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "PP-Bizon | Forest Leaves",
+    "gid": "G181A20193004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Irradiated Alert",
+    "gid": "G181A20AB013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Sand Dashed",
+    "gid": "G181A2094013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Urban Dashed",
+    "gid": "G181A2095013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "PP-Bizon | Cold Cell",
+    "gid": "G181A2082063004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "CZ75-Auto | Army Sheen",
+    "gid": "G183F20AA023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "CZ75-Auto | Copper Fiber",
+    "gid": "G183F20AB093004",
+    "min_float": 0,
+    "max_float": 0.563291
+  },
+  {
+    "name": "CZ75-Auto | Tread Plate",
+    "gid": "G183F208C023004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "CZ75-Auto | Victoria",
+    "gid": "G183F208E023004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "CZ75-Auto | Slalom",
+    "gid": "G183F20A9073004",
+    "min_float": 0,
+    "max_float": 0.57
+  },
+  {
+    "name": "CZ75-Auto | Tigris",
+    "gid": "G183F20DE023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "CZ75-Auto | Eco",
+    "gid": "G183F20C5053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "CZ75-Auto | Yellow Jacket",
+    "gid": "G183F20DC033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "CZ75-Auto | Tacticat",
+    "gid": "G183F20AF053004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "CZ75-Auto | Red Astor",
+    "gid": "G183F209F043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "CZ75-Auto | Xiangliu",
+    "gid": "G183F2083053004",
+    "min_float": 0,
+    "max_float": 0.56
+  },
+  {
+    "name": "CZ75-Auto | Syndicate",
+    "gid": "G183F20A8083004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "CZ75-Auto | Green Plaid",
+    "gid": "G183F20EE023004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "CZ75-Auto | Honey Paisley",
+    "gid": "G183F20EE0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "CZ75-Auto | Indigo",
+    "gid": "G183F20CD023004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "CZ75-Auto | Pink Pearl",
+    "gid": "G183F20B10A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "CZ75-Auto | Jungle Dashed",
+    "gid": "G183F2093013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Hypnotic",
+    "gid": "G1801203D3004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "Desert Eagle | Cobalt Disruption",
+    "gid": "G180120E7013004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "Desert Eagle | Emerald Jörmungandr",
+    "gid": "G180120F5053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Desert Eagle | The Bronze",
+    "gid": "G180120E0073004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "Desert Eagle | Sunset Storm 壱",
+    "gid": "G180120D5033004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Desert Eagle | Midnight Storm",
+    "gid": "G180120D4033004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Desert Eagle | Sunset Storm 弐",
+    "gid": "G180120D6033004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Desert Eagle | Heat Treated",
+    "gid": "G1801209E083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Desert Eagle | Naga",
+    "gid": "G1801208D033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Desert Eagle | Kumicho Dragon",
+    "gid": "G1801208F043004",
+    "min_float": 0,
+    "max_float": 0.76
+  },
+  {
+    "name": "Desert Eagle | Heirloom",
+    "gid": "G18012091023004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Pilot",
+    "gid": "G180120DB023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Desert Eagle | Printstream",
+    "gid": "G180120C2073004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Trigger Discipline",
+    "gid": "G1801209A083004",
+    "min_float": 0,
+    "max_float": 0.97
+  },
+  {
+    "name": "Desert Eagle | Conspiracy",
+    "gid": "G180120DF023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "Desert Eagle | Ocean Drive",
+    "gid": "G180120C2083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Desert Eagle | Starcade",
+    "gid": "G180120AA073004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Desert Eagle | Tilted",
+    "gid": "G1801208A013004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Desert Eagle | Firebreathing",
+    "gid": "G180120960B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Desert Eagle | Serpent Strike",
+    "gid": "G180120A5093004",
+    "min_float": 0,
+    "max_float": 0.57
+  },
+  {
+    "name": "Desert Eagle | Code Red",
+    "gid": "G180120C7053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Desert Eagle | Mecha Industries",
+    "gid": "G180120A5063004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Desert Eagle | Urban DDPAT",
+    "gid": "G180120113004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Mudder",
+    "gid": "G1801205A3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Crimson Web",
+    "gid": "G180120E8013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Night",
+    "gid": "G180120283004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Desert Eagle | Mulberry",
+    "gid": "G180120A60A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Dual Berettas | Cobalt Quartz",
+    "gid": "G180220F9013004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "Dual Berettas | Heist",
+    "gid": "G180220ED073004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Dual Berettas | Stained",
+    "gid": "G1802202B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Flora Carnivora",
+    "gid": "G18022084093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Twin Turbo",
+    "gid": "G180220EB053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Melondrama",
+    "gid": "G180220E6083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Urban Shock",
+    "gid": "G1802208C033004",
+    "min_float": 0,
+    "max_float": 0.47
+  },
+  {
+    "name": "Dual Berettas | Sweet Little Angels",
+    "gid": "G1802208B013004",
+    "min_float": 0,
+    "max_float": 0.82
+  },
+  {
+    "name": "Dual Berettas | Angel Eyes",
+    "gid": "G180220C30A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Hydro Strike",
+    "gid": "G180220703004",
+    "min_float": 0,
+    "max_float": 0.801418
+  },
+  {
+    "name": "Dual Berettas | Royal Consorts",
+    "gid": "G180220F1043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Cobra Strike",
+    "gid": "G18022092053004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Dual Berettas | Duelist",
+    "gid": "G180220BF033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Dual Berettas | Pyre",
+    "gid": "G180220DC063004",
+    "min_float": 0.06,
+    "max_float": 0.55
+  },
+  {
+    "name": "Dual Berettas | Marina",
+    "gid": "G18022085023004",
+    "min_float": 0.05,
+    "max_float": 0.5
+  },
+  {
+    "name": "Dual Berettas | Switch Board",
+    "gid": "G180220E6073004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "Dual Berettas | Moon in Libra",
+    "gid": "G180220C2033004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Dual Berettas | Contractor",
+    "gid": "G1802202E3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Dual Berettas | Colony",
+    "gid": "G1802202F3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Dual Berettas | Demolition",
+    "gid": "G18022099013004",
+    "min_float": 0.26,
+    "max_float": 0.6
+  },
+  {
+    "name": "Dual Berettas | BorDeux",
+    "gid": "G180220B70A3004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Dual Berettas | Polished Malachite",
+    "gid": "G1802208A0A3004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Dual Berettas | Silver Pour",
+    "gid": "G180220DD0A3004",
+    "min_float": 0,
+    "max_float": 0.678431
+  },
+  {
+    "name": "Dual Berettas | Rose Nacre",
+    "gid": "G180220EF093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "FAMAS | Neural Net",
+    "gid": "G180A20DD033004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "FAMAS | Meltdown",
+    "gid": "G180A209D083004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "FAMAS | Styx",
+    "gid": "G180A20F3023004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "FAMAS | Prime Conspiracy",
+    "gid": "G180A20E7073004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "FAMAS | Sergeant",
+    "gid": "G180A20A0023004",
+    "min_float": 0.1,
+    "max_float": 1
+  },
+  {
+    "name": "FAMAS | Valence",
+    "gid": "G180A2091043004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "FAMAS | Djinn",
+    "gid": "G180A20AD033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "FAMAS | Afterimage",
+    "gid": "G180A209A013004",
+    "min_float": 0.02,
+    "max_float": 0.4
+  },
+  {
+    "name": "FAMAS | Waters of Nephthys",
+    "gid": "G180A20D9093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "FAMAS | Eye of Athena",
+    "gid": "G180A20D3053004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "FAMAS | ZX Spectron",
+    "gid": "G180A20C4083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "FAMAS | Mecha Industries",
+    "gid": "G180A20F2043004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "FAMAS | Half Sleeve",
+    "gid": "G180A20CD033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "FAMAS | Halftone Wash",
+    "gid": "G180A20F2063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "FAMAS | Cyanospatter",
+    "gid": "G180A205C3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "FAMAS | CaliCamo",
+    "gid": "G180A20F0013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "FAMAS | Byproduct",
+    "gid": "G180A20F10A3004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "FAMAS | Colony",
+    "gid": "G180A202F3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "FAMAS | Vendetta",
+    "gid": "G180A20D50A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "FAMAS | Grey Ghost",
+    "gid": "G180A20A90A3004",
+    "min_float": 0,
+    "max_float": 0.637288
+  },
+  {
+    "name": "FAMAS | Night Borre",
+    "gid": "G180A20DF063004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "FAMAS | Spitfire",
+    "gid": "G180A20C2013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "FAMAS | Contrast Spray",
+    "gid": "G180A20163004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "FAMAS | Palm",
+    "gid": "G180A20960A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Five-SeveN | Copper Galaxy",
+    "gid": "G18032092023004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "Five-SeveN | Fowl Play",
+    "gid": "G180320E0023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Five-SeveN | Heat Treated",
+    "gid": "G180320BF063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Five-SeveN | Angry Mob",
+    "gid": "G180320C5063004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Five-SeveN | Fairy Tale",
+    "gid": "G180320D3073004",
+    "min_float": 0.02,
+    "max_float": 0.9
+  },
+  {
+    "name": "Five-SeveN | Buddy",
+    "gid": "G1803208A073004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "Five-SeveN | Retrobution",
+    "gid": "G180320FE033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Five-SeveN | Hybrid",
+    "gid": "G18032090093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Five-SeveN | Coolant",
+    "gid": "G18032090063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Five-SeveN | Midnight Paintover",
+    "gid": "G180320A6083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Five-SeveN | Jungle",
+    "gid": "G18032097013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Five-SeveN | Sky Blue",
+    "gid": "G180320EE093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Five-SeveN | Autumn Thicket",
+    "gid": "G180320B80A3004",
+    "min_float": 0,
+    "max_float": 0.636986
+  },
+  {
+    "name": "Five-SeveN | Orange Peel",
+    "gid": "G1803208D013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "G3SG1 | The Executioner",
+    "gid": "G180B20FF033004",
+    "min_float": 0.14,
+    "max_float": 0.85
+  },
+  {
+    "name": "G3SG1 | High Seas",
+    "gid": "G180B20C8053004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "G3SG1 | Flux",
+    "gid": "G180B20ED033004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "G3SG1 | Stinger",
+    "gid": "G180B20F4043004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "G3SG1 | Polar Camo",
+    "gid": "G180B204A3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "G3SG1 | Arctic Camo",
+    "gid": "G180B20063004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "G3SG1 | VariCamo",
+    "gid": "G180B20EB013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "G3SG1 | Green Apple",
+    "gid": "G180B20A6023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "G3SG1 | Contractor",
+    "gid": "G180B202E3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "G3SG1 | Red Jasper",
+    "gid": "G180B20B00A3004",
+    "min_float": 0,
+    "max_float": 0.637288
+  },
+  {
+    "name": "G3SG1 | Green Cell",
+    "gid": "G180B20990A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "G3SG1 | Jungle Dashed",
+    "gid": "G180B2093013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Galil AR | Rainbow Spoon",
+    "gid": "G180D209A093004",
+    "min_float": 0,
+    "max_float": 0.554422
+  },
+  {
+    "name": "Galil AR | Cerberus",
+    "gid": "G180D20FB023004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "Galil AR | Chromatic Aberration",
+    "gid": "G180D208E083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Galil AR | NV",
+    "gid": "G180D20AB073004",
+    "min_float": 0,
+    "max_float": 0.47
+  },
+  {
+    "name": "Galil AR | Control",
+    "gid": "G180D20A1093004",
+    "min_float": 0,
+    "max_float": 0.798995
+  },
+  {
+    "name": "Galil AR | Galigator",
+    "gid": "G180D209A0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Galil AR | Stone Cold",
+    "gid": "G180D20EE033004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "Galil AR | Orange DDPAT",
+    "gid": "G180D20533004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Galil AR | Winter Forest",
+    "gid": "G180D204C3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Galil AR | Signal",
+    "gid": "G180D20A7063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Galil AR | Cold Fusion",
+    "gid": "G180D2096063004",
+    "min_float": 0,
+    "max_float": 0.83
+  },
+  {
+    "name": "Galil AR | VariCamo",
+    "gid": "G180D20EB013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Galil AR | Urban Rubble",
+    "gid": "G180D20ED013004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Galil AR | Acid Dart",
+    "gid": "G180D20900A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Galil AR | Green Apple",
+    "gid": "G180D20A6023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "Galil AR | Tornado",
+    "gid": "G180D20653004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Galil AR | Grey Smoke",
+    "gid": "G180D20FB093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Galil AR | O-Ranger",
+    "gid": "G180D20A20A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Galil AR | Robin's Egg",
+    "gid": "G180D20F0093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Galil AR | Phoenix Blacklight",
+    "gid": "G180D20F5073004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Galil AR | Sage Spray",
+    "gid": "G180D20773004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Glock-18 | Moonrise",
+    "gid": "G180420B6053004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "Glock-18 | High Beam",
+    "gid": "G1804209F063004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "Glock-18 | Twilight Galaxy",
+    "gid": "G180420B5033004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "Glock-18 | Steel Disruption",
+    "gid": "G180420E6013004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "Glock-18 | Dragon Tattoo",
+    "gid": "G180420303004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "Glock-18 | Gamma Doppler",
+    "gid": "G180420DF083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Glock-18 | Gamma Doppler",
+    "gid": "G180420DF083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Glock-18 | Gamma Doppler",
+    "gid": "G180420DF083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Glock-18 | Gamma Doppler",
+    "gid": "G180420DF083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Glock-18 | Gamma Doppler",
+    "gid": "G180420DF083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Glock-18 | Nuclear Garden",
+    "gid": "G18042095063004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Glock-18 | Grinder",
+    "gid": "G180420FD023004",
+    "min_float": 0.02,
+    "max_float": 0.25
+  },
+  {
+    "name": "Glock-18 | Water Elemental",
+    "gid": "G180420E1023004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Glock-18 | Bullet Queen",
+    "gid": "G180420BD073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | Vogue",
+    "gid": "G180420C3073004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Glock-18 | Ramese's Reach",
+    "gid": "G180420D8093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | Snack Attack",
+    "gid": "G180420CC083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | Wasteland Rebel",
+    "gid": "G180420CA043004",
+    "min_float": 0,
+    "max_float": 0.54
+  },
+  {
+    "name": "Glock-18 | Block-18",
+    "gid": "G1804208F093004",
+    "min_float": 0,
+    "max_float": 0.671875
+  },
+  {
+    "name": "Glock-18 | Fully Tuned",
+    "gid": "G1804208D0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | Mirror Mosaic",
+    "gid": "G180420C40A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | Shinobu",
+    "gid": "G180420B8093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | Royal Legion",
+    "gid": "G18042094043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Glock-18 | AXIA",
+    "gid": "G180420C0063004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Glock-18 | Trace Lock",
+    "gid": "G180420CD0A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Glock-18 | Death Rattle",
+    "gid": "G180420A5023004",
+    "min_float": 0.08,
+    "max_float": 0.5
+  },
+  {
+    "name": "Glock-18 | Ocean Topo",
+    "gid": "G180420F1093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Glock-18 | Sand Dune",
+    "gid": "G180420D0013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Glock-18 | Red Tire",
+    "gid": "G180420B7083004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "Glock-18 | Glockingbird",
+    "gid": "G180420820A3004",
+    "min_float": 0,
+    "max_float": 0.67
+  },
+  {
+    "name": "P2000 | Amber Fade",
+    "gid": "G182020F6013004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "P2000 | Space Race",
+    "gid": "G1820209F083004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P2000 | Ocean Foam",
+    "gid": "G182020D3013004",
+    "min_float": 0,
+    "max_float": 0.12
+  },
+  {
+    "name": "P2000 | Scorpion",
+    "gid": "G182020473004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "P2000 | Coach Class",
+    "gid": "G182020DA023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P2000 | Wicked Sick",
+    "gid": "G182020C8093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P2000 | Fire Elemental",
+    "gid": "G18202085033004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P2000 | Imperial Dragon",
+    "gid": "G182020CF043004",
+    "min_float": 0,
+    "max_float": 0.63
+  },
+  {
+    "name": "P2000 | Coral Halftone",
+    "gid": "G182020EE063004",
+    "min_float": 0,
+    "max_float": 0.52
+  },
+  {
+    "name": "P2000 | Granite Marbleized",
+    "gid": "G182020153004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P2000 | Marsh",
+    "gid": "G1820208C0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P2000 | Pathfinder",
+    "gid": "G182020BB033004",
+    "min_float": 0,
+    "max_float": 0.35
+  },
+  {
+    "name": "P2000 | Grassland Leaves",
+    "gid": "G182020683004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Butterfly Knife | Freehand",
+    "gid": "G18830420C5043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Butterfly Knife | Slaughter",
+    "gid": "G188304203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Butterfly Knife | Tiger Tooth",
+    "gid": "G1883042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Butterfly Knife | Blue Steel",
+    "gid": "G188304202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Butterfly Knife | Damascus Steel",
+    "gid": "G188304209B033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Butterfly Knife | Stained",
+    "gid": "G188304202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Butterfly Knife | Case Hardened",
+    "gid": "G188304202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Butterfly Knife | Rust Coat",
+    "gid": "G188304209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Butterfly Knife | Lore",
+    "gid": "G18830420D1083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Butterfly Knife | Autotronic",
+    "gid": "G18830420DB083003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Butterfly Knife | Black Laminate",
+    "gid": "G18830420D6083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Butterfly Knife | Forest DDPAT",
+    "gid": "G18830420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Butterfly Knife | Boreal Forest",
+    "gid": "G188304204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Butterfly Knife | Crimson Web",
+    "gid": "G188304200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Butterfly Knife | Ultraviolet",
+    "gid": "G18830420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Butterfly Knife | Safari Mesh",
+    "gid": "G18830420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Survival Knife | Fade",
+    "gid": "G18860420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Marble Fade",
+    "gid": "G188604209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Doppler",
+    "gid": "G188604209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Slaughter",
+    "gid": "G188604203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Survival Knife | Tiger Tooth",
+    "gid": "G1886042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Survival Knife | Damascus Steel",
+    "gid": "G188604209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Survival Knife | Stained",
+    "gid": "G188604202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Survival Knife | Case Hardened",
+    "gid": "G188604202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Survival Knife | Rust Coat",
+    "gid": "G188604209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Survival Knife | Forest DDPAT",
+    "gid": "G18860420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Survival Knife | Crimson Web",
+    "gid": "G188604200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Survival Knife | Scorched",
+    "gid": "G18860420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Survival Knife | Safari Mesh",
+    "gid": "G18860420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Survival Knife | Night Stripe",
+    "gid": "G18860420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Survival Knife | Urban Masked",
+    "gid": "G188604208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Fade",
+    "gid": "G18850420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Paracord Knife | Marble Fade",
+    "gid": "G188504209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Paracord Knife | Slaughter",
+    "gid": "G188504203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Paracord Knife | Tiger Tooth",
+    "gid": "G1885042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Paracord Knife | Blue Steel",
+    "gid": "G188504202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Paracord Knife | Damascus Steel",
+    "gid": "G188504209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Paracord Knife | Stained",
+    "gid": "G188504202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Paracord Knife | Case Hardened",
+    "gid": "G188504202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Paracord Knife | Rust Coat",
+    "gid": "G188504209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Paracord Knife | Forest DDPAT",
+    "gid": "G18850420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Boreal Forest",
+    "gid": "G188504204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Crimson Web",
+    "gid": "G188504200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Ultraviolet",
+    "gid": "G18850420ED043003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Scorched",
+    "gid": "G18850420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Safari Mesh",
+    "gid": "G18850420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Night Stripe",
+    "gid": "G18850420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Paracord Knife | Urban Masked",
+    "gid": "G188504208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Fade",
+    "gid": "G18F70320263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Classic Knife | Blue Steel",
+    "gid": "G18F703202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Classic Knife | Stained",
+    "gid": "G18F703202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Classic Knife | Case Hardened",
+    "gid": "G18F703202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Classic Knife | Forest DDPAT",
+    "gid": "G18F70320053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Boreal Forest",
+    "gid": "G18F703204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Crimson Web",
+    "gid": "G18F703200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Scorched",
+    "gid": "G18F70320AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Safari Mesh",
+    "gid": "G18F70320483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Night Stripe",
+    "gid": "G18F70320DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Classic Knife | Urban Masked",
+    "gid": "G18F703208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Falchion Knife | Fade",
+    "gid": "G18800420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Gamma Doppler",
+    "gid": "G18800420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Gamma Doppler",
+    "gid": "G18800420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Gamma Doppler",
+    "gid": "G18800420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Gamma Doppler",
+    "gid": "G18800420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Gamma Doppler",
+    "gid": "G18800420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Marble Fade",
+    "gid": "G188004209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Freehand",
+    "gid": "G18800420C5043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Doppler",
+    "gid": "G188004209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Falchion Knife | Slaughter",
+    "gid": "G188004203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Falchion Knife | Blue Steel",
+    "gid": "G188004202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Falchion Knife | Damascus Steel",
+    "gid": "G188004209B033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Falchion Knife | Case Hardened",
+    "gid": "G188004202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Falchion Knife | Lore",
+    "gid": "G18800420D2083003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ Falchion Knife | Autotronic",
+    "gid": "G18800420DC083003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Falchion Knife | Black Laminate",
+    "gid": "G18800420D7083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Falchion Knife | Forest DDPAT",
+    "gid": "G18800420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Falchion Knife | Bright Water",
+    "gid": "G18800420C3043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Falchion Knife | Crimson Web",
+    "gid": "G188004200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Falchion Knife | Ultraviolet",
+    "gid": "G18800420ED043003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Falchion Knife | Safari Mesh",
+    "gid": "G18800420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Flip Knife | Fade",
+    "gid": "G18F90320263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Marble Fade",
+    "gid": "G18F903209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Freehand",
+    "gid": "G18F90320C4043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Doppler",
+    "gid": "G18F903209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Flip Knife | Slaughter",
+    "gid": "G18F903203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Flip Knife | Blue Steel",
+    "gid": "G18F903202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Flip Knife | Damascus Steel",
+    "gid": "G18F903209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Flip Knife | Stained",
+    "gid": "G18F903202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Flip Knife | Case Hardened",
+    "gid": "G18F903202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Flip Knife | Lore",
+    "gid": "G18F90320AF043003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ Flip Knife | Black Laminate",
+    "gid": "G18F90320B4043003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Flip Knife | Boreal Forest",
+    "gid": "G18F903204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Flip Knife | Bright Water",
+    "gid": "G18F90320C2043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Flip Knife | Crimson Web",
+    "gid": "G18F903200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Flip Knife | Ultraviolet",
+    "gid": "G18F90320623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Flip Knife | Safari Mesh",
+    "gid": "G18F90320483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Flip Knife | Urban Masked",
+    "gid": "G18F903208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Gut Knife | Fade",
+    "gid": "G18FA0320263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Gamma Doppler",
+    "gid": "G18FA0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Gamma Doppler",
+    "gid": "G18FA0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Gamma Doppler",
+    "gid": "G18FA0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Gamma Doppler",
+    "gid": "G18FA0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Gamma Doppler",
+    "gid": "G18FA0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Marble Fade",
+    "gid": "G18FA03209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Freehand",
+    "gid": "G18FA0320C4043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Doppler",
+    "gid": "G18FA03209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Tiger Tooth",
+    "gid": "G18FA032099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Gut Knife | Blue Steel",
+    "gid": "G18FA03202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Gut Knife | Damascus Steel",
+    "gid": "G18FA03209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Gut Knife | Case Hardened",
+    "gid": "G18FA03202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Gut Knife | Rust Coat",
+    "gid": "G18FA03209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Gut Knife | Lore",
+    "gid": "G18FA0320B0043003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ Gut Knife | Black Laminate",
+    "gid": "G18FA0320B5043003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Gut Knife | Autotronic",
+    "gid": "G18FA0320BF043003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Gut Knife | Boreal Forest",
+    "gid": "G18FA03204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Gut Knife | Bright Water",
+    "gid": "G18FA0320C2043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Gut Knife | Crimson Web",
+    "gid": "G18FA03200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Gut Knife | Night",
+    "gid": "G18FA0320283003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Gut Knife | Ultraviolet",
+    "gid": "G18FA0320623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Gut Knife | Safari Mesh",
+    "gid": "G18FA0320483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Gut Knife | Urban Masked",
+    "gid": "G18FA03208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Fade",
+    "gid": "G18880420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Marble Fade",
+    "gid": "G188804209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Doppler",
+    "gid": "G188804209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Navaja Knife | Slaughter",
+    "gid": "G188804203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Navaja Knife | Blue Steel",
+    "gid": "G188804202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Navaja Knife | Damascus Steel",
+    "gid": "G18880420D9063003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Navaja Knife | Stained",
+    "gid": "G188804202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Navaja Knife | Case Hardened",
+    "gid": "G188804202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Navaja Knife | Rust Coat",
+    "gid": "G188804209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Navaja Knife | Forest DDPAT",
+    "gid": "G18880420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Boreal Forest",
+    "gid": "G188804204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Ultraviolet",
+    "gid": "G18880420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Scorched",
+    "gid": "G18880420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Safari Mesh",
+    "gid": "G18880420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Night Stripe",
+    "gid": "G18880420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Navaja Knife | Urban Masked",
+    "gid": "G188804208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Marble Fade",
+    "gid": "G18FB03209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Karambit | Freehand",
+    "gid": "G18FB0320C6043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Karambit | Slaughter",
+    "gid": "G18FB03203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Karambit | Tiger Tooth",
+    "gid": "G18FB032099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Karambit | Damascus Steel",
+    "gid": "G18FB03209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Karambit | Case Hardened",
+    "gid": "G18FB03202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Karambit | Rust Coat",
+    "gid": "G18FB03209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Karambit | Lore",
+    "gid": "G18FB0320B1043003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ Karambit | Black Laminate",
+    "gid": "G18FB0320B6043003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Karambit | Autotronic",
+    "gid": "G18FB0320C0043003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Karambit | Forest DDPAT",
+    "gid": "G18FB0320053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Boreal Forest",
+    "gid": "G18FB03204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Bright Water",
+    "gid": "G18FB0320C2043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Karambit | Crimson Web",
+    "gid": "G18FB03200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Night",
+    "gid": "G18FB0320283003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Ultraviolet",
+    "gid": "G18FB0320623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Scorched",
+    "gid": "G18FB0320AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Safari Mesh",
+    "gid": "G18FB0320483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Karambit | Urban Masked",
+    "gid": "G18FB03208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Slaughter",
+    "gid": "G188E04203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Kukri Knife | Blue Steel",
+    "gid": "G188E04202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Kukri Knife | Stained",
+    "gid": "G188E04202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Kukri Knife | Case Hardened",
+    "gid": "G188E04202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Kukri Knife | Forest DDPAT",
+    "gid": "G188E0420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Boreal Forest",
+    "gid": "G188E04204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Crimson Web",
+    "gid": "G188E04200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Scorched",
+    "gid": "G188E0420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Safari Mesh",
+    "gid": "G188E0420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Night Stripe",
+    "gid": "G188E0420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Kukri Knife | Urban Masked",
+    "gid": "G188E04208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ M9 Bayonet | Fade",
+    "gid": "G18FC0320263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ M9 Bayonet | Freehand",
+    "gid": "G18FC0320C5043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ M9 Bayonet | Slaughter",
+    "gid": "G18FC03203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ M9 Bayonet | Tiger Tooth",
+    "gid": "G18FC032099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ M9 Bayonet | Damascus Steel",
+    "gid": "G18FC03209B033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ M9 Bayonet | Stained",
+    "gid": "G18FC03202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ M9 Bayonet | Case Hardened",
+    "gid": "G18FC03202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ M9 Bayonet | Rust Coat",
+    "gid": "G18FC03209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ M9 Bayonet | Lore",
+    "gid": "G18FC0320B2043003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ M9 Bayonet | Black Laminate",
+    "gid": "G18FC0320B7043003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ M9 Bayonet | Autotronic",
+    "gid": "G18FC0320C1043003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ M9 Bayonet | Forest DDPAT",
+    "gid": "G18FC0320053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ M9 Bayonet | Boreal Forest",
+    "gid": "G18FC03204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ M9 Bayonet | Bright Water",
+    "gid": "G18FC0320C3043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ M9 Bayonet | Crimson Web",
+    "gid": "G18FC03200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ M9 Bayonet | Night",
+    "gid": "G18FC0320283003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ M9 Bayonet | Ultraviolet",
+    "gid": "G18FC0320623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ M9 Bayonet | Safari Mesh",
+    "gid": "G18FC0320483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Fade",
+    "gid": "G18890420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Marble Fade",
+    "gid": "G188904209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Doppler",
+    "gid": "G188904209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Slaughter",
+    "gid": "G188904203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Nomad Knife | Tiger Tooth",
+    "gid": "G1889042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Nomad Knife | Blue Steel",
+    "gid": "G188904202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Nomad Knife | Damascus Steel",
+    "gid": "G188904209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Nomad Knife | Case Hardened",
+    "gid": "G188904202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Nomad Knife | Rust Coat",
+    "gid": "G188904209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Nomad Knife | Forest DDPAT",
+    "gid": "G18890420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Boreal Forest",
+    "gid": "G188904204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Crimson Web",
+    "gid": "G188904200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Ultraviolet",
+    "gid": "G18890420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Scorched",
+    "gid": "G18890420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Safari Mesh",
+    "gid": "G18890420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Nomad Knife | Urban Masked",
+    "gid": "G188904208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Gamma Doppler",
+    "gid": "G18840420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Gamma Doppler",
+    "gid": "G18840420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Gamma Doppler",
+    "gid": "G18840420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Gamma Doppler",
+    "gid": "G18840420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Gamma Doppler",
+    "gid": "G18840420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Marble Fade",
+    "gid": "G188404209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Freehand",
+    "gid": "G18840420C5043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Doppler",
+    "gid": "G188404209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Tiger Tooth",
+    "gid": "G1884042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Shadow Daggers | Damascus Steel",
+    "gid": "G188404209B033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Shadow Daggers | Case Hardened",
+    "gid": "G188404202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Shadow Daggers | Autotronic",
+    "gid": "G18840420DE083003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Shadow Daggers | Black Laminate",
+    "gid": "G18840420D9083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Shadow Daggers | Forest DDPAT",
+    "gid": "G18840420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Boreal Forest",
+    "gid": "G188404204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Bright Water",
+    "gid": "G18840420C3043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Shadow Daggers | Crimson Web",
+    "gid": "G188404200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Ultraviolet",
+    "gid": "G18840420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Scorched",
+    "gid": "G18840420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Safari Mesh",
+    "gid": "G18840420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Shadow Daggers | Urban Masked",
+    "gid": "G188404208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Skeleton Knife | Fade",
+    "gid": "G188D0420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Marble Fade",
+    "gid": "G188D04209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Doppler",
+    "gid": "G188D04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Slaughter",
+    "gid": "G188D04203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Skeleton Knife | Tiger Tooth",
+    "gid": "G188D042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Skeleton Knife | Blue Steel",
+    "gid": "G188D04202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Skeleton Knife | Damascus Steel",
+    "gid": "G188D04209A033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Skeleton Knife | Stained",
+    "gid": "G188D04202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Skeleton Knife | Case Hardened",
+    "gid": "G188D04202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Skeleton Knife | Rust Coat",
+    "gid": "G188D04209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Skeleton Knife | Ultraviolet",
+    "gid": "G188D0420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Skeleton Knife | Scorched",
+    "gid": "G188D0420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Skeleton Knife | Safari Mesh",
+    "gid": "G188D0420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Skeleton Knife | Night Stripe",
+    "gid": "G188D0420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Skeleton Knife | Urban Masked",
+    "gid": "G188D04208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Fade",
+    "gid": "G188A0420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Marble Fade",
+    "gid": "G188A04209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Doppler",
+    "gid": "G188A04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Stiletto Knife | Damascus Steel",
+    "gid": "G188A0420D9063003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Stiletto Knife | Stained",
+    "gid": "G188A04202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Stiletto Knife | Case Hardened",
+    "gid": "G188A04202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Stiletto Knife | Rust Coat",
+    "gid": "G188A04209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Stiletto Knife | Forest DDPAT",
+    "gid": "G188A0420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Boreal Forest",
+    "gid": "G188A04204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Crimson Web",
+    "gid": "G188A04200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Ultraviolet",
+    "gid": "G188A0420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Safari Mesh",
+    "gid": "G188A0420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Night Stripe",
+    "gid": "G188A0420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Stiletto Knife | Urban Masked",
+    "gid": "G188A04208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bowie Knife | Fade",
+    "gid": "G18820420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Gamma Doppler",
+    "gid": "G18820420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Gamma Doppler",
+    "gid": "G18820420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Gamma Doppler",
+    "gid": "G18820420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Gamma Doppler",
+    "gid": "G18820420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Gamma Doppler",
+    "gid": "G18820420B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Marble Fade",
+    "gid": "G188204209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Freehand",
+    "gid": "G18820420C5043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Doppler",
+    "gid": "G188204209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Bowie Knife | Slaughter",
+    "gid": "G188204203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Bowie Knife | Blue Steel",
+    "gid": "G188204202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bowie Knife | Damascus Steel",
+    "gid": "G188204209B033003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Bowie Knife | Stained",
+    "gid": "G188204202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bowie Knife | Rust Coat",
+    "gid": "G188204209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bowie Knife | Lore",
+    "gid": "G18820420D0083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bowie Knife | Autotronic",
+    "gid": "G18820420DA083003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Bowie Knife | Black Laminate",
+    "gid": "G18820420D5083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Bowie Knife | Forest DDPAT",
+    "gid": "G18820420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bowie Knife | Bright Water",
+    "gid": "G18820420C3043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Bowie Knife | Crimson Web",
+    "gid": "G188204200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bowie Knife | Night",
+    "gid": "G18820420283003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bowie Knife | Scorched",
+    "gid": "G18820420AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bowie Knife | Safari Mesh",
+    "gid": "G18820420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Bowie Knife | Urban Masked",
+    "gid": "G188204208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Huntsman Knife | Fade",
+    "gid": "G18FD0320263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Gamma Doppler",
+    "gid": "G18FD0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Gamma Doppler",
+    "gid": "G18FD0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Gamma Doppler",
+    "gid": "G18FD0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Gamma Doppler",
+    "gid": "G18FD0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Gamma Doppler",
+    "gid": "G18FD0320B8043003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Freehand",
+    "gid": "G18FD0320C5043003",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "★ Huntsman Knife | Slaughter",
+    "gid": "G18FD03203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Huntsman Knife | Tiger Tooth",
+    "gid": "G18FD032099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Huntsman Knife | Blue Steel",
+    "gid": "G18FD03202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Huntsman Knife | Stained",
+    "gid": "G18FD03202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Huntsman Knife | Case Hardened",
+    "gid": "G18FD03202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Huntsman Knife | Rust Coat",
+    "gid": "G18FD03209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Huntsman Knife | Lore",
+    "gid": "G18FD0320D3083003",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "★ Huntsman Knife | Ultraviolet",
+    "gid": "G18FD0320EC043003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Huntsman Knife | Autotronic",
+    "gid": "G18FD0320DD083003",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "★ Huntsman Knife | Black Laminate",
+    "gid": "G18FD0320D8083003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Huntsman Knife | Forest DDPAT",
+    "gid": "G18FD0320053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Huntsman Knife | Boreal Forest",
+    "gid": "G18FD03204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Huntsman Knife | Bright Water",
+    "gid": "G18FD0320C3043003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Huntsman Knife | Night",
+    "gid": "G18FD0320283003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Huntsman Knife | Scorched",
+    "gid": "G18FD0320AF013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Huntsman Knife | Safari Mesh",
+    "gid": "G18FD0320483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Ursus Knife | Fade",
+    "gid": "G18870420263003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Marble Fade",
+    "gid": "G188704209D033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Doppler",
+    "gid": "G188704209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Slaughter",
+    "gid": "G188704203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Ursus Knife | Tiger Tooth",
+    "gid": "G1887042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Ursus Knife | Blue Steel",
+    "gid": "G188704202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Ursus Knife | Damascus Steel",
+    "gid": "G18870420D9063003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Ursus Knife | Stained",
+    "gid": "G188704202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Ursus Knife | Case Hardened",
+    "gid": "G188704202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Ursus Knife | Rust Coat",
+    "gid": "G188704209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Ursus Knife | Forest DDPAT",
+    "gid": "G18870420053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Ursus Knife | Boreal Forest",
+    "gid": "G188704204D3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Ursus Knife | Ultraviolet",
+    "gid": "G18870420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Ursus Knife | Safari Mesh",
+    "gid": "G18870420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Ursus Knife | Night Stripe",
+    "gid": "G18870420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Ursus Knife | Urban Masked",
+    "gid": "G188704208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Marble Fade",
+    "gid": "G188B0420D8063003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Doppler",
+    "gid": "G188B04209F033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Slaughter",
+    "gid": "G188B04203B3003",
+    "min_float": 0.01,
+    "max_float": 0.26
+  },
+  {
+    "name": "★ Talon Knife | Tiger Tooth",
+    "gid": "G188B042099033003",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "★ Talon Knife | Blue Steel",
+    "gid": "G188B04202A3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Talon Knife | Damascus Steel",
+    "gid": "G188B0420DA063003",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "★ Talon Knife | Stained",
+    "gid": "G188B04202B3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Talon Knife | Case Hardened",
+    "gid": "G188B04202C3003",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "★ Talon Knife | Rust Coat",
+    "gid": "G188B04209E033003",
+    "min_float": 0.4,
+    "max_float": 1
+  },
+  {
+    "name": "★ Talon Knife | Crimson Web",
+    "gid": "G188B04200C3003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Talon Knife | Ultraviolet",
+    "gid": "G188B0420623003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Talon Knife | Safari Mesh",
+    "gid": "G188B0420483003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Talon Knife | Night Stripe",
+    "gid": "G188B0420DF053003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "★ Talon Knife | Urban Masked",
+    "gid": "G188B04208F013003",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M249 | Spectrogram",
+    "gid": "G180E20EB063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M249 | Blizzard Marbleized",
+    "gid": "G180E204B3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M249 | Jungle DDPAT",
+    "gid": "G180E20CA013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M249 | Shipping Forecast",
+    "gid": "G180E20C4033004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M249 | Sleet",
+    "gid": "G180E20DA0A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M249 | Sage Camo",
+    "gid": "G180E20920A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "M249 | Jungle",
+    "gid": "G180E2097013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M249 | Impact Drill",
+    "gid": "G180E20D8033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M249 | Emerald Poison Dart",
+    "gid": "G180E2088053004",
+    "min_float": 0,
+    "max_float": 0.45
+  },
+  {
+    "name": "M249 | Gator Mesh",
+    "gid": "G180E20F3013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "M249 | Predator",
+    "gid": "G180E20AA013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Mainframe",
+    "gid": "G1810208C063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M4A4 | Daybreak",
+    "gid": "G181020D7033004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "M4A4 | Bullet Rain",
+    "gid": "G1810209B013004",
+    "min_float": 0.02,
+    "max_float": 0.46
+  },
+  {
+    "name": "M4A4 | Asiimov",
+    "gid": "G181020FF013004",
+    "min_float": 0.18,
+    "max_float": 1
+  },
+  {
+    "name": "M4A4 | 龍王 (Dragon King)",
+    "gid": "G18102090033004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "M4A4 | Cyber Security",
+    "gid": "G181020D9073004",
+    "min_float": 0,
+    "max_float": 0.98
+  },
+  {
+    "name": "M4A4 | Desolate Space",
+    "gid": "G181020CC043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A4 | Griffin",
+    "gid": "G18102080033004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Hellfire",
+    "gid": "G18102098053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M4A4 | In Living Color",
+    "gid": "G18102091083004",
+    "min_float": 0,
+    "max_float": 0.79
+  },
+  {
+    "name": "M4A4 | Neo-Noir",
+    "gid": "G181020B7053004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "M4A4 | Tooth Fairy",
+    "gid": "G181020CB073004",
+    "min_float": 0,
+    "max_float": 0.73
+  },
+  {
+    "name": "M4A4 | Temukau",
+    "gid": "G181020CC093004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Hellish",
+    "gid": "G181020B9093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A4 | Desert-Strike",
+    "gid": "G181020D0023004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A4 | Spider Lily",
+    "gid": "G181020C9083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A4 | The Coalition",
+    "gid": "G181020A7083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A4 | The Emperor",
+    "gid": "G181020CC063004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | The Battlestar",
+    "gid": "G18102095043004",
+    "min_float": 0,
+    "max_float": 0.64
+  },
+  {
+    "name": "M4A4 | Eye of Horus",
+    "gid": "G181020E7093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A4 | Royal Paladin",
+    "gid": "G18102080043004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Buzz Kill",
+    "gid": "G181020F8043004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A4 | Steel Work",
+    "gid": "G181020A10A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A4 | Urban DDPAT",
+    "gid": "G181020113004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Red DDPAT",
+    "gid": "G1810209E073004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M4A4 | Desert Storm",
+    "gid": "G181020083004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Modern Hunter",
+    "gid": "G181020A4013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Jungle Tiger",
+    "gid": "G181020103004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A4 | Aeolian Dark",
+    "gid": "G181020D40A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "M4A4 | Naval Shred Camo",
+    "gid": "G181020F2093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "M4A4 | Turbine",
+    "gid": "G181020763004",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "M4A4 | Full Throttle",
+    "gid": "G181020C90A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Fade",
+    "gid": "G183C2099093004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "M4A1-S | Moss Quartz",
+    "gid": "G183C20DE063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M4A1-S | Atomic Alloy",
+    "gid": "G183C20AD023004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "M4A1-S | Blue Phosphor",
+    "gid": "G183C20F9073004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "M4A1-S | Basilisk",
+    "gid": "G183C20FF023004",
+    "min_float": 0,
+    "max_float": 0.68
+  },
+  {
+    "name": "M4A1-S | Hyper Beast",
+    "gid": "G183C20AE033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Player Two",
+    "gid": "G183C20B2073004",
+    "min_float": 0,
+    "max_float": 0.84
+  },
+  {
+    "name": "M4A1-S | Cyrex",
+    "gid": "G183C20E8023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M4A1-S | Emphorosaur-S",
+    "gid": "G183C20C7093004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A1-S | Nightmare",
+    "gid": "G183C20CA053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Printstream",
+    "gid": "G183C20D8073004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A1-S | Chantico's Fire",
+    "gid": "G183C20A4043004",
+    "min_float": 0,
+    "max_float": 0.99
+  },
+  {
+    "name": "M4A1-S | Stratosphere",
+    "gid": "G183C20C0093004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A1-S | Mecha Industries",
+    "gid": "G183C20CB043004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A1-S | Leaded Glass",
+    "gid": "G183C20A9053004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A1-S | Night Terror",
+    "gid": "G183C20EA083004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A1-S | Mud-Spec",
+    "gid": "G183C20DB093004",
+    "min_float": 0,
+    "max_float": 0.73
+  },
+  {
+    "name": "M4A1-S | Control Panel",
+    "gid": "G183C2098063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Golden Coil",
+    "gid": "G183C20F1033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Glitched Paint",
+    "gid": "G183C209F0A3004",
+    "min_float": 0,
+    "max_float": 0.67
+  },
+  {
+    "name": "M4A1-S | Boreal Forest",
+    "gid": "G183C204D3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A1-S | Icarus Fell",
+    "gid": "G183C20B8033004",
+    "min_float": 0,
+    "max_float": 0.1
+  },
+  {
+    "name": "M4A1-S | Bright Water",
+    "gid": "G183C20BD013004",
+    "min_float": 0.1,
+    "max_float": 0.22
+  },
+  {
+    "name": "M4A1-S | Wash me plz",
+    "gid": "G183C20A0013004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "M4A1-S | Party Animal",
+    "gid": "G183C20E00A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "M4A1-S | Black Lotus",
+    "gid": "G183C208E093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A1-S | Electrum",
+    "gid": "G183C20990B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Liquidation",
+    "gid": "G183C20BC0A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "M4A1-S | Vaporwave",
+    "gid": "G183C206A3004",
+    "min_float": 0,
+    "max_float": 0.597321
+  },
+  {
+    "name": "M4A1-S | Nitro",
+    "gid": "G183C20FE013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "M4A1-S | Solitude",
+    "gid": "G183C20BA0A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "M4A4 | Polysoup",
+    "gid": "G181020EA063004",
+    "min_float": 0,
+    "max_float": 0.64
+  },
+  {
+    "name": "M4A4 | Dark Blossom",
+    "gid": "G181020DA053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "M4A4 | Zirka",
+    "gid": "G181020BB013004",
+    "min_float": 0.06,
+    "max_float": 0.42
+  },
+  {
+    "name": "M4A4 | Sheet Lightning",
+    "gid": "G181020810A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "MAC-10 | Red Filigree",
+    "gid": "G181120E6053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "MAC-10 | Silver",
+    "gid": "G181120203004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "MAC-10 | Graven",
+    "gid": "G181120BC013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAC-10 | Tatter",
+    "gid": "G181120D1023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "MAC-10 | Commuter",
+    "gid": "G181120D7023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Curse",
+    "gid": "G181120B6023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "MAC-10 | Allure",
+    "gid": "G181120C5073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Button Masher",
+    "gid": "G18112095083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Propaganda",
+    "gid": "G181120AB083004",
+    "min_float": 0,
+    "max_float": 0.62
+  },
+  {
+    "name": "MAC-10 | Heat",
+    "gid": "G1811209C023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Sakkaku",
+    "gid": "G181120CD093004",
+    "min_float": 0.21,
+    "max_float": 0.79
+  },
+  {
+    "name": "MAC-10 | Echoing Sands",
+    "gid": "G181120DC093004",
+    "min_float": 0.02,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAC-10 | Toybox",
+    "gid": "G181120CA083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Calf Skin",
+    "gid": "G181120EC053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Pipe Down",
+    "gid": "G181120AC063004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "MAC-10 | Hot Snakes",
+    "gid": "G181120F1073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAC-10 | Urban DDPAT",
+    "gid": "G181120113004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAC-10 | Strats",
+    "gid": "G181120B3083004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MAC-10 | Snow Splash",
+    "gid": "G181120D70A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MAC-10 | Acid Hex",
+    "gid": "G1811208F0A3004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "MAC-10 | Saibā Oni",
+    "gid": "G1811207E3004",
+    "min_float": 0,
+    "max_float": 0.66
+  },
+  {
+    "name": "MAC-10 | Derailment",
+    "gid": "G181120B4093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "MAC-10 | Bronzer",
+    "gid": "G181120B60A3004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAC-10 | Indigo",
+    "gid": "G181120CD023004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAC-10 | Candy Apple",
+    "gid": "G181120033004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "MAC-10 | Tornado",
+    "gid": "G181120653004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAC-10 | Storm Camo",
+    "gid": "G181120F5093004",
+    "min_float": 0,
+    "max_float": 0.637288
+  },
+  {
+    "name": "MAC-10 | Palm",
+    "gid": "G1811209D013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAG-7 | Carbon Fiber",
+    "gid": "G181B20463004",
+    "min_float": 0,
+    "max_float": 0.12
+  },
+  {
+    "name": "MAG-7 | Chainmail",
+    "gid": "G181B20C7023004",
+    "min_float": 0,
+    "max_float": 0.22
+  },
+  {
+    "name": "MAG-7 | Metallic DDPAT",
+    "gid": "G181B20223004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "MAG-7 | SWAG-7",
+    "gid": "G181B20BF053004",
+    "min_float": 0,
+    "max_float": 0.92
+  },
+  {
+    "name": "MAG-7 | Rust Coat",
+    "gid": "G181B20F2053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAG-7 | Heat",
+    "gid": "G181B20AF033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAG-7 | Petroglyph",
+    "gid": "G181B20E0043004",
+    "min_float": 0,
+    "max_float": 0.44
+  },
+  {
+    "name": "MAG-7 | Cinquedea",
+    "gid": "G181B20E1053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAG-7 | Justice",
+    "gid": "G181B20B4073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAG-7 | Praetorian",
+    "gid": "G181B2097043004",
+    "min_float": 0,
+    "max_float": 0.45
+  },
+  {
+    "name": "MAG-7 | Prism Terrace",
+    "gid": "G181B20B0083004",
+    "min_float": 0,
+    "max_float": 0.37
+  },
+  {
+    "name": "MAG-7 | Core Breach",
+    "gid": "G181B2093063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAG-7 | Seabird",
+    "gid": "G181B20D9033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MAG-7 | Copper Oxide",
+    "gid": "G181B209A0A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "MAG-7 | Bulldozer",
+    "gid": "G181B20273004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MAG-7 | Wildwood",
+    "gid": "G181B2085063004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "MAG-7 | Irradiated Alert",
+    "gid": "G181B20AB013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP5-SD | Agent",
+    "gid": "G18172093073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP5-SD | Phosphor",
+    "gid": "G181720AA063004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP5-SD | Kitbash",
+    "gid": "G181720CE073004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP5-SD | Savannah Halftone",
+    "gid": "G18172080063004",
+    "min_float": 0.25,
+    "max_float": 0.75
+  },
+  {
+    "name": "MP5-SD | Autumn Twilly",
+    "gid": "G181720A5083004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "MP5-SD | Snow Splash",
+    "gid": "G181720D60A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MP5-SD | Nitro",
+    "gid": "G1817209E063004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP5-SD | Picnic",
+    "gid": "G181720E90A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "MP5-SD | Lime Hex",
+    "gid": "G181720FA093004",
+    "min_float": 0,
+    "max_float": 0.638225
+  },
+  {
+    "name": "MP5-SD | Dirt Drop",
+    "gid": "G181720F1053004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP7 | Fade",
+    "gid": "G182120F0053004",
+    "min_float": 0,
+    "max_float": 0.25
+  },
+  {
+    "name": "MP7 | Motherboard",
+    "gid": "G1821208E063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "MP7 | Vault Heist",
+    "gid": "G182120EF073004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MP7 | Ocean Foam",
+    "gid": "G182120D5013004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "MP7 | Special Delivery",
+    "gid": "G182120F4033004",
+    "min_float": 0,
+    "max_float": 0.62
+  },
+  {
+    "name": "MP7 | Abyssal Apparition",
+    "gid": "G182120ED083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP7 | Nemesis",
+    "gid": "G182120E1033004",
+    "min_float": 0,
+    "max_float": 0.32
+  },
+  {
+    "name": "MP7 | Astrolabe",
+    "gid": "G182120AC073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP7 | Bloodsport",
+    "gid": "G182120B8053004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "MP7 | Sunbaked",
+    "gid": "G182120DE093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP7 | Powercore",
+    "gid": "G182120CF053004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP7 | Forest DDPAT",
+    "gid": "G182120053004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP7 | Olive Plaid",
+    "gid": "G182120ED023004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "MP7 | Coral Paisley",
+    "gid": "G182120EA0A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "MP7 | Amberline",
+    "gid": "G1821209C0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP7 | Just Smile",
+    "gid": "G1821208B093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP7 | Smoking Kills",
+    "gid": "G182120CA0A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP7 | Short Ochre",
+    "gid": "G182120AE0A3004",
+    "min_float": 0,
+    "max_float": 0.746575
+  },
+  {
+    "name": "MP7 | Groundwater",
+    "gid": "G182120D1013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP7 | Asterion",
+    "gid": "G182120BA033004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "MP7 | Impire",
+    "gid": "G18212098043004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "MP7 | Army Recon",
+    "gid": "G182120F5013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP7 | Orange Peel",
+    "gid": "G1821208D013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP9 | Mount Fuji",
+    "gid": "G182220C6083004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "MP9 | Hypnotic",
+    "gid": "G1822203D3004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "MP9 | Army Sheen",
+    "gid": "G182220AA023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "MP9 | Ruby Poison Dart",
+    "gid": "G182220E2033004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "MP9 | Stained Glass",
+    "gid": "G182220E3063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "MP9 | Rose Iron",
+    "gid": "G18222086023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "MP9 | Food Chain",
+    "gid": "G1822208D083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP9 | Goo",
+    "gid": "G182220A7053004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MP9 | Hydra",
+    "gid": "G1822208E073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP9 | Latte Rush",
+    "gid": "G182220BB093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP9 | Airlock",
+    "gid": "G182220E1043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP9 | Arctic Tri-Tone",
+    "gid": "G182220CB023004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MP9 | Starlight Protector",
+    "gid": "G182220EE083004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP9 | Buff Blue",
+    "gid": "G182220FE093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "MP9 | Multi-Terrain",
+    "gid": "G182220B20A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "MP9 | Green Plaid",
+    "gid": "G182220EE023004",
+    "min_float": 0,
+    "max_float": 0.58
+  },
+  {
+    "name": "MP9 | Slide",
+    "gid": "G182220F3053004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP9 | Urban Sovereign",
+    "gid": "G1822208F0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "MP9 | Pine",
+    "gid": "G182220950A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "MP9 | Dizzy",
+    "gid": "G182220DF0A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "MP9 | Bee-Tron",
+    "gid": "G182220EC0A3004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "MP9 | Dry Season",
+    "gid": "G182220C7013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP9 | Orange Peel",
+    "gid": "G1822208D013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "MP9 | Sand Dashed",
+    "gid": "G18222094013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Negev | Army Sheen",
+    "gid": "G181C20AA023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "Negev | Loudmouth",
+    "gid": "G181C20E3033004",
+    "min_float": 0.14,
+    "max_float": 0.65
+  },
+  {
+    "name": "Negev | dev_texture",
+    "gid": "G181C2093083004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "Negev | Power Loader",
+    "gid": "G181C2082043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Negev | Bulkhead",
+    "gid": "G181C208F063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Negev | Raw Ceramic",
+    "gid": "G181C20940A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Negev | Sour Grapes",
+    "gid": "G181C20EC093004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Negev | Lionfish",
+    "gid": "G181C20BA053004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "Negev | Palm",
+    "gid": "G181C20C9013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Nova | Graphite",
+    "gid": "G182320D6013004",
+    "min_float": 0,
+    "max_float": 0.12
+  },
+  {
+    "name": "Nova | Red Quartz",
+    "gid": "G182320F8013004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "Nova | Gila",
+    "gid": "G182320FA043004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "Nova | Caged Steel",
+    "gid": "G182320AB023004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "Nova | Rust Coat",
+    "gid": "G182320C3023004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Nova | Hyper Beast",
+    "gid": "G18232099043004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Nova | Toy Soldier",
+    "gid": "G182320CC053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Nova | Rising Skull",
+    "gid": "G18232087023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Nova | Mandrel",
+    "gid": "G18232091063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Nova | Moon in Libra",
+    "gid": "G182320C2033004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Nova | Currents",
+    "gid": "G182320D80A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "Nova | Ocular",
+    "gid": "G182320C60A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Nova | Rising Sun",
+    "gid": "G182320A8093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Nova | Candy Apple",
+    "gid": "G182320033004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "Nova | Sand Dune",
+    "gid": "G182320633004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Nova | Turquoise Pour",
+    "gid": "G182320ED093004",
+    "min_float": 0,
+    "max_float": 0.678431
+  },
+  {
+    "name": "Nova | Marsh Grass",
+    "gid": "G182320B30A3004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "Nova | Forest Leaves",
+    "gid": "G182320193004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Nova | Predator",
+    "gid": "G182320AA013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Nova | Rain Station",
+    "gid": "G182320B90A3004",
+    "min_float": 0,
+    "max_float": 0.35
+  },
+  {
+    "name": "P250 | Undertow",
+    "gid": "G1824208F023004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "P250 | Dark Filigree",
+    "gid": "G182420E5053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "P250 | Metallic DDPAT",
+    "gid": "G182420223004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "P250 | Cartel",
+    "gid": "G18242084033004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "P250 | Constructivist",
+    "gid": "G182420BC093004",
+    "min_float": 0,
+    "max_float": 0.35
+  },
+  {
+    "name": "P250 | Supernova",
+    "gid": "G182420E6023004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "P250 | Franklin",
+    "gid": "G182420A7023004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "P250 | Asiimov",
+    "gid": "G182420A7043004",
+    "min_float": 0.1,
+    "max_float": 1
+  },
+  {
+    "name": "P250 | Red Rock",
+    "gid": "G1824209C053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P250 | Muertos",
+    "gid": "G18242094033004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P250 | X-Ray",
+    "gid": "G1824207D3004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "P250 | Vino Primo",
+    "gid": "G182420ED053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P250 | Cyber Shell",
+    "gid": "G18242094083004",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "P250 | Inferno",
+    "gid": "G1824208B073004",
+    "min_float": 0,
+    "max_float": 0.68
+  },
+  {
+    "name": "P250 | Visions",
+    "gid": "G18242081093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "P250 | Facility Draft",
+    "gid": "G18242089063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "P250 | Facets",
+    "gid": "G182420CF013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Boreal Forest",
+    "gid": "G1824204D3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Forest Night",
+    "gid": "G1824204E3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Gunsmoke",
+    "gid": "G1824200F3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Crimson Kimono",
+    "gid": "G182420D2033004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Contamination",
+    "gid": "G182420F5023004",
+    "min_float": 0,
+    "max_float": 0.83
+  },
+  {
+    "name": "P250 | Wingshot",
+    "gid": "G182420F5033004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "P250 | Sleet",
+    "gid": "G182420D90A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "P250 | Epicenter",
+    "gid": "G18242082013004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Kintsugi",
+    "gid": "G1824208C0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P250 | Copper Oxide",
+    "gid": "G1824209B0A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "P250 | Sand Dune",
+    "gid": "G182420633004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Sedimentary",
+    "gid": "G182420A50A3004",
+    "min_float": 0,
+    "max_float": 0.68
+  },
+  {
+    "name": "P250 | Mint Kimono",
+    "gid": "G182420D3033004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Plum Netting",
+    "gid": "G182420F9093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P250 | Nuclear Threat",
+    "gid": "G182420A8013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P250 | Splash",
+    "gid": "G182420A2013004",
+    "min_float": 0.06,
+    "max_float": 0.18
+  },
+  {
+    "name": "P90 | Ancient Earth",
+    "gid": "G181320FC073004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "P90 | Cold Blooded",
+    "gid": "G181320433004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "P90 | Leather",
+    "gid": "G181320D6023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P90 | Death by Kitty",
+    "gid": "G1813209C013004",
+    "min_float": 0.08,
+    "max_float": 0.32
+  },
+  {
+    "name": "P90 | Emerald Dragon",
+    "gid": "G181320B6013004",
+    "min_float": 0.06,
+    "max_float": 0.52
+  },
+  {
+    "name": "P90 | Asiimov",
+    "gid": "G181320E7023004",
+    "min_float": 0,
+    "max_float": 0.92
+  },
+  {
+    "name": "P90 | Nostalgia",
+    "gid": "G1813208F073004",
+    "min_float": 0,
+    "max_float": 0.57
+  },
+  {
+    "name": "P90 | ScaraB Rush",
+    "gid": "G181320E2093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P90 | Trigon",
+    "gid": "G1813209B023004",
+    "min_float": 0.08,
+    "max_float": 0.75
+  },
+  {
+    "name": "P90 | Attack Vector",
+    "gid": "G181320A8073004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "P90 | Neoqueen",
+    "gid": "G181320D1093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P90 | Shallow Grave",
+    "gid": "G181320FC043004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "P90 | Desert Halftone",
+    "gid": "G181320B40A3004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "P90 | Death Grip",
+    "gid": "G1813209D053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P90 | Blue Tac",
+    "gid": "G181320FD093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "P90 | Virus",
+    "gid": "G181320143004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P90 | Mustard Gas",
+    "gid": "G1813208B0A3004",
+    "min_float": 0,
+    "max_float": 0.63
+  },
+  {
+    "name": "P90 | Wave Breaker",
+    "gid": "G181320A6093004",
+    "min_float": 0,
+    "max_float": 0.950549
+  },
+  {
+    "name": "P90 | Deathgaze",
+    "gid": "G1813208B0B3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P90 | Randy Rush",
+    "gid": "G1813207F3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "P90 | Straight Dimes",
+    "gid": "G181320AF093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "P90 | Storm",
+    "gid": "G181320643004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P90 | Verdant Growth",
+    "gid": "G181320BC063004",
+    "min_float": 0,
+    "max_float": 0.47
+  },
+  {
+    "name": "P90 | Fallout Warning",
+    "gid": "G181320A9013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P90 | Wash me",
+    "gid": "G18132085013004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "P90 | Sand Spray",
+    "gid": "G1813207C3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "P90 | Ash Wood",
+    "gid": "G181320EA013004",
+    "min_float": 0,
+    "max_float": 0.45
+  },
+  {
+    "name": "R8 Revolver | Amber Fade",
+    "gid": "G1840208B043004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "R8 Revolver | Leafhopper",
+    "gid": "G1840208D0A3004",
+    "min_float": 0,
+    "max_float": 0.65098
+  },
+  {
+    "name": "R8 Revolver | Skull Crusher",
+    "gid": "G184020CB063004",
+    "min_float": 0.25,
+    "max_float": 0.8
+  },
+  {
+    "name": "R8 Revolver | Banana Cannon",
+    "gid": "G184020D0093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "R8 Revolver | Llama Cannon",
+    "gid": "G184020AB053004",
+    "min_float": 0.03,
+    "max_float": 0.7
+  },
+  {
+    "name": "R8 Revolver | Nitro",
+    "gid": "G1840209E063004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "R8 Revolver | Mauve Aside",
+    "gid": "G184020ED0A3004",
+    "min_float": 0,
+    "max_float": 0.80339
+  },
+  {
+    "name": "R8 Revolver | Cobalt Grip",
+    "gid": "G184020FC093004",
+    "min_float": 0,
+    "max_float": 0.80339
+  },
+  {
+    "name": "R8 Revolver | Dark Chamber",
+    "gid": "G184020D30A3004",
+    "min_float": 0,
+    "max_float": 0.80339
+  },
+  {
+    "name": "R8 Revolver | Bone Mask",
+    "gid": "G1840201B3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Sawed-Off | Apocalypto",
+    "gid": "G181D20B9073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Sawed-Off | Devourer",
+    "gid": "G181D20D0053004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Sawed-Off | Wasteland Princess",
+    "gid": "G181D20FE043004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Sawed-Off | Runoff",
+    "gid": "G181D20F8093004",
+    "min_float": 0,
+    "max_float": 0.780822
+  },
+  {
+    "name": "Sawed-Off | Mosaico",
+    "gid": "G181D20CC013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Sawed-Off | Forest DDPAT",
+    "gid": "G181D20053004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Sawed-Off | Orange DDPAT",
+    "gid": "G181D20533004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Sawed-Off | Clay Ambush",
+    "gid": "G181D20F6073004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Sawed-Off | Crimson Batik",
+    "gid": "G181D20EF0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Sawed-Off | Analog Input",
+    "gid": "G181D2088093004",
+    "min_float": 0,
+    "max_float": 0.61886
+  },
+  {
+    "name": "Sawed-Off | Jungle Thicket",
+    "gid": "G181D20E6063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "SCAR-20 | Carbon Fiber",
+    "gid": "G182620463004",
+    "min_float": 0,
+    "max_float": 0.12
+  },
+  {
+    "name": "SCAR-20 | Emerald",
+    "gid": "G182620C4013004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "SCAR-20 | Cardiac",
+    "gid": "G18262087033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SCAR-20 | Cyrex",
+    "gid": "G182620B8023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "SCAR-20 | Enforcer",
+    "gid": "G182620BA073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SCAR-20 | Stone Mosaico",
+    "gid": "G182620E1063004",
+    "min_float": 0.06,
+    "max_float": 0.5
+  },
+  {
+    "name": "SCAR-20 | Splash Jam",
+    "gid": "G182620A5013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SCAR-20 | Zinc",
+    "gid": "G182620DB0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "SCAR-20 | Short Ochre",
+    "gid": "G182620AF0A3004",
+    "min_float": 0,
+    "max_float": 0.746575
+  },
+  {
+    "name": "SCAR-20 | Contractor",
+    "gid": "G1826202E3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SCAR-20 | Sand Mesh",
+    "gid": "G182620743004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SCAR-20 | Palm",
+    "gid": "G1826209D013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SG 553 | Hypnotic",
+    "gid": "G1827203D3004",
+    "min_float": 0,
+    "max_float": 0.08
+  },
+  {
+    "name": "SG 553 | Army Sheen",
+    "gid": "G182720AA023004",
+    "min_float": 0,
+    "max_float": 0.3
+  },
+  {
+    "name": "SG 553 | Traveler",
+    "gid": "G182720EB023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SG 553 | Hazard Pay",
+    "gid": "G182720BC083004",
+    "min_float": 0,
+    "max_float": 0.48
+  },
+  {
+    "name": "SG 553 | Dragon Tech",
+    "gid": "G182720FF083004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "SG 553 | Cyrex",
+    "gid": "G182720E7033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SG 553 | Darkwing",
+    "gid": "G182720BB073004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SG 553 | Pulse",
+    "gid": "G1827209F023004",
+    "min_float": 0.1,
+    "max_float": 0.6
+  },
+  {
+    "name": "SG 553 | Integrale",
+    "gid": "G182720EE053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SG 553 | Triarch",
+    "gid": "G182720E5043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SG 553 | Phantom",
+    "gid": "G182720AE053004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "SG 553 | Basket Halftone",
+    "gid": "G182720A80A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "SG 553 | Safari Print",
+    "gid": "G182720F20A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "SG 553 | Candy Apple",
+    "gid": "G182720E0063004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "SG 553 | Tornado",
+    "gid": "G182720653004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SG 553 | Night Camo",
+    "gid": "G182720F6093004",
+    "min_float": 0,
+    "max_float": 0.795222
+  },
+  {
+    "name": "SG 553 | Barricade",
+    "gid": "G182720DD063004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "SG 553 | Waves Perforated",
+    "gid": "G18272088013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SSG 08 | Blood in the Water",
+    "gid": "G182820DE013004",
+    "min_float": 0.06,
+    "max_float": 0.2
+  },
+  {
+    "name": "SSG 08 | Fever Dream",
+    "gid": "G182820BC073004",
+    "min_float": 0,
+    "max_float": 0.72
+  },
+  {
+    "name": "SSG 08 | Bloodshot",
+    "gid": "G18282083073004",
+    "min_float": 0.14,
+    "max_float": 0.6
+  },
+  {
+    "name": "SSG 08 | Turbo Peek",
+    "gid": "G182820CD083004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "SSG 08 | Azure Glyph",
+    "gid": "G182820E3093004",
+    "min_float": 0.01,
+    "max_float": 0.99
+  },
+  {
+    "name": "SSG 08 | Ghost Crusader",
+    "gid": "G182820AA043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SSG 08 | Calligrafaux",
+    "gid": "G182820E30A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "SSG 08 | Halftone Whorl",
+    "gid": "G182820ED063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "SSG 08 | Mayan Dreams",
+    "gid": "G182820C8013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SSG 08 | Sans Comic",
+    "gid": "G182820DC0A3004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "SSG 08 | Tiger Tear",
+    "gid": "G182820890A3004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "SSG 08 | Green Ceramic",
+    "gid": "G182820980A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "SSG 08 | Blue Spruce",
+    "gid": "G182820603004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SSG 08 | Red Stone",
+    "gid": "G182820FA053004",
+    "min_float": 0.06,
+    "max_float": 0.5
+  },
+  {
+    "name": "SSG 08 | Sand Dune",
+    "gid": "G182820633004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SSG 08 | Grey Smoke",
+    "gid": "G182820F7093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "SSG 08 | Lichen Dashed",
+    "gid": "G1828201A3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "SSG 08 | Rapid Transit",
+    "gid": "G18282080013004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Tec-9 | Red Quartz",
+    "gid": "G181E20F8013004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "Tec-9 | Titanium Bit",
+    "gid": "G181E2090023004",
+    "min_float": 0,
+    "max_float": 0.2
+  },
+  {
+    "name": "Tec-9 | Avalanche",
+    "gid": "G181E2088043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Tec-9 | Bamboozle",
+    "gid": "G181E20C7063004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Tec-9 | Decimator",
+    "gid": "G181E20F9063004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Tec-9 | Remote Control",
+    "gid": "G181E2097063004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Tec-9 | Fuel Injector",
+    "gid": "G181E20E6043004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Tec-9 | Urban DDPAT",
+    "gid": "G181E20113004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Tec-9 | Hades",
+    "gid": "G181E20B7033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Tec-9 | Orange Murano",
+    "gid": "G181E20E2053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "Tec-9 | VariCamo",
+    "gid": "G181E20EB013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Tec-9 | Banana Leaf",
+    "gid": "G181E20E80A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Tec-9 | Raw Ceramic",
+    "gid": "G181E20930A3004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "Tec-9 | Groundwater",
+    "gid": "G181E20023004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Tec-9 | Blue Blast",
+    "gid": "G181E20FF093004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "Tec-9 | Tornado",
+    "gid": "G181E20CE013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "Tec-9 | Whiteout",
+    "gid": "G181E20BE093004",
+    "min_float": 0.06,
+    "max_float": 1
+  },
+  {
+    "name": "Tec-9 | Tiger Stencil",
+    "gid": "G181E20FE053004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Tec-9 | Garter-9",
+    "gid": "G181E20860A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "Tec-9 | Citric Acid",
+    "gid": "G181E20AA0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "Tec-9 | Rust Leaf",
+    "gid": "G181E20DD053004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "Tec-9 | Army Mesh",
+    "gid": "G181E20F2013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "UMP-45 | Moonrise",
+    "gid": "G181820D3063004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "UMP-45 | Carbon Fiber",
+    "gid": "G181820463004",
+    "min_float": 0,
+    "max_float": 0.12
+  },
+  {
+    "name": "UMP-45 | Grand Prix",
+    "gid": "G181820B4033004",
+    "min_float": 0.25,
+    "max_float": 0.35
+  },
+  {
+    "name": "UMP-45 | Primal Saber",
+    "gid": "G181820AC043004",
+    "min_float": 0,
+    "max_float": 0.77
+  },
+  {
+    "name": "UMP-45 | Exposure",
+    "gid": "G181820B0053004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "UMP-45 | Momentum",
+    "gid": "G181820A2063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "UMP-45 | Plastique",
+    "gid": "G18182094073004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "UMP-45 | Wild Child",
+    "gid": "G181820D4093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "UMP-45 | Crime Scene",
+    "gid": "G181820EB073004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "UMP-45 | Scaffold",
+    "gid": "G1818208C053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "UMP-45 | Crimson Foil",
+    "gid": "G1818209C033004",
+    "min_float": 0,
+    "max_float": 0.68
+  },
+  {
+    "name": "UMP-45 | Facility Dark",
+    "gid": "G1818208A063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "UMP-45 | Urban DDPAT",
+    "gid": "G181820113004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "UMP-45 | Gunsmoke",
+    "gid": "G1818200F3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "UMP-45 | Houndstooth",
+    "gid": "G181820F0073004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "UMP-45 | Mudder",
+    "gid": "G1818205A3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "UMP-45 | Caramel",
+    "gid": "G1818205D3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "UMP-45 | Green Swirl",
+    "gid": "G181820970A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "UMP-45 | Neo-Noir",
+    "gid": "G18182083013004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "UMP-45 | K.O. Factory",
+    "gid": "G181820AA093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "USP-S | Serum",
+    "gid": "G183D20DD013004",
+    "min_float": 0,
+    "max_float": 0.25
+  },
+  {
+    "name": "USP-S | Dark Water",
+    "gid": "G183D203C3004",
+    "min_float": 0.1,
+    "max_float": 0.26
+  },
+  {
+    "name": "USP-S | Caiman",
+    "gid": "G183D20D3023004",
+    "min_float": 0,
+    "max_float": 0.4
+  },
+  {
+    "name": "USP-S | Cortex",
+    "gid": "G183D20C1053004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "USP-S | Cyrex",
+    "gid": "G183D20FD043004",
+    "min_float": 0,
+    "max_float": 0.55
+  },
+  {
+    "name": "USP-S | Guardian",
+    "gid": "G183D20A2023004",
+    "min_float": 0,
+    "max_float": 0.38
+  },
+  {
+    "name": "USP-S | Flashback",
+    "gid": "G183D20B1063004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "USP-S | Kill Confirmed",
+    "gid": "G183D20F8033004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "USP-S | Monster Mashup",
+    "gid": "G183D20DF073004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "USP-S | Printstream",
+    "gid": "G183D20F6083004",
+    "min_float": 0,
+    "max_float": 0.85
+  },
+  {
+    "name": "USP-S | Road Rash",
+    "gid": "G183D20BE023004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "USP-S | Orion",
+    "gid": "G183D20B9023004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "USP-S | Ticket to Hell",
+    "gid": "G183D20F0083004",
+    "min_float": 0,
+    "max_float": 0.76
+  },
+  {
+    "name": "USP-S | Neo-Noir",
+    "gid": "G183D208D053004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "USP-S | The Traitor",
+    "gid": "G183D2090083004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "USP-S | Desert Tactical",
+    "gid": "G183D20E5093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "USP-S | Bleeding Edge",
+    "gid": "G183D20AB0A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "USP-S | Royal Blue",
+    "gid": "G183D20CC023004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "USP-S | Para Green",
+    "gid": "G183D20C6033004",
+    "min_float": 0,
+    "max_float": 0.8
+  },
+  {
+    "name": "USP-S | Whiteout",
+    "gid": "G183D20A9083004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "USP-S | Royal Guard",
+    "gid": "G183D20C1093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "USP-S | Sleeping Potion",
+    "gid": "G183D20E10A3004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "USP-S | Pathfinder",
+    "gid": "G183D20BB033004",
+    "min_float": 0,
+    "max_float": 0.35
+  },
+  {
+    "name": "USP-S | Forest Leaves",
+    "gid": "G183D20193004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "USP-S | Jawbreaker",
+    "gid": "G183D2095093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "XM1014 | Charter",
+    "gid": "G181920E2073004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "XM1014 | Zombie Offensive",
+    "gid": "G181920EF083004",
+    "min_float": 0,
+    "max_float": 0.5
+  },
+  {
+    "name": "XM1014 | Blue Steel",
+    "gid": "G1819202A3004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "XM1014 | Teclu Burner",
+    "gid": "G18192089043004",
+    "min_float": 0,
+    "max_float": 0.65
+  },
+  {
+    "name": "XM1014 | XOXO",
+    "gid": "G18192096083004",
+    "min_float": 0,
+    "max_float": 0.9
+  },
+  {
+    "name": "XM1014 | Ziggy",
+    "gid": "G181920B1053004",
+    "min_float": 0,
+    "max_float": 0.72
+  },
+  {
+    "name": "XM1014 | Monster Melt",
+    "gid": "G18192092013004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "XM1014 | Heaven Guard",
+    "gid": "G181920BA023004",
+    "min_float": 0.03,
+    "max_float": 0.5
+  },
+  {
+    "name": "XM1014 | Incinegator",
+    "gid": "G181920D2063004",
+    "min_float": 0.14,
+    "max_float": 0.65
+  },
+  {
+    "name": "XM1014 | Hieroglyph",
+    "gid": "G181920E6093004",
+    "min_float": 0,
+    "max_float": 1
+  },
+  {
+    "name": "XM1014 | Black Tie",
+    "gid": "G181920AD043004",
+    "min_float": 0,
+    "max_float": 0.75
+  },
+  {
+    "name": "XM1014 | Canvas Cloud",
+    "gid": "G181920B50A3004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "XM1014 | Banana Leaf",
+    "gid": "G181920DB053004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "XM1014 | CaliCamo",
+    "gid": "G181920F0013004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "XM1014 | Gum Wall Camo",
+    "gid": "G181920F3093004",
+    "min_float": 0,
+    "max_float": 0.6
+  },
+  {
+    "name": "XM1014 | Grassland",
+    "gid": "G1819205F3004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "XM1014 | Jungle",
+    "gid": "G181920CD013004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "XM1014 | Blue Spruce",
+    "gid": "G181920603004",
+    "min_float": 0.06,
+    "max_float": 0.8
+  },
+  {
+    "name": "XM1014 | Solitude",
+    "gid": "G181920BF093004",
+    "min_float": 0,
+    "max_float": 0.7
+  },
+  {
+    "name": "XM1014 | XoooM",
+    "gid": "G181920E50A3004",
+    "min_float": 0,
+    "max_float": 0.6
   }
 ]
