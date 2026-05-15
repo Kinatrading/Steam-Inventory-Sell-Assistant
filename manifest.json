@@ -32,7 +32,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "skins.json"
+        "skins.json",
+        "skins_compact.json"
       ],
       "matches": [
         "https://steamcommunity.com/*"

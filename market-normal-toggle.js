@@ -3,7 +3,7 @@
   const NORMAL_TAG = 'tag_normal';
   const TOGGLE_ID = 'sisa-normal-toggle';
   const FLOAT_INFO_ID = 'sisa-float-info';
-  const SKINS_DATA_URL = chrome.runtime.getURL('skins.json');
+  const SKINS_DATA_URL = chrome.runtime.getURL('skins_compact.json');
 
   function isMarketListingPage() {
     return location.hostname === 'steamcommunity.com' && location.pathname.includes('/market/listings/730/');
@@ -81,6 +81,13 @@
     return decodeURIComponent(encodedName || '').trim();
   }
 
+  function getListingTokenFromPath() {
+    const marker = '/market/listings/730/';
+    const start = location.pathname.indexOf(marker);
+    if (start === -1) return '';
+    return decodeURIComponent(location.pathname.slice(start + marker.length) || '').trim();
+  }
+
   function getNameFromLink() {
     const listingLink = document.querySelector('a[href*="/market/listings/730/"]');
     return listingLink?.textContent?.trim() || '';
@@ -90,16 +97,27 @@
     return getNameFromPath() || getNameFromLink() || '';
   }
 
-  async function loadFloatRangeByName(marketHashName) {
-    if (!marketHashName) return null;
+  async function loadFloatRange({ marketHashName, listingToken }) {
+    if (!marketHashName && !listingToken) return null;
 
     const response = await fetch(SKINS_DATA_URL);
     if (!response.ok) {
-      throw new Error(`skins-json-http-${response.status}`);
+      throw new Error(`skins-compact-json-http-${response.status}`);
     }
 
     const skins = await response.json();
-    const skin = skins.find((item) => String(item?.name || '').trim() === marketHashName);
+    const normalizedToken = String(listingToken || '').trim();
+    const normalizedName = String(marketHashName || '').trim();
+
+    let skin = null;
+    if (normalizedToken) {
+      skin = skins.find((item) => String(item?.gid || '').trim() === normalizedToken);
+    }
+
+    if (!skin && normalizedName) {
+      skin = skins.find((item) => String(item?.name || '').trim() === normalizedName);
+    }
+
     if (!skin) return null;
 
     const minFloat = Number(skin.min_float);
@@ -117,14 +135,16 @@
 
     try {
       const itemName = resolveItemName();
-      if (!itemName) {
+      const listingToken = getListingTokenFromPath();
+      if (!itemName && !listingToken) {
         infoNode.textContent = 'Float: назву предмета не знайдено';
         return;
       }
 
-      const range = await loadFloatRangeByName(itemName);
+      const range = await loadFloatRange({ marketHashName: itemName, listingToken });
       if (!range) {
-        infoNode.textContent = `Float: для "${itemName}" немає даних`;
+        const label = itemName || listingToken;
+        infoNode.textContent = `Float: для "${label}" немає даних`;
         return;
       }
 
