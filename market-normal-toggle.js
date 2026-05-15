@@ -4,6 +4,13 @@
   const TOGGLE_ID = 'sisa-normal-toggle';
   const FLOAT_INFO_ID = 'sisa-float-info';
   const SKINS_DATA_URL = chrome.runtime.getURL('skins_compact.json');
+  const NAV_EVENT = 'sisa:navigation-change';
+  const FLOAT_RECALC_DEBOUNCE_MS = 180;
+  const LISTING_TOKEN_POLL_MS = 500;
+
+  let skinsCache = null;
+  let renderTimer = null;
+  let lastRenderedToken = '';
 
   function isMarketListingPage() {
     return location.hostname === 'steamcommunity.com' && location.pathname.includes('/market/listings/730/');
@@ -88,6 +95,15 @@
     return decodeURIComponent(location.pathname.slice(start + marker.length) || '').trim();
   }
 
+
+  function normalizeListingToken(value) {
+    return String(value || '').trim();
+  }
+
+  function getCurrentListingToken() {
+    return normalizeListingToken(getListingTokenFromPath());
+  }
+
   function getNameFromLink() {
     const listingLink = document.querySelector('a[href*="/market/listings/730/"]');
     return listingLink?.textContent?.trim() || '';
@@ -100,12 +116,14 @@
   async function loadFloatRange({ marketHashName, listingToken }) {
     if (!marketHashName && !listingToken) return null;
 
-    const response = await fetch(SKINS_DATA_URL);
-    if (!response.ok) {
-      throw new Error(`skins-compact-json-http-${response.status}`);
+    if (!Array.isArray(skinsCache)) {
+      const response = await fetch(SKINS_DATA_URL);
+      if (!response.ok) {
+        throw new Error(`skins-compact-json-http-${response.status}`);
+      }
+      skinsCache = await response.json();
     }
-
-    const skins = await response.json();
+    const skins = skinsCache;
     const normalizedToken = String(listingToken || '').trim();
     const normalizedName = String(marketHashName || '').trim();
 
@@ -128,6 +146,59 @@
 
     return { minFloat, maxFloat };
   }
+
+  function scheduleFloatRender() {
+    if (renderTimer) {
+      clearTimeout(renderTimer);
+    }
+    renderTimer = setTimeout(() => {
+      renderTimer = null;
+      renderFloatRange();
+    }, FLOAT_RECALC_DEBOUNCE_MS);
+  }
+
+  function installNavigationObserver() {
+    const onListingMaybeChanged = () => {
+      if (!isMarketListingPage()) {
+        return;
+      }
+
+      const listingToken = getCurrentListingToken();
+      if (!listingToken || listingToken === lastRenderedToken) {
+        return;
+      }
+
+      lastRenderedToken = listingToken;
+      scheduleFloatRender();
+    };
+
+    const originalPushState = history.pushState;
+    history.pushState = function patchedPushState(...args) {
+      const result = originalPushState.apply(this, args);
+      window.dispatchEvent(new Event(NAV_EVENT));
+      return result;
+    };
+
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function patchedReplaceState(...args) {
+      const result = originalReplaceState.apply(this, args);
+      window.dispatchEvent(new Event(NAV_EVENT));
+      return result;
+    };
+
+    window.addEventListener('popstate', onListingMaybeChanged);
+    window.addEventListener(NAV_EVENT, onListingMaybeChanged);
+
+    const listingNameNode = document.getElementById('largeiteminfo_item_name');
+    if (listingNameNode) {
+      const observer = new MutationObserver(onListingMaybeChanged);
+      observer.observe(listingNameNode, { childList: true, subtree: true, characterData: true });
+    }
+
+    setInterval(onListingMaybeChanged, LISTING_TOKEN_POLL_MS);
+    onListingMaybeChanged();
+  }
+
 
   async function renderFloatRange() {
     const infoNode = document.getElementById(FLOAT_INFO_ID);
@@ -166,7 +237,7 @@
 
     document.body.appendChild(createButton());
     document.body.appendChild(createFloatInfoNode());
-    renderFloatRange();
+    installNavigationObserver();
   }
 
   if (document.readyState === 'loading') {
