@@ -5,11 +5,12 @@
   const FLOAT_INFO_ID = 'sisa-float-info';
   const SKINS_DATA_URL = chrome.runtime.getURL('skins_compact.json');
   const NAV_EVENT = 'sisa:navigation-change';
-  const FLOAT_RECALC_DEBOUNCE_MS = 120;
+  const FLOAT_RECALC_DEBOUNCE_MS = 180;
+  const LISTING_TOKEN_POLL_MS = 500;
 
   let skinsCache = null;
-  let lastRenderedListingKey = '';
   let renderTimer = null;
+  let lastRenderedToken = '';
 
   function isMarketListingPage() {
     return location.hostname === 'steamcommunity.com' && location.pathname.includes('/market/listings/730/');
@@ -94,6 +95,15 @@
     return decodeURIComponent(location.pathname.slice(start + marker.length) || '').trim();
   }
 
+
+  function normalizeListingToken(value) {
+    return String(value || '').trim();
+  }
+
+  function getCurrentListingToken() {
+    return normalizeListingToken(getListingTokenFromPath());
+  }
+
   function getNameFromLink() {
     const listingLink = document.querySelector('a[href*="/market/listings/730/"]');
     return listingLink?.textContent?.trim() || '';
@@ -148,17 +158,17 @@
   }
 
   function installNavigationObserver() {
-    const onUrlChange = () => {
-      const listingKey = `${location.pathname}${location.search}`;
-      if (listingKey === lastRenderedListingKey) {
-        return;
-      }
-
-      lastRenderedListingKey = listingKey;
+    const onListingMaybeChanged = () => {
       if (!isMarketListingPage()) {
         return;
       }
 
+      const listingToken = getCurrentListingToken();
+      if (!listingToken || listingToken === lastRenderedToken) {
+        return;
+      }
+
+      lastRenderedToken = listingToken;
       scheduleFloatRender();
     };
 
@@ -176,17 +186,19 @@
       return result;
     };
 
-    window.addEventListener('popstate', onUrlChange);
-    window.addEventListener(NAV_EVENT, onUrlChange);
+    window.addEventListener('popstate', onListingMaybeChanged);
+    window.addEventListener(NAV_EVENT, onListingMaybeChanged);
 
     const listingNameNode = document.getElementById('largeiteminfo_item_name');
     if (listingNameNode) {
-      const observer = new MutationObserver(() => onUrlChange());
+      const observer = new MutationObserver(onListingMaybeChanged);
       observer.observe(listingNameNode, { childList: true, subtree: true, characterData: true });
     }
 
-    onUrlChange();
+    setInterval(onListingMaybeChanged, LISTING_TOKEN_POLL_MS);
+    onListingMaybeChanged();
   }
+
 
   async function renderFloatRange() {
     const infoNode = document.getElementById(FLOAT_INFO_ID);
