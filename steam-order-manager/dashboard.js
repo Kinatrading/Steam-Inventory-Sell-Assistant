@@ -10,7 +10,7 @@ function message(text, error = false) {$('status').textContent = text; $('status
 function markDirty() {dirty = true; $('save').textContent = 'Зберегти зміни •';}
 function input(value, className, type = 'text') {
   const el = document.createElement('input'); el.value = value; el.className = className; el.type = type;
-  if (type === 'number') {el.min = '1'; el.step = className === 'price' ? '0.01' : '1';}
+  if (type === 'number') {el.min = className === 'price' ? '0.01' : '1'; el.step = className === 'price' ? '0.01' : '1';}
   el.addEventListener('input', markDirty); return el;
 }
 function readRows() {
@@ -30,9 +30,10 @@ function renderRows(rows) {
     wear.addEventListener('change', () => {name.value = name.value.replace(/ \((Factory New|Minimal Wear|Field-Tested|Well-Worn|Battle-Scarred)\)$/, '') + (wear.value ? ` (${wear.value})` : ''); markDirty();});
     const price = input(row.price, 'price', 'number'), quantity = input(row.quantity, 'quantity', 'number'); quantity.max = '1000';
     const status = document.createElement('div'); status.className = 'row-status';
+    const book = document.createElement('div'); book.className = 'book row-status';
     const remove = document.createElement('button'); remove.textContent = '×'; remove.className = 'remove'; remove.title = 'Видалити з таблиці; ордер у Steam залишиться';
     remove.addEventListener('click', () => {if (rt?.pending[row.id]) return message('Спочатку перевір і розблокуй незавершену операцію цього рядка.', true); tr.remove(); markDirty(); updateCount();});
-    for (const el of [active, appid, name, wear, price, quantity, status, remove]) {const td = document.createElement('td'); td.append(el); tr.append(td);}
+    for (const el of [active, appid, name, wear, price, quantity, book, status, remove]) {const td = document.createElement('td'); td.append(el); tr.append(td);}
     $('rows').append(tr);
   }
   updateCount(); renderRuntime();
@@ -41,9 +42,17 @@ function updateCount() {$('count').textContent = $('rows').children.length; $('e
 function renderRuntime() {
   if (!rt) return;
   for (const tr of $('rows').children) {
-    const status = tr.querySelector('.row-status'), result = rt.rows?.[tr.dataset.id]; status.replaceChildren();
+    const status = tr.querySelector('.row-status:not(.book)'), result = rt.rows?.[tr.dataset.id]; status.replaceChildren();
+    const book = tr.querySelector('.book'); book.replaceChildren();
+    if (result?.topLevels) {
+      if (!result.topLevels.length) book.append('Ордерів немає');
+      for (const level of result.topLevels) book.append(`${(level.price / 100).toFixed(2)} × ${level.quantity}`, document.createElement('br'));
+      book.append(document.createElement('br'), `Дані: ${new Date(result.quoteAt).toLocaleTimeString('uk-UA')}`);
+    } else book.textContent = 'Ще не перевірено';
     if (result) {
       const strong = document.createElement('strong'); strong.textContent = result.remaining == null ? '—' : `${result.remaining} шт.`; status.append(strong, document.createElement('br'), result.status, document.createElement('br'), new Date(result.checked).toLocaleTimeString('uk-UA'));
+      if (result.unitPrice) status.append(document.createElement('br'), `Виставлено: ${(result.unitPrice / 100).toFixed(2)}`);
+      else if (result.nextUnitPrice) status.append(document.createElement('br'), `Нова ціна: ${(result.nextUnitPrice / 100).toFixed(2)}`);
     } else status.textContent = 'Ще не перевірено';
     if (rt.pending?.[tr.dataset.id]?.phase === 'create') {
       const unlock = document.createElement('button'); unlock.textContent = 'Розблокувати';
@@ -55,13 +64,13 @@ function renderRuntime() {
   }
 }
 async function save() {
-  await send('save', {config: {interval: Number($('interval').value), threshold: Number($('threshold').value), rows: readRows()}});
+  await send('save', {config: {interval: Number($('interval').value), threshold: Number($('threshold').value), bidStep: $('bidStep').value, country: $('country').value, rows: readRows()}});
   dirty = false; $('save').textContent = 'Зберегти таблицю';
 }
 async function refresh() {
   const state = await send('state'); config = state.config; rt = state.runtime;
   $('enabled').checked = config.enabled;
-  if (!dirty) {$('interval').value = config.interval; $('threshold').value = config.threshold;}
+  if (!dirty) {$('interval').value = config.interval; $('threshold').value = config.threshold; $('bidStep').value = config.bidStep; $('country').value = config.country;}
   $('check').disabled = !config.enabled || rt.busy;
   renderRuntime();
   const currency = config.currency ? ` · валюта Steam #${config.currency} · акаунт ${config.account}` : '';
@@ -71,6 +80,7 @@ async function act(fn) {try {await fn();} catch (error) {message(error.message, 
 $('add').onclick = () => {const rows = readRows(); rows.push({id: crypto.randomUUID(), appid: 730, name: '', price: '', quantity: 10, active: true}); renderRows(rows); markDirty();};
 $('save').onclick = () => act(async () => {await save(); await refresh();});
 $('interval').oninput = markDirty; $('threshold').onchange = markDirty;
+$('bidStep').oninput = markDirty; $('country').oninput = markDirty;
 $('enabled').onchange = () => act(async () => {
   const enabled = $('enabled').checked;
   $('enabled').disabled = true;

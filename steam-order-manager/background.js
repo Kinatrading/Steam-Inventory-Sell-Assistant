@@ -1,9 +1,12 @@
 import {DEFAULT_CONFIG, validateConfig, reconcileRow} from './core.js';
 import {steamOperation} from './steam.js';
+import {normalizeHistogram} from './histogram.js';
 
 const ALARM = 'order-refresh', CONTINUE = 'order-continue';
 let running = false;
 let controlBusy = false, stopGeneration = 0, haltRequested = false;
+let catalogPromise;
+const catalog = () => catalogPromise ||= fetch(chrome.runtime.getURL('cs2.json')).then(response => {if (!response.ok) throw new Error('Не вдалося завантажити cs2.json.'); return response.json();}).catch(error => {catalogPromise = null; throw error;});
 const load = async () => ({...DEFAULT_CONFIG, ...(await chrome.storage.local.get('config')).config});
 const runtime = async () => (await chrome.storage.local.get('runtime')).runtime || {rows: {}, pending: {}, cursor: 0};
 async function patchRuntime(patch) {const state = await runtime(); await chrome.storage.local.set({runtime: {...state, ...patch}});}
@@ -41,9 +44,14 @@ async function cycle() {
         clear: async id => {const rt = await runtime(); delete rt.pending[id]; await patchRuntime({pending: rt.pending});}
       };
       try {
-        await reconcileRow({row, snapshot, threshold: config.threshold, journal, report,
+        await reconcileRow({row, snapshot, threshold: config.threshold, bidStep: config.bidStep, journal, report,
           allowed: async () => {const current = await load(); return !haltRequested && current.enabled && current.account === auth.account && current.currency === auth.currency;},
           api: {
+            quote: async () => {
+              const ids = row.appid === 730 ? await catalog() : {};
+              const itemNameId = Object.hasOwn(ids, row.name) ? ids[row.name] : null;
+              return normalizeHistogram(await steamOperation('histogram', {...auth, row, country: config.country, itemNameId}));
+            },
             cancel: id => steamOperation('cancel', {...auth, row, orderId: id}),
             create: (item, total) => steamOperation('create', {...auth, row: item, total}),
             snapshot: () => steamOperation('snapshot', auth)

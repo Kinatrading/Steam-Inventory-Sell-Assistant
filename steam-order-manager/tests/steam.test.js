@@ -16,6 +16,27 @@ function mock(html, response = {success: 1, buy_orderid: '456'}) {
   return calls;
 }
 test('Steam HTML parsing and writes fail closed', async t => {
+  await t.test('histogram uses ItemFinder query and actual wallet currency', async () => {
+    const calls = mock(fixture());
+    const original = globalThis.fetch;
+    globalThis.fetch = async (...args) => args[0].includes('itemordershistogram') ? (calls.push({path: args[0]}), {ok: true, status: 200, url: 'https://steamcommunity.com' + args[0], text: async () => JSON.stringify({success: 1, highest_buy_order: '3400', buy_order_graph: [[34, 2]]})}) : original(...args);
+    const result = await runSteamOperation('histogram', {...auth, country: 'CZ', itemNameId: 9876});
+    assert.equal(result.ok, true);
+    const url = new URL(calls[1].path, 'https://steamcommunity.com');
+    for (const [key, value] of Object.entries({country: 'CZ', language: 'english', currency: '3', item_nameid: '9876'})) assert.equal(url.searchParams.get(key), value);
+  });
+  await t.test('unknown catalog item resolves nameid from listing; missing id fails closed', async () => {
+    for (const listingHtml of ['<script>Market_LoadOrderSpread(9876);</script>', '<html>no id</html>']) {
+      const calls = mock(fixture()), original = globalThis.fetch;
+      globalThis.fetch = async (...args) => {
+        if (args[0].includes('/market/listings/')) {calls.push({path: args[0]}); return {ok: true, status: 200, url: 'https://steamcommunity.com' + args[0], text: async () => listingHtml};}
+        if (args[0].includes('itemordershistogram')) {calls.push({path: args[0]}); return {ok: true, status: 200, url: 'https://steamcommunity.com' + args[0], text: async () => '{"success":1}'};}
+        return original(...args);
+      };
+      const result = await runSteamOperation('histogram', {...auth, itemNameId: null});
+      assert.equal(result.ok, listingHtml.includes('9876')); assert.equal(calls.length, result.ok ? 3 : 2);
+    }
+  });
   await t.test('reads encoded market name and quantity from fresh server HTML', async () => {
     mock(fixture()); const result = await runSteamOperation('snapshot', auth);
     assert.equal(result.ok, true); assert.deepEqual(result.data.orders, [{id: '123', appid: 730, name: row.name, remaining: 2}]);
