@@ -1,4 +1,5 @@
-export const DEFAULT_CONFIG = {enabled: false, interval: 5, threshold: 2, rows: [], account: null, currency: null};
+import {chooseBid} from './histogram.js';
+export const DEFAULT_CONFIG = {enabled: false, interval: 5, threshold: 2, bidStep: '1.00', country: 'CZ', rows: [], account: null, currency: null};
 
 export function priceMinor(value) {
   const text = String(value).trim().replace(',', '.');
@@ -13,6 +14,9 @@ export function validateConfig(input) {
   const interval = Number(input.interval), threshold = Number(input.threshold);
   if (!Number.isInteger(interval) || interval < 1 || interval > 1440) throw new Error('Інтервал: від 1 до 1440 хвилин.');
   if (![1, 2].includes(threshold)) throw new Error('Поріг: 1 або 2 штуки.');
+  const bidStep = String(input.bidStep ?? DEFAULT_CONFIG.bidStep), country = String(input.country ?? DEFAULT_CONFIG.country).trim().toUpperCase();
+  priceMinor(bidStep);
+  if (!/^[A-Z]{2}$/.test(country)) throw new Error('Країна histogram: дволітерний код, наприклад CZ.');
   if (!Array.isArray(input.rows) || input.rows.length > 200) throw new Error('Максимум 200 рядків.');
   const keys = new Set(), ids = new Set();
   const rows = input.rows.map(row => {
@@ -26,7 +30,7 @@ export function validateConfig(input) {
     keys.add(key); ids.add(id);
     return {id, name, appid, quantity, price: String(row.price).replace(',', '.'), active: row.active !== false};
   });
-  return {interval, threshold, rows};
+  return {interval, threshold, bidStep, country, rows};
 }
 
 export function planOrder(row, orders, threshold) {
@@ -40,12 +44,15 @@ export function planOrder(row, orders, threshold) {
   return {kind: 'keep', order};
 }
 
-export async function reconcileRow({row, snapshot, threshold, api, journal, allowed, report}) {
+export async function reconcileRow({row, snapshot, threshold, bidStep = DEFAULT_CONFIG.bidStep, api, journal, allowed, report}) {
   const intent = await journal.get(row.id);
   // An interrupted create can have filled immediately: absence is not proof of failure.
   if (intent?.phase === 'create') throw new Error('Невизначений результат створення. Перевір ордер/покупки у Steam та розблокуй рядок.');
   const plan = planOrder(row, snapshot.orders, threshold);
-  if (plan.kind === 'keep') return report({remaining: plan.order.remaining, status: 'Ордер активний', orderId: plan.order.id});
+  let levels = await api.quote();
+  let unitPrice = chooseBid(priceMinor(row.price), priceMinor(bidStep), levels);
+  const quoteState = () => ({topLevels: levels.slice(0, 3), quoteAt: Date.now(), nextUnitPrice: unitPrice});
+  if (plan.kind === 'keep') return report({...quoteState(), remaining: plan.order.remaining, status: 'Ордер активний', orderId: plan.order.id});
   if (!await allowed()) return;
   if (plan.kind === 'replace') {
     await journal.set(row.id, {phase: 'cancel', orderId: plan.order.id});
@@ -54,15 +61,18 @@ export async function reconcileRow({row, snapshot, threshold, api, journal, allo
     const fresh = await api.snapshot();
     if (fresh.orders.some(o => o.id === plan.order.id)) throw new Error('Скасування ще не підтверджено Steam.');
     if (fresh.orders.some(o => o.appid === row.appid && o.name === row.name)) throw new Error('У Steam вже є інший ордер на цей предмет.');
+    // Price from a fresh book AFTER cancellation: do not deliberately outbid our old order.
+    levels = await api.quote();
+    unitPrice = chooseBid(priceMinor(row.price), priceMinor(bidStep), levels);
   }
   if (!await allowed()) return;
   await journal.set(row.id, {phase: 'create', at: Date.now()});
-  const result = await api.create(row, priceMinor(row.price) * row.quantity);
+  const result = await api.create(row, unitPrice * row.quantity);
   if (result.need_confirmation) throw new Error('Steam потребує підтвердження. Перевір Steam та розблокуй рядок після завершення.');
   if (result.success !== 1 || !/^\d+$/.test(String(result.buy_orderid || ''))) {
     if (result.success !== 1 && result.definiteFailure) await journal.clear(row.id);
     throw new Error(result.message || 'Steam не підтвердив створення ордера.');
   }
   await journal.clear(row.id);
-  return report({remaining: null, status: 'Ордер створено; залишок після виконання — на наступній перевірці', orderId: String(result.buy_orderid)});
+  return report({...quoteState(), unitPrice, remaining: null, status: 'Ордер створено; залишок після виконання — на наступній перевірці', orderId: String(result.buy_orderid)});
 }

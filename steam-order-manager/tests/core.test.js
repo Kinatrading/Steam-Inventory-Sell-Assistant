@@ -11,7 +11,7 @@ function harness(orders = []) {
     allowed: async () => true,
     journal: {get: async id => pending.get(id), set: async (id, intent) => pending.set(id, intent), clear: async id => pending.delete(id)},
     report: async data => reports.push(data),
-    api: {cancel: async id => calls.push(['cancel', id]), snapshot: async () => ({orders: []}), create: async (item, total) => {calls.push(['create', item.quantity, total]); return {success: 1, buy_orderid: '456'};}}
+    api: {quote: async () => [{price: 114, quantity: 10}], cancel: async id => calls.push(['cancel', id]), snapshot: async () => ({orders: []}), create: async (item, total) => {calls.push(['create', item.quantity, total]); return {success: 1, buy_orderid: '456'};}}
   };
 }
 test('automation defaults off; interval and full Steam identity validation', () => {

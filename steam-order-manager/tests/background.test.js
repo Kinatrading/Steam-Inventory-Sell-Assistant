@@ -7,7 +7,8 @@ const defer = () => {let resolve; const promise = new Promise(r => {resolve = r;
 async function setup(config = {}, runtime = {}) {
   const data = {config: {enabled: false, interval: 5, threshold: 2, account: '76561198000000000', currency: 3, rows: [row], ...config}, runtime: {rows: {}, pending: {}, cursor: 0, ...runtime}};
   const alarms = new Map(), calls = [];
-  let transport = async operation => operation === 'snapshot' ? {account: data.config.account, currency: 3, orders: []} : {success: 1, buy_orderid: '987'};
+  let transport = async operation => operation === 'snapshot' ? {account: data.config.account, currency: 3, orders: []} : operation === 'histogram' ? {success: 1, highest_buy_order: '28', buy_order_graph: [[0.28, 2]]} : {success: 1, buy_orderid: '987'};
+  globalThis.fetch = async () => ({ok: true, json: async () => ({[row.name]: 12345})});
   const chrome = {
     storage: {local: {get: async key => ({[key]: structuredClone(data[key])}), set: async patch => Object.assign(data, structuredClone(patch))}},
     alarms: {get: async name => alarms.get(name), create: async (name, props) => alarms.set(name, props), clear: async name => alarms.delete(name), onAlarm: event()},
@@ -49,7 +50,7 @@ test('MV3 persisted schedules, controls and financial journal', async t => {
   await t.test('successful cycle creates full total once and records status', async () => {
     const h = await setup({enabled: true}); await h.send({type: 'check'});
     for (let i = 0; i < 30 && !h.data.runtime.lastCheck; i++) await new Promise(resolve => setImmediate(resolve));
-    assert.deepEqual(h.calls, ['snapshot', 'create']); assert.equal(h.data.runtime.rows.r1.orderId, '987');
+    assert.deepEqual(h.calls, ['snapshot', 'histogram', 'create']); assert.equal(h.data.runtime.rows.r1.orderId, '987');
     assert.deepEqual(h.data.runtime.pending, {}); assert.equal(h.data.runtime.busy, false);
   });
   await t.test('429 persists cooldown and a subsequent alarm makes no requests', async () => {

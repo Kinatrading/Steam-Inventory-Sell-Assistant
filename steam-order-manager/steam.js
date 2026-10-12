@@ -38,6 +38,17 @@ export async function runSteamOperation(operation, args) {
     const currency = Number(wallet?.wallet_currency);
     if (!steamid || !sessionid || !Number.isInteger(currency) || currency < 1) throw new Error('Увійди у Steam з доступним гаманцем і маркетом.');
     if (args.account && (args.account !== steamid || args.currency !== currency)) throw new Error('Steam-акаунт або валюта змінилися. Вимкни автооновлення і прив’яжи поточний акаунт.');
+    if (operation === 'histogram') {
+      let itemNameId = args.itemNameId;
+      if (!Number.isSafeInteger(itemNameId) || itemNameId <= 0) {
+        const listing = await request(`/market/listings/${args.row.appid}/${encodeURIComponent(args.row.name)}?l=english`);
+        itemNameId = Number(listing.match(/Market_LoadOrderSpread\(\s*(\d+)\s*\)/)?.[1]);
+      }
+      if (!Number.isSafeInteger(itemNameId) || itemNameId <= 0) throw new Error('Для предмета не знайдено item_nameid.');
+      // ItemFinder buildAddedItemsOrderRequest contract; always actual wallet currency.
+      const query = new URLSearchParams({country: args.country || 'CZ', language: 'english', currency: String(currency), item_nameid: String(itemNameId)});
+      return {ok: true, data: JSON.parse(await request('/market/itemordershistogram?' + query))};
+    }
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const container = doc.querySelector('#mybuyorders');
     if (!container) throw new Error('Steam не повернув повний список buy orders. Запис заборонено.');

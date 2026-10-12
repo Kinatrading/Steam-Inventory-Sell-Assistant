@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Steam Order Manager",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "minimum_chrome_version": "120",
   "description": "Keep configured Steam buy orders replenished at your chosen price and quantity.",
   "permissions": ["storage", "alarms", "scripting"],

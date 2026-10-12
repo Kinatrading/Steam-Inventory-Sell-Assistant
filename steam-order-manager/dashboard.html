@@ -5,13 +5,15 @@
   <section class="panel controls">
     <label>Перевіряти кожні <input id="interval" type="number" min="1" max="1440" value="5"> хвилин</label>
     <label>Поповнювати при залишку ≤ <select id="threshold"><option value="1">1 шт.</option><option value="2" selected>2 шт.</option></select></label>
+    <label>Крок над ордером <input id="bidStep" type="number" min="0.01" step="0.01" value="1.00"></label>
+    <label>Країна histogram <input id="country" type="text" maxlength="2" value="CZ" size="2"></label>
     <button id="save" class="primary">Зберегти таблицю</button><button id="check">Перевірити зараз</button>
   </section>
   <div id="status" role="status">Автооновлення вимкнене</div>
   <section class="panel">
     <div class="table-heading"><h2>Мої ордери <span id="count">0</span></h2><button id="add">+ Додати предмет</button></div>
-    <div class="scroll"><table><thead><tr><th>Увімк.</th><th>App ID</th><th>Предмет / точна market hash name</th><th>Стан зношення</th><th>Ціна за 1 шт.</th><th>Кількість</th><th>Залишок / статус</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+    <div class="scroll"><table><thead><tr><th>Увімк.</th><th>App ID</th><th>Предмет / точна market hash name</th><th>Стан зношення</th><th>Макс. ціна за 1 шт.</th><th>Кількість</th><th>Топ-3 ордери · ціна × шт.</th><th>Залишок / статус</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
     <p id="empty" class="empty">Додай предмет і вкажи ціну та кількість нового ордера.</p>
   </section>
-  <footer>Ціна — у валюті твого Steam-гаманця. Стан зношення є частиною точної назви предмета.<br>Відсутні ордери створюються; при залишку 1–2 шт. ордер скасовується і створюється на повну кількість із таблиці.<br>Працює, поки Chrome запущений, комп’ютер не спить і ти авторизований у Steam. Вікно цієї таблиці можна закрити.</footer>
+  <footer>Макс. ціна — межа у валюті твого Steam-гаманця. Нова ціна = найвищий ордер + крок, але не вище максимуму.<br>Наприклад: топ 34, крок 1, максимум 40 → виставлення по 35. Якщо ордерів немає, початкова ціна дорівнює кроку в межах максимуму.<br>Відсутні ордери створюються; при залишку 1–2 шт. ордер скасовується і створюється на повну кількість із таблиці.<br>Працює, поки Chrome запущений, комп’ютер не спить і ти авторизований у Steam. Вікно цієї таблиці можна закрити.</footer>
 </main><script type="module" src="dashboard.js"></script></body></html>
