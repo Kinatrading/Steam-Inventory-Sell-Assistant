@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Steam Order Manager</title><link rel="stylesheet" href="dashboard.css"></head>
+<body><main>
+  <header><div><p class="eyebrow">STEAM · BUY ORDERS</p><h1>Order Manager</h1><p class="muted">Твоя таблиця. Твої ціни. Автоматичне поповнення ордерів.</p></div><label class="toggle"><input id="enabled" type="checkbox"><span></span>Автооновлення</label></header>
+  <section class="panel controls">
+    <label>Перевіряти кожні <input id="interval" type="number" min="1" max="1440" value="5"> хвилин</label>
+    <label>Поповнювати при залишку ≤ <select id="threshold"><option value="1">1 шт.</option><option value="2" selected>2 шт.</option></select></label>
+    <button id="save" class="primary">Зберегти таблицю</button><button id="check">Перевірити зараз</button>
+  </section>
+  <div id="status" role="status">Автооновлення вимкнене</div>
+  <section class="panel">
+    <div class="table-heading"><h2>Мої ордери <span id="count">0</span></h2><button id="add">+ Додати предмет</button></div>
+    <div class="scroll"><table><thead><tr><th>Увімк.</th><th>App ID</th><th>Предмет / точна market hash name</th><th>Стан зношення</th><th>Ціна за 1 шт.</th><th>Кількість</th><th>Залишок / статус</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+    <p id="empty" class="empty">Додай предмет і вкажи ціну та кількість нового ордера.</p>
+  </section>
+  <footer>Ціна — у валюті твого Steam-гаманця. Стан зношення є частиною точної назви предмета.<br>Відсутні ордери створюються; при залишку 1–2 шт. ордер скасовується і створюється на повну кількість із таблиці.<br>Працює, поки Chrome запущений, комп’ютер не спить і ти авторизований у Steam. Вікно цієї таблиці можна закрити.</footer>
+</main><script type="module" src="dashboard.js"></script></body></html>
